@@ -34,8 +34,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public int getUserIdByUsername(String username){
         int userId=0;
-        String sql="SELECT user_id FROM users u" +
-                "JOIN profile p ON p.user_id=u.user_id "+
+        String sql="SELECT user_id FROM users u " +
                 "WHERE username=?";
         try{
             userId=jdbcTemplate.queryForObject(sql,Integer.class,username);

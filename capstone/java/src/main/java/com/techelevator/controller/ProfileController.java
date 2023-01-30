@@ -25,7 +25,7 @@ public class ProfileController {
     }
 
     @PostMapping()
-    public Profile createProfile( @RequestBody Profile profile, Principal principal){
+    public Profile createProfile(Principal principal, @RequestBody Profile profile){
         int userID=profileDao.getUserIdByUsername(principal.getName());
         profile.setUserId(userID);
         return profileDao.createProfile(profile);
