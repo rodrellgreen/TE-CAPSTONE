@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import TrackFood from '../views/TrackFood.vue'
+import CreateProfile from '../views/CreateProfile.vue'
 
 Vue.use(Router)
 
@@ -61,7 +62,16 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: CreateProfile,
+      meta: {
+        requiresAuth: true
+      }
     }
+   
   ]
 })
 

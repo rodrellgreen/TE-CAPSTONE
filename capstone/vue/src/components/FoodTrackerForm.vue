@@ -26,3 +26,31 @@
     </form>
     
 </template>
+
+<script>
+export default {
+    
+
+    data() {
+        return{
+            foodItem: {
+                type: "",
+                calories: 0,
+                carbs: 0,
+                Protein: 0,
+                fats: 0,
+                Fiber: 0, 
+            }
+        }
+    },
+
+    methods:{
+       
+        
+    },
+}
+</script>
+
+<style>
+
+</style>
