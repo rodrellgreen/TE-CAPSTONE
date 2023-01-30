@@ -25,8 +25,10 @@ public class ProfileController {
     }
 
     @PostMapping()
-    public Profile createProfile(@Valid @RequestBody Profile profile){
-        return null;
+    public Profile createProfile( @RequestBody Profile profile, Principal principal){
+        int userID=profileDao.getUserIdByUsername(principal.getName());
+        profile.setUserId(userID);
+        return profileDao.createProfile(profile);
     }
 
     @DeleteMapping
@@ -37,7 +39,7 @@ public class ProfileController {
         }
     }
     @PutMapping()
-    public void updateProfile(Principal principal, @Valid @RequestBody Profile profile){
+    public void updateProfile(Principal principal,  @RequestBody Profile profile){
         int id=profileDao.getProfileIdByUsername(principal.getName());
         profile.setProfileId(id);
         boolean updated=profileDao.updateEmail(profile);
