@@ -24,7 +24,7 @@ public interface ProfileDao {
 
     boolean deleteProfile(String username);
 
-    Profile createProfile(Profile profile, String username);
+    Profile createProfile(Profile profile);
 
     int getUserIdByUsername(String username);
 

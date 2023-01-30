@@ -144,10 +144,9 @@ public class JdbcProfileDao implements ProfileDao{
     }
 
     @Override
-    public Profile createProfile(Profile profile, String username) {
-        String sql="INSERT INTO profile (user_id, email, age, height_feet, height_inches, " +
+    public Profile createProfile(Profile profile) {
+        String sql="INSERT INTO profile (user_id,email, age, height_feet, height_inches, " +
                 "current_weight, desired_weight) VALUES (?,?,?,?,?,?,?) RETURNING profile_id";
-        
         Integer profileId=jdbcTemplate.queryForObject(sql,Integer.class,profile.getUserId(),profile.getEmail(),profile.getAge(),
         profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight());
 
