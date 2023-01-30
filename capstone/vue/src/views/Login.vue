@@ -1,7 +1,11 @@
 <template>
+
+  <body>
+  <h1>Welcome to TechFitness</h1>
+  
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
       <div
         class="alert alert-danger"
         role="alert"
@@ -35,6 +39,7 @@
       <button type="submit">Sign in</button>
     </form>
   </div>
+  </body>
 </template>
 
 <script>
@@ -74,3 +79,10 @@ export default {
   }
 };
 </script>
+
+<style>
+body {
+  background-image: url("https://cdn.loveandlemons.com/wp-content/uploads/2022/09/overnight-oats-recipe-580x791.jpg");
+}
+
+</style>
