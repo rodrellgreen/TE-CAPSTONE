@@ -23,12 +23,14 @@ public class Profile {
     @Min(80)
     private double desiredWeight;
     private String profilePicture;
+    @NotEmpty
+    private String displayName;
 
 
     public Profile() {
     }
 
-    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture) {
+    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName) {
         this.profileId = profileId;
         this.userId = userId;
         this.email = email;
@@ -112,6 +114,14 @@ public class Profile {
         this.profilePicture = profilePicture;
     }
 
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
@@ -124,6 +134,7 @@ public class Profile {
                 ", currentWeight=" + currentWeight +
                 ", desiredWeight=" + desiredWeight +
                 ", profilePicture='" + profilePicture + '\'' +
+                ", displayName='" + displayName + '\'' +
                 '}';
     }
 }
