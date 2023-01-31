@@ -2,20 +2,20 @@ import axios from 'axios';
 
 export default {
 
-    getProfile(id) {
-        return axios.get(`/profile/${id}`, id);
+    getProfile() {
+        return axios.get('/profile');
     },
 
     addProfile(profile) {
-        return axios.post(`/profile`, profile);
+        return axios.post('/profile', profile);
     },
 
-    editProfile(id, profile) {
-        return axios.put(`/profile/${id}`, profile);
+    editProfile(profile) {
+        return axios.put('/profile', profile);
     },
 
-    deleteProfile(id) {
-        return axios.delete(`/profile/${id}`, id);
+    deleteProfile() {
+        return axios.delete('/profile');
     }
 
 }

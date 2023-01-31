@@ -3,7 +3,9 @@
   <div class="home">
     <h1>Home</h1>
     <p>You must be authenticated to see this</p>
+    <div class="create-profile-container">
     <router-link v-show:="this.profile != '' " v-bind:to="{ name: 'profile' }">Create Profile</router-link>
+    </div>
   </div>
 </div>
 </template>
@@ -13,7 +15,17 @@ export default {
   name: "home"
 };
 </script>
- 
- {
 
- }
+<style scoped>
+
+  .home-background {
+    display: grid;
+  }
+
+  .create-profile-container {
+    background-color: red;
+    width: 20%;
+    border: solid black 2px;
+    border-radius: 5px;
+  }
+</style>

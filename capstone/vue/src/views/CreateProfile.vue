@@ -1,6 +1,6 @@
 <template>
   <div id="create-profile" class="create-profile"> 
-      <form class="profile-form" @submit.prevent="createProfile">
+      <form class="profile-form">
           <h1>Create Your Profile</h1>
           <div class="flex-container">
           <label for="email" class="input label">Email Address:</label>
@@ -74,7 +74,7 @@
             autofocus
             />
           </div>
-          <button class="create-profile-button" type="submit">
+          <button class="create-profile-button" type="submit" v-on:click="createProfile">
               Create Profile
           </button>
           <button class="cancel-btn" v-on:click.prevent="sendHome">
@@ -106,27 +106,27 @@ export default {
     },
 
     methods: {
-        createProfile(newProfile) {
-            ProfileService.addProfile(newProfile).then(
-                (response) => {
-                    if(response.status === 201) {
-                        window.alert("Success! Profile added.");
-                        this.$router.push('/');
-                    }
-                }
-            )
-        },
-        sendHome() {
-          this.newProfile.emailAddress = '';
-          this.newProfile.age = '';
-          this.newProfile.heightFeet = '';
-          this.newProfile.heightInches = '';
-          this.newProfile.currentWeight = '';
-          this.newProfile.desiredWeight = '';
-          this.$router.push('/');
-        }
-    }
+      createProfile() {
+          ProfileService.addProfile(this.newProfile).then(
+              (response) => {
+                  if(response.status === 201) {
+                    window.alert("Success! Profile added.");
+                    this.$router.push('/');
+                  }
+            } 
+          );
+      },
 
+      sendHome() {
+        this.newProfile.emailAddress = '';
+        this.newProfile.age = '';
+        this.newProfile.heightFeet = '';
+        this.newProfile.heightInches = '';
+        this.newProfile.currentWeight = '';
+        this.newProfile.desiredWeight = '';
+        this.$router.push('/');
+      }
+    }
 }
 </script>
 
