@@ -21,9 +21,21 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
 
-    foods: [
+    snacks: [
 
-    ]
+    ],
+
+    breakfeast: [
+
+    ],
+
+    lunch: [
+
+    ],
+
+    dinner: [
+
+    ],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -42,9 +54,18 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    NEW_FOOD( state, foodItem ) {
-      state.foods.push(foodItem);
-    }
+    NEW_SNACK( state, foodItem ) {
+      state.snacks.push(foodItem);
+    },
+    NEW_BREAKFEAST( state, foodItem ) {
+      state.breakfeast.push(foodItem);
+    },
+    NEW_LUNCH( state, foodItem ) {
+      state.lunch.push(foodItem);
+    },
+    NEW_DINNER( state, foodItem ) {
+      state.dinner.push(foodItem);
+    },
 
   }
 })

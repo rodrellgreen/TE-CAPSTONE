@@ -1,11 +1,13 @@
 <template>
   <div id="register" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <div class="flex-container">
+      <label for="username" class="sr-only">Username:</label>
       <input
         type="text"
         id="username"
@@ -15,7 +17,9 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      </div>
+      <div class="flex-container">
+      <label for="password" class="sr-only">Password:</label>
       <input
         type="password"
         id="password"
@@ -24,6 +28,9 @@
         v-model="user.password"
         required
       />
+      </div>
+      <div class="flex-container">
+      <label for="confirmPassword">Confirm Password:</label>
       <input
         type="password"
         id="confirmPassword"
@@ -32,10 +39,14 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      </div>
+      
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
+      <button class="cancel-btn" v-on:click.prevent="sendHome">Cancel</button>
+      
+      <router-link class="router-link" :to="{ name: 'login' }">Have an account?</router-link>
     </form>
   </div>
 </template>
@@ -86,8 +97,60 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
+    sendHome() {
+      this.user.username = '';
+      this.user.password = '';
+      this.user.confirmPassword = '';
+      this.$router.push('/');
+    }
   },
 };
 </script>
 
-<style></style>
+<style>
+
+  #register {
+    background-color: #7DA27E;
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 8%;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    border: solid grey 2px;
+    flex-direction: column;
+  }
+
+  .form-register {
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+
+  .sr-only {
+    margin: 5px;
+  }
+
+  .form-control {
+    margin: 5px;
+    height: 20px;
+  }
+
+  button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .router-link {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+  }
+
+</style>
