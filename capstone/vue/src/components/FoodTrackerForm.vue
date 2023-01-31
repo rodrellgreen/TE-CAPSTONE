@@ -1,28 +1,39 @@
 <template>
-    <form action="">
-        <header> Please fill out all boxes to proceed </header>
-        <div>
-             Food <input type="text" v-model="foodItem.type" required placeholder="Enter here...">
+    <form class="food" action="">
+        <ul class="flex-outer">
+            <li><h1> Log Food </h1> </li>
+        
+        <li>
+            <label for="name">Food Name</label>
+            <input id="name" type="text" v-model="foodItem.type" required placeholder="Enter here...">
+        </li>
+        <li>
+            <label for="name">Calories</label>
+            <input type="number" v-model="foodItem.calories" required placeholder="Enter here...">
+        </li>
+        <li>
+            <label for="name">Carbs</label>
+            <input type="number" v-model="foodItem.carbs" required placeholder="Enter here...">
+        </li>
+        <li>
+            <label for="name">Protien</label>
+            <input type="number" v-model="foodItem.protein" required placeholder="Enter here...">
+        </li>
+        <li>
+            <label for="name">Fats</label>
+            <input id="name" type="text" v-model="foodItem.fats" required placeholder="Enter here...">
+        </li>
+        <li>
+            <label for="name">Fiber</label>
+            <input id="name" type="text" v-model="foodItem.fiber" required placeholder="Enter here...">
+        </li>
+        <li>
+            <label for="name">Serving Size</label>
+            <input id="name" type="text" v-model="foodItem.servingSize" required placeholder="Enter here...">
+        </li>
+        
 
-        </div>
-       <div>
-           Calories <input type="number" v-model="foodItem.calories" required placeholder="Enter here...">
-       </div>
-        <div>
-            Carbs <input type="number" v-model="foodItem.carbs" required placeholder="Enter here...">
-        </div>
-        <div>
-            Protien <input type="number" v-model="foodItem.protein" required placeholder="Enter here...">
-        </div>
-        <div>
-            Fats <input type="number" v-model="foodItem.fats" required placeholder="Enter here...">
-        </div>
-        <div>
-            Fiber <input type="number" v-model="foodItem.fiber" required placeholder="Enter here..."> 
-        </div>
-        <div>
-            Serving Size <input type="number" v-model="foodItem.servingSize" required placeholder="Enter here...">
-        </div>
+       </ul>
         
         <h3 v-if="showOptions" @close="showOptions = false">
             Would you like to add to Snack, Breakfeast, Lunch, or Dinner?
@@ -33,6 +44,7 @@
                 <button v-on:click="addNewDinner"> Dinner </button>
             </div>
         </h3>
+        
     </form>
     
 </template>
