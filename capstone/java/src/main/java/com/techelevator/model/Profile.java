@@ -1,24 +1,26 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 public class Profile {
 
-    @NotEmpty
+
+    @Min(0)
     private int profileId;
-    @NotEmpty
+    @Min(0)
     private int userId;
     @NotEmpty
     private String email;
-    @NotEmpty
+    @Min(18)
     private int age;
-    @NotEmpty
+    @Min(3)
     private int feet;
-    @NotEmpty
+    @Min(0)
     private int inches;
-    @NotEmpty
+    @Min(50)
     private double currentWeight;
-    @NotEmpty
+    @Min(80)
     private double desiredWeight;
 
 

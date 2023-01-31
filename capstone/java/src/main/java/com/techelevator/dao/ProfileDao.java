@@ -8,19 +8,9 @@ public interface ProfileDao {
 
     Profile getProfileById(int id);
 
-    Profile findByUsername(String username);
+    Profile findProfileByUsername(String username);
 
-    boolean updateEmail(Profile profile);
-
-    boolean updateAge(Profile profile);
-
-    boolean updateFeet(Profile profile);
-
-    boolean updateInches(Profile profile);
-
-    boolean updateCurrentWeight(Profile profile);
-
-    boolean updateDesiredWeight(Profile profile);
+    boolean updateProfile(Profile profile);
 
     boolean deleteProfile(String username);
 

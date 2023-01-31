@@ -20,9 +20,9 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public int getProfileIdByUsername(String username){
         int profileId=0;
-        String sql="SELECT profile_id FROM profile p" +
+        String sql="SELECT p.profile_id FROM profile p " +
                 "JOIN users u ON p.user_id=u.user_id "+
-                "WHERE username=?";
+                "WHERE u.username=?";
         try{
             profileId=jdbcTemplate.queryForObject(sql,Integer.class,username);
         }catch(DataAccessException e){
@@ -56,8 +56,8 @@ public class JdbcProfileDao implements ProfileDao{
     }
 
     @Override
-    public Profile findByUsername(String username) {
-        String sql="SELECT * FROM profile p" +
+    public Profile findProfileByUsername(String username) {
+        String sql="SELECT * FROM profile p " +
                 "JOIN users u ON p.user_id=u.user_id "+
                 "WHERE username=?";
         SqlRowSet results=jdbcTemplate.queryForRowSet(sql,username);
@@ -69,61 +69,13 @@ public class JdbcProfileDao implements ProfileDao{
     }
 
     @Override
-    public boolean updateEmail(Profile profile) {
-        boolean success=false;
-        String sql="UPDATE profile SET email=? WHERE profile_id=?;";
-        int linesUpdated=jdbcTemplate.update(sql,profile.getEmail(),profile.getProfileId());
-        if(linesUpdated==1) {
-            success = true;
-        }
-        return success;
-    }
-    @Override
-    public boolean updateAge(Profile profile) {
-        boolean success=false;
-        String sql="UPDATE profile SET age=? WHERE profile_id=?;";
-        int linesUpdated=jdbcTemplate.update(sql,profile.getAge(),profile.getProfileId());
-        if(linesUpdated==1) {
-            success = true;
-        }
-        return success;
-    }
-    @Override
-    public boolean updateFeet(Profile profile) {
-        boolean success=false;
-        String sql="UPDATE profile SET height_feet=? WHERE profile_id=?;";
-        int linesUpdated=jdbcTemplate.update(sql,profile.getFeet(),profile.getProfileId());
-        if(linesUpdated==1) {
-            success = true;
-        }
-        return success;
-    }
-    @Override
-    public boolean updateInches(Profile profile) {
-        boolean success=false;
-        String sql="UPDATE profile SET height_inches=? WHERE profile_id=?;";
-        int linesUpdated=jdbcTemplate.update(sql,profile.getInches(),profile.getProfileId());
-        if(linesUpdated==1) {
-            success = true;
-        }
-        return success;
-    }
-    @Override
-    public boolean updateCurrentWeight(Profile profile) {
-        boolean success=false;
-        String sql="UPDATE profile SET current_weight=? WHERE profile_id=?;";
-        int linesUpdated=jdbcTemplate.update(sql,profile.getCurrentWeight(),profile.getProfileId());
-        if(linesUpdated==1) {
-            success = true;
-        }
-        return success;
-    }
-    @Override
-    public boolean updateDesiredWeight(Profile profile) {
-        boolean success=false;
-        String sql="UPDATE profile SET desired_weight=? WHERE profile_id=?;";
-        int linesUpdated=jdbcTemplate.update(sql,profile.getDesiredWeight(),profile.getProfileId());
-        if(linesUpdated==1) {
+    public boolean updateProfile(Profile profile) {
+        boolean success = false;
+        String sql = "UPDATE profile SET email=?, age=?, height_feet=?, height_inches=?, current_weight=?, desired_weight=?" +
+                "  WHERE profile_id=?;";
+        int linesUpdated = jdbcTemplate.update(sql, profile.getEmail(), profile.getAge(),
+                profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfileId());
+        if (linesUpdated == 1) {
             success = true;
         }
         return success;
@@ -133,9 +85,9 @@ public class JdbcProfileDao implements ProfileDao{
     public boolean deleteProfile(String username) {
         boolean success=false;
         String sql="DELETE FROM profile p " +
-                "JOIN users u ON p.user_id=u.user_id "+
-                "WHERE username=?";
-        int linesUpdated=jdbcTemplate.update(sql,username);
+                "WHERE profile_id=?";
+        int id=getProfileIdByUsername(username);
+        int linesUpdated=jdbcTemplate.update(sql,id);
         if(linesUpdated==1){
             success=true;
         }

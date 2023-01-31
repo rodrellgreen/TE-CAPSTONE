@@ -19,13 +19,13 @@ public class ProfileController {
     @Autowired
     private ProfileDao profileDao;
 
-    @GetMapping(path="/users")
+    @GetMapping(path="/user")
     public Profile getProfileByUserId(Principal principal){
-        return profileDao.findByUsername(principal.getName());
+        return profileDao.findProfileByUsername(principal.getName());
     }
 
     @PostMapping()
-    public Profile createProfile(Principal principal, @RequestBody Profile profile){
+    public Profile createProfile(Principal principal, @Valid @RequestBody Profile profile){
         int userID=profileDao.getUserIdByUsername(principal.getName());
         profile.setUserId(userID);
         return profileDao.createProfile(profile);
@@ -39,18 +39,15 @@ public class ProfileController {
         }
     }
     @PutMapping()
-    public void updateProfile(Principal principal,  @RequestBody Profile profile){
-        int id=profileDao.getProfileIdByUsername(principal.getName());
-        profile.setProfileId(id);
-        boolean updated=profileDao.updateEmail(profile);
-        boolean updated2=profileDao.updateAge(profile);
-        boolean updated3=profileDao.updateFeet(profile);
-        boolean updated4=profileDao.updateInches(profile);
-        boolean updated5=profileDao.updateCurrentWeight(profile);
-        boolean updated6=profileDao.updateDesiredWeight(profile);
+    public void updateProfile(Principal principal,  @Valid @RequestBody Profile profile){
+        int profileId=profileDao.getProfileIdByUsername(principal.getName());
+        int userId=profileDao.getUserIdByUsername(principal.getName());
+        profile.setProfileId(profileId);
+        profile.setUserId(userId);
+        boolean updated=profileDao.updateProfile(profile);
 
-        if(!updated||!updated2||!updated3||!updated4||!updated5||!updated6){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Profile Not Updated");
+       if(!updated){
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Profile Not Updated");
         }
     }
 
