@@ -1,6 +1,8 @@
 <template>
-
+ 
   <body>
+
+    
   <h1>Welcome to TechFitness</h1>
   
   <div id="login" class="text-center">
@@ -81,8 +83,5 @@ export default {
 </script>
 
 <style>
-body {
-  background-image: url("https://cdn.loveandlemons.com/wp-content/uploads/2022/09/overnight-oats-recipe-580x791.jpg");
-}
 
 </style>
