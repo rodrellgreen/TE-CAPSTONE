@@ -74,6 +74,30 @@
             autofocus
             />
           </div>
+          <div class="flex-container">
+          <label for="displayName" class="input-label">DisplayName:</label>
+          <input
+            type="text"
+            id="displayName"
+            class="input-box"
+            placeholder="display name"
+            v-model="newProfile.displayName"
+            required
+            autofocus
+            />
+          </div>
+          <div class="flex-container">
+          <label for="profilePic" class="input-label">Add Profile Picture:</label>
+          <input
+            type="text"
+            id="profilePic"
+            class="input-box"
+            placeholder="profile picture url"
+            v-model="newProfile.profilePic"
+            required
+            autofocus
+            />
+          </div>
           <button class="create-profile-button" type="submit" v-on:click="createProfile">
               Create Profile
           </button>
@@ -96,11 +120,14 @@ export default {
            
         newProfile: {
             emailAddress: '',
-            age: '',
-            heightFeet: '',
-            heightInches: '',
-            currentWeight: '',
-            desiredWeight: '',
+            age: null,
+            heightFeet: null,
+            heightInches: null,
+            currentWeight: null,
+            desiredWeight: null,
+            displayName: '',
+            birthday: null,
+            profilePic: ''
         },
        }
     },
