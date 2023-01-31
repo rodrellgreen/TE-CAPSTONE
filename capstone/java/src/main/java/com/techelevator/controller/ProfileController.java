@@ -19,8 +19,8 @@ public class ProfileController {
     @Autowired
     private ProfileDao profileDao;
 
-    @GetMapping(path="/user")
-    public Profile getProfileByUserId(Principal principal){
+    @GetMapping()
+    public Profile getProfileByUsername(Principal principal){
         return profileDao.findProfileByUsername(principal.getName());
     }
 
