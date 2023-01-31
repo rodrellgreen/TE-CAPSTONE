@@ -1,26 +1,27 @@
 <template>
     <form action="">
-        <!-- <header> Meeting Goals Together </header> -->
+        <header> Please fill out all boxes to proceed </header>
         <div>
-             Food <input type="text" v-model="foodItem.type" required>
+             Food <input type="text" v-model="foodItem.type" required placeholder="Enter here...">
+
         </div>
        <div>
-           Calories <input type="number" v-model="foodItem.calories" required>
+           Calories <input type="number" v-model="foodItem.calories" required placeholder="Enter here...">
        </div>
         <div>
-            Carbs <input type="number" v-model="foodItem.carbs" required>
+            Carbs <input type="number" v-model="foodItem.carbs" required placeholder="Enter here...">
         </div>
         <div>
-            Protien <input type="number" v-model="foodItem.protein" required>
+            Protien <input type="number" v-model="foodItem.protein" required placeholder="Enter here...">
         </div>
         <div>
-            Fats <input type="number" v-model="foodItem.fats" required>
+            Fats <input type="number" v-model="foodItem.fats" required placeholder="Enter here...">
         </div>
         <div>
-            Fiber <input type="number" v-model="foodItem.fiber" required> 
+            Fiber <input type="number" v-model="foodItem.fiber" required placeholder="Enter here..."> 
         </div>
         <div>
-            Serving Size <input type="number" v-model="foodItem.servingSize" required>
+            Serving Size <input type="number" v-model="foodItem.servingSize" required placeholder="Enter here...">
         </div>
         
         <h3 v-if="showOptions" @close="showOptions = false">
@@ -43,7 +44,6 @@ export default {
     data() {
         return{
             
-
             foodItem: {
                 type: "",
                 calories: null,
@@ -68,8 +68,6 @@ export default {
     },
 
     methods:{
-
-        
 
        addNewSnack(){
      
@@ -150,5 +148,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

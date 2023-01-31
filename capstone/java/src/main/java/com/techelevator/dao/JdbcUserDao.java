@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.techelevator.model.LoginDto;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -83,16 +84,24 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean updateUser(User user){
-        boolean success=false;
-        String sql=
-        return false;
+    public boolean updateUser(String username, LoginDto updatedUser){
+
+        String sql="UPDATE users SET username=?, password_hash=? WHERE user_id=?;";
+        String password_hash = new BCryptPasswordEncoder().encode(updatedUser.getPassword());
+        int id=findIdByUsername(username);
+        return jdbcTemplate.update(sql,updatedUser.getUsername(),password_hash, id) == 1;
     }
 
     @Override
     public boolean deleteUser(String username){
-
-        return false;
+       boolean success=false;
+       String sql="DELETE FROM users u WHERE user_id=?";
+       int id=findIdByUsername(username);
+       int linesUpdated=jdbcTemplate.update(sql,id);
+       if(linesUpdated==1){
+           success=true;
+       }
+        return success;
     }
 
     private User mapRowToUser(SqlRowSet rs) {

@@ -19,6 +19,8 @@ CREATE TABLE profile (
    height_inches INTEGER NOT NULL,
    current_weight NUMERIC(5,2) NOT NULL,
    desired_weight NUMERIC(5,2) NOT NULL,
+   profile_picture varchar(1000),
+   display_name varchar(100),
    CONSTRAINT PK_profile PRIMARY KEY (profile_id),
    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
  );

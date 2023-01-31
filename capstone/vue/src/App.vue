@@ -4,7 +4,7 @@
     <div  id="nav">
       
       <a> <router-link v-bind:to="{ name: 'home' }"><img src="~@/assets/techfitness.jpg">Home</router-link>&nbsp;|&nbsp; </a>
-      <a><router-link v-bind:to="{ name: 'food' }">Food Diary</router-link></a>
+      <a><router-link v-bind:to="{ name: 'trackFood' }">Food Diary</router-link></a>
       &nbsp;|&nbsp;
       <a><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout </router-link> </a>
       
@@ -24,8 +24,7 @@
 }
 
 img {
-  width: 15%;
-  height: 50%;
+  width: 25%;
   justify-content: center;
   margin-right: 100%;
   margin-bottom: 0%;
