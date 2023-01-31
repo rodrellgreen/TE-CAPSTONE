@@ -23,7 +23,7 @@ public class ProfileController {
     public Profile getProfileByUsername(Principal principal){
         return profileDao.findProfileByUsername(principal.getName());
     }
-
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
     public Profile createProfile(Principal principal, @Valid @RequestBody Profile profile){
         int userID=profileDao.getUserIdByUsername(principal.getName());
@@ -38,6 +38,7 @@ public class ProfileController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Profile Not Deleted");
         }
     }
+
     @PutMapping()
     public void updateProfile(Principal principal,  @Valid @RequestBody Profile profile){
         int profileId=profileDao.getProfileIdByUsername(principal.getName());

@@ -74,11 +74,12 @@
             autofocus
             />
           </div>
-          <div class="button-container">
           <button class="create-profile-button" type="submit">
               Create Profile
           </button>
-          </div>
+          <button class="cancel-btn" v-on:click.prevent="sendHome">
+              Cancel
+          </button>
       </form>
   </div>
 </template>
@@ -114,6 +115,15 @@ export default {
                     }
                 }
             )
+        },
+        sendHome() {
+          this.newProfile.emailAddress = '';
+          this.newProfile.age = '';
+          this.newProfile.heightFeet = '';
+          this.newProfile.heightInches = '';
+          this.newProfile.currentWeight = '';
+          this.newProfile.desiredWeight = '';
+          this.$router.push('/');
         }
     }
 
@@ -129,6 +139,7 @@ export default {
         padding: 10px;
         margin: 10px;
         border: solid grey 2px;
+        border-radius: 10px;
         width: 460px;
         height: 620px;
         margin: auto;
@@ -137,7 +148,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        font-size: x-large;
+        font-size: large;
     }
 
     .profile-form {
@@ -145,7 +156,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        align-items: flex-start;
+        align-items: flex-end;
     }
 
     .input-label {
@@ -161,13 +172,14 @@ export default {
       height: 25px;
     }
 
-    .button-container {
-        display: flex;
+    .cancel-btn {
+      width: 95px;
     }
 
-    .create-profile-button {
+    button {
         height: 32px;
-        margin-left: 140px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
 </style>
