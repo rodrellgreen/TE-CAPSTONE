@@ -1,6 +1,6 @@
 <template>
   <div id="create-profile" class="create-profile"> 
-      <form class="profile-form">
+      <form class="profile-form" @submit.prevent="createProfile">
           <h1>Create Your Profile</h1>
           <div class="flex-container">
           <label for="email" class="input label">Email Address:</label>
@@ -9,7 +9,7 @@
             id="email"
             class="input-box"
             placeholder="email"
-            v-model="newProfile.emailAddress"
+            v-model="newProfile.email"
             required
             autofocus
             />
@@ -33,7 +33,7 @@
             id="height-feet"
             class="input-box"
             placeholder="height (ft)"
-            v-model="newProfile.heightFeet"
+            v-model="newProfile.feet"
             required
             autofocus
             />
@@ -45,7 +45,7 @@
             id="height-inches"
             class="input-box"
             placeholder="height (in)"
-            v-model="newProfile.heightInches"
+            v-model="newProfile.inches"
             required
             autofocus
             />
@@ -93,12 +93,12 @@
             id="profilePic"
             class="input-box"
             placeholder="profile picture url"
-            v-model="newProfile.profilePic"
+            v-model="newProfile.profilePicture"
             required
             autofocus
             />
           </div>
-          <button class="create-profile-button" type="submit" v-on:click="createProfile">
+          <button class="create-profile-button" type="submit">
               Create Profile
           </button>
           <button class="cancel-btn" v-on:click.prevent="sendHome">
@@ -119,15 +119,14 @@ export default {
        return {
            
         newProfile: {
-            emailAddress: '',
+            email: '',
             age: null,
-            heightFeet: null,
-            heightInches: null,
+            feet: null,
+            inches: null,
             currentWeight: null,
             desiredWeight: null,
             displayName: '',
-            birthday: null,
-            profilePic: ''
+            profilePicture: ''
         },
        }
     },
@@ -137,7 +136,7 @@ export default {
           ProfileService.addProfile(this.newProfile).then(
               (response) => {
                   if(response.status === 201) {
-                    window.alert("Success! Profile added.");
+                    alert("Success! Profile added.");
                     this.$router.push('/');
                   }
             } 
@@ -145,12 +144,14 @@ export default {
       },
 
       sendHome() {
-        this.newProfile.emailAddress = '';
-        this.newProfile.age = '';
-        this.newProfile.heightFeet = '';
-        this.newProfile.heightInches = '';
-        this.newProfile.currentWeight = '';
-        this.newProfile.desiredWeight = '';
+        this.newProfile.email = '';
+        this.newProfile.age = null;
+        this.newProfile.feet = null;
+        this.newProfile.inches = null;
+        this.newProfile.currentWeight = null;
+        this.newProfile.desiredWeight = null;
+        this.newProfile.displayName = '';
+        this.newProfile.profilePicture = '';
         this.$router.push('/');
       }
     }
