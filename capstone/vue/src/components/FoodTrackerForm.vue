@@ -4,32 +4,32 @@
             <li><h1> Log Food </h1> </li>
         
         <li>
-            <label for="name">Food Name</label>
-            <input id="name" type="text" v-model="foodItem.type" required placeholder="Enter here...">
+            <label for="name">Food</label>
+            <input id="name" type="text" v-model="foodItem.type" required placeholder="Ex: Potato">
         </li>
         <li>
             <label for="name">Calories</label>
-            <input type="number" v-model="foodItem.calories" required placeholder="Enter here...">
+            <input type="number" v-model="foodItem.calories" required placeholder="Ex: 163">
         </li>
         <li>
             <label for="name">Carbs</label>
-            <input type="number" v-model="foodItem.carbs" required placeholder="Enter here...">
+            <input type="number" v-model="foodItem.carbs" required placeholder="Ex: 37">
         </li>
         <li>
             <label for="name">Protien</label>
-            <input type="number" v-model="foodItem.protein" required placeholder="Enter here...">
+            <input type="number" v-model="foodItem.protein" required placeholder="Ex: 4">
         </li>
         <li>
             <label for="name">Fats</label>
-            <input id="name" type="text" v-model="foodItem.fats" required placeholder="Enter here...">
+            <input id="name" type="text" v-model="foodItem.fats" required placeholder="Ex: 0">
         </li>
         <li>
             <label for="name">Fiber</label>
-            <input id="name" type="text" v-model="foodItem.fiber" required placeholder="Enter here...">
+            <input id="name" type="text" v-model="foodItem.fiber" required placeholder="Ex: 5">
         </li>
         <li>
-            <label for="name">Serving Size</label>
-            <input id="name" type="text" v-model="foodItem.servingSize" required placeholder="Enter here...">
+            <label for="name">Serving</label>
+            <input id="name" type="text" v-model="foodItem.servingSize" required placeholder="Ex: 1">
         </li>
         
 
