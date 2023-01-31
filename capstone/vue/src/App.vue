@@ -24,8 +24,7 @@
 }
 
 img {
-  width: 15%;
-  height: 50%;
+  width: 25%;
   justify-content: center;
   margin-right: 100%;
   margin-bottom: 0%;
