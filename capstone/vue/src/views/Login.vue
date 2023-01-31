@@ -1,12 +1,13 @@
 <template>
  
-  <body>
 
-    
+
+ <body  class="login"> 
   <h1>Welcome to TechFitness</h1>
   
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      <ul class="flex-outer">
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
       <div
         class="alert alert-danger"
@@ -18,6 +19,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
+      <li>
       <label for="username" class="sr-only">Username</label>
       <input
         type="text"
@@ -28,6 +30,8 @@
         required
         autofocus
       />
+      </li>
+      <li>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -37,11 +41,14 @@
         v-model="user.password"
         required
       />
+      </li>
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
+      </ul>
     </form>
   </div>
   </body>
+
 </template>
 
 <script>
@@ -83,5 +90,8 @@ export default {
 </script>
 
 <style>
+
+
+
 
 </style>
