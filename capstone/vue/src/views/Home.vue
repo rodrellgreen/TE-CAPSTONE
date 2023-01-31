@@ -6,6 +6,7 @@
       
     </p>
     <router-link v-if="$store.state.token == ''" v-bind:to="{ name: 'login' }">Login</router-link>
+    <router-link v-if="$store.state.token != ''" v-bind:to="{name: 'profile'}">Profile</router-link>
   </div>
 </div>
 </template>
