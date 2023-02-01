@@ -14,8 +14,10 @@ public interface FoodDao {
 
     boolean updateFood(Food food);
 
-    boolean deleteFood(Food food);
+    boolean deleteFood(int id);
 
     List<Food> listAllFoods();
+
+    int getUserIdByUsername(String username);
 
 }
