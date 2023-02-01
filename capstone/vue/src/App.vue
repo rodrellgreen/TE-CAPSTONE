@@ -20,6 +20,8 @@
   text-align: center;
   background-color: #00ADEE;
   font-size: 35px;
+  font-family: Mod;
+
 
   
 }
