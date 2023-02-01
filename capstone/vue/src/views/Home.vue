@@ -8,13 +8,23 @@
     <router-link v-if="$store.state.token == ''" v-bind:to="{ name: 'login' }">Login</router-link><br>
     <router-link v-bind:to="{ name: 'profile'}">Profile</router-link>
   </div>
+  <div>
+      <recent-food/>
+  </div>
 </div>
 </template>
 
 <script>
+import RecentFood from '../components/FoodTrackerForm.vue'
+
+
 export default {
-  name: "home"
-};
+  name: "home",
+  components:{
+  RecentFood
+}
+}
+  
 </script>
 
 <style scoped>

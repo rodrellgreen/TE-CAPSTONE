@@ -21,6 +21,10 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
 
+    allFoods: [
+
+    ],
+
     snacks: [
 
     ],
@@ -65,6 +69,9 @@ export default new Vuex.Store({
     },
     NEW_DINNER( state, foodItem ) {
       state.dinner.push(foodItem);
+    },
+    NEW_ALLFOODS(state, foodItem){
+      state.allFoods.unshift(foodItem)
     },
 
   }

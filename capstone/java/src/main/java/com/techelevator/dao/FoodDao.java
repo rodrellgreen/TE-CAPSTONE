@@ -20,4 +20,6 @@ public interface FoodDao {
 
     int getUserIdByUsername(String username);
 
+    Food getSpecificFood(int id);
+
 }
