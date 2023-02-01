@@ -25,12 +25,13 @@ public class Profile {
     private String profilePicture;
     @NotEmpty
     private String displayName;
+    private int teamId;
 
 
     public Profile() {
     }
 
-    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName) {
+    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName, int teamId) {
         this.profileId = profileId;
         this.userId = userId;
         this.email = email;
@@ -40,6 +41,7 @@ public class Profile {
         this.currentWeight = currentWeight;
         this.desiredWeight = desiredWeight;
         this.profilePicture=profilePicture;
+        this.teamId=teamId;
     }
 
     public int getProfileId() {
@@ -122,6 +124,14 @@ public class Profile {
         this.displayName = displayName;
     }
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
@@ -135,6 +145,7 @@ public class Profile {
                 ", desiredWeight=" + desiredWeight +
                 ", profilePicture='" + profilePicture + '\'' +
                 ", displayName='" + displayName + '\'' +
+                ", teamId=" + teamId +
                 '}';
     }
 }
