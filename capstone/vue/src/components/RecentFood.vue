@@ -1,7 +1,7 @@
 <template>
   <div>
-      <ul>
-          <li v-for="food in firstSevenFoods" :key="food"> {{food}} </li>
+      <ul v-for="food in firstSevenFoods" :key="food">
+          <li >  {{food.foodItem}}  </li>
 
         
       </ul>
@@ -16,7 +16,7 @@ export default {
         firstSevenFoods(){
             let food = [];
            for (let i = 0; i < 7; i++){
-                food.unshift(this.$store.allFoods[i])
+                food.push(this.$store.state.allFoods[i])
             }
             return food;
         }

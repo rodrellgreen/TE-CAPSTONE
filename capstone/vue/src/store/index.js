@@ -70,8 +70,9 @@ export default new Vuex.Store({
     NEW_DINNER( state, foodItem ) {
       state.dinner.push(foodItem);
     },
-    NEW_ALLFOODS(state, foodItem){
+    NEW_ALLFOODS(state, foodItem, token){
       state.allFoods.unshift(foodItem)
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     },
 
   }
