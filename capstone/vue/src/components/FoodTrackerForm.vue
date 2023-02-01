@@ -1,5 +1,5 @@
 <template>
-    <form class="food" action="">
+    <form @submit.prevent="logFood" class="food" action="">
         <ul class="flex-outer">
             <li><h1> Log Food </h1> </li>
         
@@ -8,28 +8,33 @@
             <input id="name" type="text" v-model="foodItem.type" required placeholder="Ex: Potato">
         </li>
         <li>
-            <label for="name">Calories</label>
-            <input type="number" v-model="foodItem.calories" required placeholder="Ex: 163">
+            <label for="calories">Calories</label>
+            <input id="calories" type="number" v-model="foodItem.calories" required placeholder="Ex: 163">
         </li>
         <li>
-            <label for="name">Carbs</label>
-            <input type="number" v-model="foodItem.carbs" required placeholder="Ex: 37">
+            <label for="carbs">Carbs</label>
+            <input id="carbs" type="number" v-model="foodItem.carbs" required placeholder="Ex: 37">
         </li>
         <li>
-            <label for="name">Protien</label>
-            <input type="number" v-model="foodItem.protein" required placeholder="Ex: 4">
+            <label for="protein">Protien</label>
+            <input id="protein" type="number" v-model="foodItem.protein" required placeholder="Ex: 4">
         </li>
         <li>
-            <label for="name">Fats</label>
-            <input id="name" type="text" v-model="foodItem.fats" required placeholder="Ex: 0">
+            <label for="fats">Fats</label>
+            <input id="fats" type="number" v-model="foodItem.fats" required placeholder="Ex: 0">
         </li>
         <li>
-            <label for="name">Fiber</label>
-            <input id="name" type="text" v-model="foodItem.fiber" required placeholder="Ex: 5">
+            <label for="fiber">Fiber</label>
+            <input id="fiber" type="number" v-model="foodItem.fiber" required placeholder="Ex: 5">
+        </li>
+        
+        <li>
+            <label for="servings">Serving</label>
+            <input id="servings" type="number" v-model="foodItem.servingSize" required placeholder="Ex: 1">
         </li>
         <li>
-            <label for="name">Serving</label>
-            <input id="name" type="text" v-model="foodItem.servingSize" required placeholder="Ex: 1">
+            <label for="date">Date</label>
+            <input id="date" type="date" v-model="foodItem.date" required placeholder="Ex: 1">
         </li>
         
 
@@ -50,6 +55,7 @@
 </template>
 
 <script>
+import FoodService from '../services/FoodService';
 export default {
     
 
@@ -64,9 +70,21 @@ export default {
                 fats: null,
                 fiber: null,
                 servingSize: null, 
+                date: null,
             }
         }
     },
+    // created(){
+    //     FoodService.createFood(this.foodItem).then(
+
+    //         (response) => {
+    //             if(response.status == 200){
+    //                 this.$router.push('/')
+    //             }
+                
+    //         }
+    //     )
+    // },
 
     computed: {
         showOptions(){
@@ -80,6 +98,19 @@ export default {
     },
 
     methods:{
+
+     logFood() {
+          FoodService.createFood(this.foodItem).then(
+              (response) => {
+                  if(response.status === 201) {
+                    alert("Success! Food Added.");
+                    this.$router.push('/');
+                  }
+            } 
+          );
+      },
+    },
+
 
        addNewSnack(){
      
@@ -97,6 +128,7 @@ export default {
                 fats: null,
                 fiber: null, 
                 servingSize: null,
+                date_entered: null,
            }
        },
 
@@ -116,6 +148,7 @@ export default {
                 fats: null,
                 fiber: null, 
                 servingSize: null,
+                date_entered: null,
            }
        },
 
@@ -135,6 +168,7 @@ export default {
                 fats: null,
                 fiber: null, 
                 servingSize: null,
+                date_entered: null,
            }
 
        },
@@ -155,11 +189,12 @@ export default {
                 fats: null,
                 fiber: null, 
                 servingSize: null,
+                date_entered: null,
            }
           
        },
         
-    },
+    
 }
 </script>
 
