@@ -60,7 +60,7 @@ public class JdbcFoodDao implements FoodDao{
     @Override
     public List<Food> getFoodByIdAndUsername(String userName) {
         List<Food> food = new ArrayList<>();
-        String sql="SELECT * FROM food where user_id = ? ORDER BY date_entered DESC;";
+        String sql="SELECT * FROM food where user_id = ?;";
         int id = getUserIdByUsername(userName);
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while (results.next()){

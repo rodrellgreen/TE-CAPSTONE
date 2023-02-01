@@ -10,6 +10,12 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
+CREATE TABLE teams(
+team_id SERIAL,
+team_name varchar(100) NOT NULL,
+CONSTRAINT PK_team_id PRIMARY KEY (team_id)
+);
+
 CREATE TABLE profile (
    profile_id SERIAL,
    user_id INTEGER NOT NULL,
@@ -21,8 +27,10 @@ CREATE TABLE profile (
    desired_weight NUMERIC(5,2) NOT NULL,
    profile_picture varchar(1000),
    display_name varchar(100),
+   team_id INTEGER,
    CONSTRAINT PK_profile PRIMARY KEY (profile_id),
-   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
+   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+   CONSTRAINT FK_team FOREIGN KEY (team_id) REFERENCES teams(team_id)
  );
 
  CREATE TABLE meal(
@@ -44,7 +52,6 @@ CREATE TABLE profile (
  fats NUMERIC(10,2) NOT NULL,
  fiber NUMERIC(10,2) NOT NULL,
  serving_size NUMERIC(10,2) NOT NULL,
-
  CONSTRAINT PK_food PRIMARY KEY (food_id),
  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users (user_id)
  );
@@ -56,5 +63,7 @@ CREATE TABLE profile (
  CONSTRAINT FK_meal_id FOREIGN KEY (meal_id) REFERENCES meal(meal_id),
  CONSTRAINT FK_food_id FOREIGN KEY (food_id) REFERENCES food(food_id)
  );
+
+
 
 COMMIT TRANSACTION;
