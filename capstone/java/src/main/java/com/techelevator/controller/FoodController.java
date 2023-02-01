@@ -26,9 +26,14 @@ public class FoodController {
     private ProfileDao profileDao;
 
 
-    @GetMapping
-    public List<Food> getFoodByUsername(Principal principal){
+    @GetMapping()
+    public List<Food> getAllFoodByUsername(Principal principal){
         return foodDao.getFoodByIdAndUsername(principal.getName());
+    }
+
+    @GetMapping(path="/{id}")
+    public Food getSpecificFood(@PathVariable int id){
+        return foodDao.getSpecificFood(id);
     }
 
 

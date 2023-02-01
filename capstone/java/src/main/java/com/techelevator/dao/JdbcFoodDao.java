@@ -47,6 +47,17 @@ public class JdbcFoodDao implements FoodDao{
     }
 
     @Override
+    public Food getSpecificFood(int id){
+        String sql="SELECT * FROM food WHERE food_id=?";
+        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,id);
+        Food food=new Food();
+        if(results.next()){
+            food=mapRowToFood(results);
+        }
+        return food;
+    }
+
+    @Override
     public List<Food> getFoodByIdAndUsername(String userName) {
         List<Food> food = new ArrayList<>();
         String sql="SELECT * FROM food where user_id = ?";
