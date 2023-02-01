@@ -94,7 +94,6 @@
             class="input-box"
             placeholder="profile picture url"
             v-model="newProfile.profilePicture"
-            required
             autofocus
             />
           </div>

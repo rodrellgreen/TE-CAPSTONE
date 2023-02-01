@@ -1,8 +1,10 @@
 <template>
   <div class="card-container">
-    <CreateProfile/>
-    <EditProfile/>
-    <ProfileDisplay/>
+    <CreateProfile v-if="this.currentProfile.displayName == ''"/>
+    <EditProfile v-if="edit"/>
+    <button v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</button>
+    <button v-if="!this.currentProfile.displayName == '' && edit" class="cancel-btn" v-on:click="edit = !edit">Cancel</button>
+    <ProfileDisplay v-if="!this.currentProfile.displayName == '' && !edit"/>
   </div>
 </template>
 
@@ -10,22 +12,48 @@
 import CreateProfile from '../components/CreateProfile.vue';
 import EditProfile from '../components/EditProfile.vue';
 import ProfileDisplay from '../components/ProfileDisplay.vue';
+import ProfileService from '../services/ProfileService.js';
 
 export default {
 
-    components: {
-        CreateProfile,
-        EditProfile,
-        ProfileDisplay
+  data() {
+    return {
+
+      edit: false,
+
+      currentProfile: {}
+
     }
+  },
+
+  components: {
+      CreateProfile,
+      EditProfile,
+      ProfileDisplay
+  },
+
+  created() {
+    ProfileService.getProfile().then(
+        (response) => {
+            this.currentProfile = response.data;
+        }
+      );
+  },
+
+  methods: {
+    displayEditProfile() {
+
+    }
+  }
 
 }
 </script>
 
 <style>
-
-    .card-container {
-        display: flex;
-    }
-
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
 </style>

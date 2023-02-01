@@ -8,7 +8,6 @@
             type="text"
             id="email"
             class="input-box" 
-            placeholder="email"
             v-model="newProfile.email"
             required
             autofocus
@@ -99,10 +98,7 @@
             />
           </div>
           <button class="edit-profile-button" type="submit">
-              Edit Profile
-          </button>
-          <button class="cancel-btn" v-on:click.prevent="sendHome">
-              Cancel
+              Submit
           </button>
       </form>
   </div>
@@ -117,8 +113,6 @@ export default {
 
     data() {
        return {
-
-        currentProfile: {},
            
         newProfile: {
             email: '',
@@ -136,7 +130,7 @@ export default {
     created() {
       ProfileService.getProfile().then(
         (response) => {
-            this.currentProfile = response.data;
+            this.newProfile = response.data;
         }
       );
     },
@@ -145,26 +139,13 @@ export default {
       editProfile() {
           ProfileService.editProfile(this.newProfile).then(
               (response) => {
-                  if(response.status === 201) {
+                  if(response.status === 200) {
                     alert("Success! Profile changed.");
-                    // add to store??
                     this.$router.push('/');
                   }
             } 
           );
       },
-
-      sendHome() {
-        this.newProfile.email = '';
-        this.newProfile.age = null;
-        this.newProfile.feet = null;
-        this.newProfile.inches = null;
-        this.newProfile.currentWeight = null;
-        this.newProfile.desiredWeight = null;
-        this.newProfile.displayName = '';
-        this.newProfile.profilePicture = '';
-        this.$router.push('/');
-      }
     }
 }
 </script>
