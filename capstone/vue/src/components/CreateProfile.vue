@@ -136,6 +136,7 @@ export default {
           ProfileService.addProfile(this.newProfile).then(
               (response) => {
                   if(response.status === 201) {
+                    // add to store??
                     alert("Success! Profile added.");
                     this.$router.push('/');
                   }
