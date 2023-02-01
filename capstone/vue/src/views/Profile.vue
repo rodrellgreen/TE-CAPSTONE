@@ -1,6 +1,6 @@
 <template>
   <div class="card-container">
-    <CreateProfile v-if="this.currentProfile.displayName == ''"/>
+    <CreateProfile v-if="!this.currentProfile.displayName"/>
     <EditProfile v-if="edit"/>
     <button v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</button>
     <button v-if="!this.currentProfile.displayName == '' && edit" class="cancel-btn" v-on:click="edit = !edit">Cancel</button>
