@@ -89,6 +89,7 @@ export default {
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
            this.$store.commit('NEW_SNACK', this.foodItem)
+           this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
                 calories: null,
                 carbs: null,
@@ -107,6 +108,7 @@ export default {
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
            this.$store.commit('NEW_BREAKFEAST', this.foodItem)
+           this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
                 calories: null,
                 carbs: null,
@@ -125,6 +127,7 @@ export default {
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
            this.$store.commit('NEW_LUNCH', this.foodItem)
+           this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
                 calories: null,
                 carbs: null,
@@ -144,6 +147,7 @@ export default {
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
            this.$store.commit('NEW_DINNER', this.foodItem)
+           this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
                 calories: null,
                 carbs: null,
