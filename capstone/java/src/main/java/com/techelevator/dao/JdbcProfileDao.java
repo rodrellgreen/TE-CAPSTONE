@@ -71,7 +71,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public boolean updateProfile(Profile profile) {
         boolean success = false;
-        String sql = "UPDATE profile SET email=?, age=?, height_feet=?, height_inches=?, current_weight=?, desired_weight=?, profile_picture=?, display_name=?, team_id=?" +
+        String sql = "UPDATE profile SET email=?, age=?, height_feet=?, height_inches=?, current_weight=?, desired_weight=?, profile_picture=?, display_name=?" +
                 "  WHERE profile_id=?;";
         int linesUpdated = jdbcTemplate.update(sql, profile.getEmail(), profile.getAge(),
                 profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(),profile.getDisplayName(),profile.getProfileId());
@@ -96,8 +96,8 @@ public class JdbcProfileDao implements ProfileDao{
 
     @Override
     public Profile createProfile(Profile profile) {
-        String sql="INSERT INTO profile (user_id,email, age, height_feet, height_inches, " +
-                "current_weight, desired_weight, profile_picture, display_name, team_id) VALUES (?,?,?,?,?,?,?,?,?,?) RETURNING profile_id";
+        String sql="INSERT INTO profile (user_id, email, age, height_feet, height_inches, " +
+                "current_weight, desired_weight, profile_picture, display_name) VALUES (?,?,?,?,?,?,?,?,?) RETURNING profile_id";
         Integer profileId=jdbcTemplate.queryForObject(sql,Integer.class,profile.getUserId(),profile.getEmail(),profile.getAge(),
         profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(), profile.getDisplayName());
 
@@ -117,7 +117,6 @@ public class JdbcProfileDao implements ProfileDao{
         profile.setDesiredWeight(results.getDouble("desired_weight"));
         profile.setProfilePicture(results.getString("profile_picture"));
         profile.setDisplayName(results.getString("display_name"));
-        profile.setTeamId(results.getInt("team_id"));
         return profile;
     }
 }

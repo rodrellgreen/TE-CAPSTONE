@@ -27,10 +27,8 @@ CREATE TABLE profile (
    desired_weight NUMERIC(5,2) NOT NULL,
    profile_picture varchar(1000),
    display_name varchar(100),
-   team_id INTEGER,
    CONSTRAINT PK_profile PRIMARY KEY (profile_id),
-   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
-   CONSTRAINT FK_team FOREIGN KEY (team_id) REFERENCES teams(team_id)
+   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
  );
 
  CREATE TABLE meal(

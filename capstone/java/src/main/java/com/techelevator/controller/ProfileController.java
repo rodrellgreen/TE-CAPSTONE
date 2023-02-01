@@ -28,7 +28,7 @@ public class ProfileController {
     public Profile createProfile(Principal principal, @Valid @RequestBody Profile profile){
         int userID=profileDao.getUserIdByUsername(principal.getName());
         profile.setUserId(userID);
-        profile.setTeamId(0);
+
         return profileDao.createProfile(profile);
     }
 
