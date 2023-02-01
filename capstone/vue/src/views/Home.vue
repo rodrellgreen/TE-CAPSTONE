@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import RecentFood from '../components/FoodTrackerForm.vue'
+import RecentFood from '../components/RecentFood.vue'
 
 
 export default {
