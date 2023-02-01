@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="logFood" class="food" action="">
+    <form @submit="logFood" class="food" action="">
         <ul class="flex-outer">
             <li><h1> Log Food </h1> </li>
         
