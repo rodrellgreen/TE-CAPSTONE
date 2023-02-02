@@ -1,9 +1,14 @@
 
 <template>
-    <div class="food-tracker">
-       <food-tracker-form/> <food-diary/>
-       <quick-add/>
-    </div>
+
+  <div class="food-tracker">
+        <food-tracker-form/>
+
+       <food-diary/>
+
+        <quick-add/>
+</div>
+
     
 </template>
 

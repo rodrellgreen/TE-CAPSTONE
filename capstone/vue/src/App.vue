@@ -3,12 +3,14 @@
   <div  id="app">
     <div class="header"><img src="~@/assets/banner.png" ></div>
     <div id="navbar">
-      
+      <a></a>
       <a id="logo-container"><router-link v-bind:to="{ name: 'home' }">
         <img id="logo" src="~@/assets/tef.jpg">
         &nbsp;&nbsp;
         </router-link></a>
       
+      <a><router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link></a>
+      &nbsp;&nbsp;
        <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food</router-link></a>
       &nbsp;&nbsp;
        <a><router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link></a>
@@ -32,19 +34,27 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-decoration-line: none;
   font-weight: 900;
-  color: green;
+  color: #174C4F;
   text-align: center;
   justify-content: center; 
 }
 h1{
+  display: flexbox;
   margin: 0%;
   padding: 0%;
+  
+}
+body{
+  display: flexbox;
+  justify-content: center;
+  text-align: center;
+
 }
 
 
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color:#174C4F;
   display: flex;
   justify-content: center;
   align-items: end;
@@ -62,7 +72,8 @@ h1{
 }
 
 #logo {
-  width: 15%;
+  display: flex;
+  width: 25%;
   text-align: center;
  
 }
@@ -90,11 +101,13 @@ body.login{
   
   
 }
+div.home{
+  width: 200vh;
+}
 div.home-background {
-  background-image: url("~@/assets/avocadotoast.png");
-  background-size: cover; 
-  height: 200vh;
-  
+  background-image: url("~@/assets/omelete.jpg");
+  height: 200vh; 
+  display: flex;
  
 
 }
@@ -104,6 +117,8 @@ div.food-tracker {
  
 
 }
+
+
 
  /** Login Styling Below */
 
@@ -134,15 +149,15 @@ input {
 #food-log {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 50%;
-  align-content: center;
+  width: 35%;
+ 
   
   
 }
 
 #food-log td, #food-log th {
   border: 1px solid #ddd;
-  padding: 5px;
+  padding: 3px;
 }
 
 #food-log tr:nth-child(even){background-color: #f2f2f2;}
@@ -152,7 +167,7 @@ input {
 #food-log th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+ 
   background-color: #04AA6D;
   color: white;
   
