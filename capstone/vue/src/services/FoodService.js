@@ -16,6 +16,9 @@ export default {
     },
     deleteFoodItem(id) {
         return axios.delete(`/food/${id}`)
+    },
+    getQuickAddFoods() {
+        return axios.get('/food/quickAdd')
     }
 
 }
