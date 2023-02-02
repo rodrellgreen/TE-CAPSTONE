@@ -40,7 +40,7 @@
 
         <li>
             <label for="date">Date</label>
-            <input id="date" type="date" v-model="foodItem.date" required placeholder="Ex: 1">
+            <input id="date" type="date" v-model="foodItemDate" required placeholder="Ex: 1">
         </li>
         
 
@@ -68,6 +68,8 @@ export default {
     data() {
         return{
             
+            foodItemDate: '',
+
             foodItem: {
                 type: "",
                 calories: null,
@@ -81,6 +83,13 @@ export default {
             }
         }
     },
+
+   watch: {
+  foodItemDate(newDate) {
+    this.foodItem.date = new Date(newDate).toISOString().substring(0,10);
+    console.log(this.foodItemDate)
+  }
+},
     // created(){
     //     FoodService.createFood(this.foodItem).then(
 
