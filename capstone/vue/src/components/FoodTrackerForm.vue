@@ -1,51 +1,49 @@
 <template>
-    <form @submit="logFood" class="food" action="">
-        <ul class="flex-outer">
-            <li><h1> Log Food </h1> </li>
+<div id="form-container" class="form-container">
+    <form class="form-form" @submit="logFood" action="">
+        <h1>Log Food</h1>
         
-        <li>
-            <label for="name">Food</label>
-            <input id="name" type="text" v-model="foodItem.type" required placeholder="Ex: Potato">
-        </li>
-        <li>
-            <label for="calories">Calories</label>
-            <input id="calories" type="number" v-model="foodItem.calories" required placeholder="Ex: 163">
-        </li>
-        <li>
-            <label for="carbs">Carbs</label>
-            <input id="carbs" type="number" v-model="foodItem.carbs" required placeholder="Ex: 37">
-        </li>
-        <li>
-            <label for="protein">Protien</label>
-            <input id="protein" type="number" v-model="foodItem.protein" required placeholder="Ex: 4">
-        </li>
-        <li>
-            <label for="fats">Fats</label>
-            <input id="fats" type="number" v-model="foodItem.fats" required placeholder="Ex: 0">
-        </li>
-        <li>
-            <label for="fiber">Fiber</label>
-            <input id="fiber" type="number" v-model="foodItem.fiber" required placeholder="Ex: 5">
-        </li>
+        <div class="flex-container">
+            <label class="input-label" for="name">Food</label>
+            <input class="input-box" id="name" type="text" v-model="foodItem.type" required placeholder="Ex: Potato">
+        </div>
+        <div class="flex-container">
+            <label class="input-label" for="calories">Calories</label>
+            <input class="input-box" id="calories" type="number" v-model="foodItem.calories" required placeholder="Ex: 163">
+        </div>
+        <div class="flex-container">
+            <label class="input-label" for="carbs">Carbs</label>
+            <input class="input-box" id="carbs" type="number" v-model="foodItem.carbs" required placeholder="Ex: 37">
+        </div>
+        <div class="flex-container">
+            <label class="input-label" for="protein">Protien</label>
+            <input class="input-box" id="protein" type="number" v-model="foodItem.protein" required placeholder="Ex: 4">
+        </div>
+        <div class="flex-container">
+            <label class="input-label" for="fats">Fats</label>
+            <input class="input-box" id="fats" type="number" v-model="foodItem.fats" required placeholder="Ex: 0">
+        </div>
+        <div class="flex-container">
+            <label class="input-label" for="fiber">Fiber</label>
+            <input class="input-box" id="fiber" type="number" v-model="foodItem.fiber" required placeholder="Ex: 5">
+        </div>
         
-        <li>
-            <label for="servings">Serving</label>
-            <input id="servings" type="number" v-model="foodItem.servingSize" required placeholder="Ex: 1">
-        </li>
+        <div class="flex-container">
+            <label class="input-label" for="servings">Serving</label>
+            <input class="input-box" id="servings" type="number" v-model="foodItem.servingSize" required placeholder="Ex: 1">
+        </div>
 
-        <li>
-            <label for="quick-add">Add to "Quick Add" List</label>
+        <div class="flex-container">
+            <label class="input-checkbox" for="quick-add">Enable "Quick Add"</label>
             <input id="quick-add" type="checkbox" v-model="foodItem.quickAdd">
-            <label for="quick-add">{{foodItem.quickAdd}}</label>
-        </li>
+            
+        </div>
 
-        <li>
-            <label for="date">Date</label>
-            <input id="date" type="date" v-model="foodItem.date" required placeholder="Ex: 1">
-        </li>
+        <div class="flex-container">
+            <label class="input-label"  for="date">Date</label>
+            <input class="input-box" id="date" type="date" v-model="foodItem.date" required placeholder="Ex: 1">
+        </div>
         
-
-       </ul>
         
         <h3 v-if="showOptions" @close="showOptions = false">
             Would you like to add to Snack, Breakfeast, Lunch, or Dinner?
@@ -58,7 +56,7 @@
         </h3>
         
     </form>
-    
+    </div>
 </template>
 
 <script>
