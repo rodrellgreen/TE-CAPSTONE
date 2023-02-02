@@ -144,10 +144,7 @@ input {
     border-radius: 25%;
 
   }
-  recent-food {
-    
-    
-  }
+
  
 
 </style>
