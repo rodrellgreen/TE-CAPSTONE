@@ -40,7 +40,7 @@
 
         <li>
             <label for="date">Date</label>
-            <input id="date" type="date" v-model="foodItemDate" required placeholder="Ex: 1">
+            <input id="date" type="date" v-model="foodItem.date" required placeholder="Ex: 1">
         </li>
         
 
@@ -86,8 +86,9 @@ export default {
 
    watch: {
   foodItemDate(newDate) {
-    this.foodItem.date = new Date(newDate).toISOString().substring(0,10);
-    console.log(this.foodItemDate)
+      
+    this.foodItem.date = new Date(newDate).toJSON();
+    // console.log(this.foodItemDate)
   }
 },
     // created(){
@@ -116,11 +117,20 @@ export default {
     methods:{
 
      logFood() {
+         var strInputValue = this.foodItem.date; // <-- get my date string
+    
+
+        let strInputValue2 = strInputValue.replace(/-/, '/')  // replace 1st "-" with "/"
+                                      .replace(/-/, '/'); // replace 2nd "-" with "/"
+
+        this.foodItem.date = new Date(strInputValue2);
+        alert(this.foodItem.date)
           FoodService.createFood(this.foodItem).then(
               (response) => {
                   if(response.status === 201) {
                     alert("Success! Food Added.");
                     this.$router.push('/');
+                  
                   }
             } 
           );
