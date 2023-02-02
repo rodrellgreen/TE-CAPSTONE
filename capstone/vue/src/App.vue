@@ -105,6 +105,7 @@ div.food-tracker {
 
 }
 
+ /** Login Styling Below */
 
 input {
   width: 100%;
@@ -115,7 +116,6 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 .flex-outer li,
 .flex-inner {
   display: flex;
@@ -130,6 +130,7 @@ input {
   max-width: 220px;
 }
 
+ /** Food Tables/Logs Styling Below */
 #food-log {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -167,6 +168,79 @@ input {
     border-radius: 25%;
 
   }
+
+  /** Form Styling Below */
+  
+    #form-container {
+        background-color: #174C4F;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        border: solid grey 2px;
+        border-radius: 10px;
+        width: 460px;
+        height: 620px;
+        margin: auto;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: large;
+    }
+
+    .form-form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-end;
+    }
+
+    .input-label {
+        margin-right: 10px;
+    }
+
+    label {
+        margin-right: 6px;
+    }
+
+    .input-box {
+      margin-left: 10px;  
+      height: 25px;
+    }
+
+    .cancel-btn {
+      width: 95px;
+    }
+
+    button {
+        height: 32px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+ .sr-only {
+    margin: 5px;
+  }
+
+  .form-control {
+    margin: 5px;
+    height: 20px;
+  }
+
+  button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .router-link {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+  }
+
 
  
 

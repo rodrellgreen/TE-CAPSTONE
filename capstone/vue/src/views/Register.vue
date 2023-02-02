@@ -1,13 +1,13 @@
 <template>
-  <div id="register" class="text-center">
-    <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
-    <form class="form-register" @submit.prevent="register">
-      
+  <div id="form-container" class="form-container">
+    
+    <form class="form-form" @submit.prevent="register">
+      <h1 >Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="flex-container">
-      <label for="username" class="sr-only">Username:</label>
+      <label for="username" class="input label">Username:</label>
       <input
         type="text"
         id="username"
@@ -108,49 +108,5 @@ export default {
 </script>
 
 <style>
-
-  #register {
-    background-color: #7DA27E;
-    color: white;
-    font-size: large;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 8%;
-    height: 500px;
-    width: 500px;
-    display: flex;
-    align-items: center;
-    border: solid grey 2px;
-    flex-direction: column;
-  }
-
-  .form-register {
-    margin: auto;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
-  }
-
-  .sr-only {
-    margin: 5px;
-  }
-
-  .form-control {
-    margin: 5px;
-    height: 20px;
-  }
-
-  button {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .router-link {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-  }
-
+/** Check App.vue for styles */
 </style>

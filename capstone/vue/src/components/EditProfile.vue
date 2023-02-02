@@ -1,7 +1,7 @@
 <template>
-  <div id="edit-profile" class="edit-profile"> 
-      <form class="profile-form" @submit.prevent="editProfile">
-          <h1>Edit Your Profile</h1>
+  <div id="form-container" class="form-container"> 
+      <form class="form-form" @submit.prevent="editProfile">
+          <h1>Edit Profile</h1>
           <div class="flex-container">
           <label for="email" class="input label">Email Address:</label>
           <input
@@ -140,7 +140,7 @@ export default {
               (response) => {
                   if(response.status === 200) {
                     alert("Success! Profile changed.");
-                    this.$router.push('/');
+                    this.$router.go();
                   }
             } 
           );
@@ -150,55 +150,5 @@ export default {
 </script>
 
 <style>
-
-    #edit-profile {
-        background-color: #7DA27E;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        margin: 10px;
-        border: solid grey 2px;
-        border-radius: 10px;
-        width: 460px;
-        height: 620px;
-        margin: auto;
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        font-size: large;
-    }
-
-    .profile-form {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: flex-end;
-    }
-
-    .input-label {
-        margin-right: 10px;
-    }
-
-    label {
-        margin-right: 6px;
-    }
-
-    .input-box {
-      margin-left: 10px;  
-      height: 25px;
-    }
-
-    .cancel-btn {
-      width: 95px;
-    }
-
-    button {
-        height: 32px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+/** Check App.vue for styles */
 </style>

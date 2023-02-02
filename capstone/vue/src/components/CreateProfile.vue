@@ -1,7 +1,7 @@
 <template>
-  <div id="create-profile" class="create-profile"> 
-      <form class="profile-form" @submit.prevent="createProfile">
-          <h1>Create Your Profile</h1>
+  <div id="form-container" class="form-container"> 
+      <form class="form-form" @submit.prevent="createProfile">
+          <h1>Create Profile</h1>
           <div class="flex-container">
           <label for="email" class="input label">Email Address:</label>
           <input
@@ -159,55 +159,5 @@ export default {
 </script>
 
 <style>
-
-    #create-profile {
-        background-color: #7DA27E;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        margin: 10px;
-        border: solid grey 2px;
-        border-radius: 10px;
-        width: 460px;
-        height: 620px;
-        margin: auto;
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        font-size: large;
-    }
-
-    .profile-form {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: flex-end;
-    }
-
-    .input-label {
-        margin-right: 10px;
-    }
-
-    label {
-        margin-right: 6px;
-    }
-
-    .input-box {
-      margin-left: 10px;  
-      height: 25px;
-    }
-
-    .cancel-btn {
-      width: 95px;
-    }
-
-    button {
-        height: 32px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+/** Check App.vue for styles */
 </style>
