@@ -1,10 +1,13 @@
 <template>
-    <div class="food-tracker">
-       <food-tracker-form v-if="!showQuickAdd"/>
-       <button v-on:click="showQuickAdd = !showQuickAdd">Quick Add</button>
-       <quick-add v-if="showQuickAdd"/>
+
+  <div class="food-tracker">
+        <food-tracker-form/>
+
        <food-diary/>
-    </div>
+
+        <quick-add/>
+</div>
+
     
 </template>
 

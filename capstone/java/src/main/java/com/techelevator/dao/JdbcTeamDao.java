@@ -62,13 +62,17 @@ public class JdbcTeamDao implements TeamDao{
     @Override
     public boolean deleteTeam(int id) {
         boolean success=false;
-        String sql="DELETE FROM teams WHERE team_id=?;";
+        String sql="DELETE FROM users_teams WHERE team_id=?";
+        String sql2="DELETE FROM teams WHERE team_id=?;";
+
         int linesUpdated= jdbcTemplate.update(sql,id);
-        if(linesUpdated==1){
+        int linesUpdated2=jdbcTemplate.update(sql2,id);
+        if(linesUpdated==1&&linesUpdated2==1){
             success=true;
         }
         return success;
     }
+
 
     @Override
     public int getTeamIdByTeamName(String name) {
@@ -98,22 +102,36 @@ public class JdbcTeamDao implements TeamDao{
     }
 
     @Override
-    public void addUserToTeam(String teamName,String displayName) {
-        String sql="INSERT INTO users_teams (team_id,user_id)";
-        int teamId=getTeamIdByTeamName(teamName);
+    public void addUserToTeam(int teamId,String displayName) {
+        String sql="INSERT INTO users_teams (team_id,user_id) VALUES (?,?)";
         int userId=getUserIdFromDisplayName(displayName);
         jdbcTemplate.update(sql,teamId,userId);
     }
 
     @Override
-    public String getUsersTeam(String displayName) {
-        String sql="SELECT t.team_name FROM teams t "+
+    public List<Team> getUsersTeams(String displayName) {
+        List<Team> usersTeams=new ArrayList<>();
+        String sql="SELECT * FROM teams t "+
                   "JOIN users_teams ut ON ut.team_id=t.team_id "+
                    "JOIN profile p ON ut.user_id=p.user_id "+
                     "WHERE display_name=?;";
-       String teamName=jdbcTemplate.queryForObject(sql,String.class,displayName);
+        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,displayName);
+        while(results.next()){
+            usersTeams.add(mapRowToTeam(results));
+        }
+        return usersTeams;
+   }
 
-       return teamName;
+    @Override
+    public boolean deleteUserFromTeam(int teamId,String displayName) {
+        String sql="DELETE FROM users_teams WHERE user_id=? AND team_id=?;";
+        int userId=getUserIdFromDisplayName(displayName);
+        int linesUpdated= jdbcTemplate.update(sql,teamId,userId);
+        boolean success=false;
+        if(linesUpdated==1){
+            success=true;
+        }
+        return success;
     }
 
 
