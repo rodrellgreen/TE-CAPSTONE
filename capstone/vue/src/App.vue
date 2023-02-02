@@ -4,9 +4,11 @@
     
     <div id="navbar">
       
-      <a></a>
-      <a><router-link v-bind:to="{ name: 'home' }"><img id="logo" src="~@/assets/techfitness.jpg"></router-link></a>
-      &nbsp;
+      <a id="logo-container"><router-link v-bind:to="{ name: 'home' }">
+        <img id="logo" src="~@/assets/techfitness.jpg">
+        &nbsp;
+        </router-link></a>
+      
        <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food Diary</router-link></a>
       &nbsp;
        <a><router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link></a>
@@ -42,33 +44,43 @@
 
   
 }
+h1{
+  margin: 0%;
+  padding: 0%;
+}
 
 
 #navbar {
   overflow: hidden;
   background-color: #333;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  text-align: center;
+  
+  
 }
 #navbar a {
   float: left;
-  display: block;
+  display: flex;
   color: #f2f2f2;
-  text-align: center;
   padding: 0px;
   text-decoration: none;
-  width: 100%;
 
 }
 
 #logo {
   width: 100px;
+ 
 }
+
 
 body.login {
   background-image: url("~@/assets/overnightOats.jpg");
-  height: 250vh; 
-  width: 100%;
+  height: 200vh; 
+  background-size: cover;
   text-align: center;
+  
 }
 div.home-background {
   background-image: url("~@/assets/avocadotoast.png");
