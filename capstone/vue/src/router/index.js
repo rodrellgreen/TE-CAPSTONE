@@ -25,18 +25,26 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'login',
+      component: Login,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/login",
-      name: "login",
+      path: '/login',
+      name: 'login',
       component: Login,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/home",
+      name: "home",
+      component: Home,
+      meta: {
+        requiresAuth: true
       }
     },
     {
@@ -60,7 +68,7 @@ const router = new Router({
       name: "trackFood",
       component: TrackFood,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
