@@ -1,7 +1,7 @@
 <template>
   
   <div  id="app">
-    
+    <div class="header"><img src="~@/assets/banner.png" ></div>
     <div id="navbar">
       
       <a id="logo-container"><router-link v-bind:to="{ name: 'home' }">
@@ -14,8 +14,6 @@
        <a><router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link></a>
       &nbsp; &nbsp;
        <a><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link></a>
-      
-     
     </div>
     <router-view />
   </div>
@@ -67,6 +65,19 @@ h1{
   width: 15%;
   text-align: center;
  
+}
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+
+
+}
+img{
+  display: flex;
+  
+  width: 100%;
 }
 
 
