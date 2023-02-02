@@ -52,27 +52,3 @@ export default {
    
 </script>
 
-<style>
-#food-log {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#food-log td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#food-log tr:nth-child(even){background-color: #f2f2f2;}
-
-#food-log tr:hover {background-color: #ddd;}
-
-#food-log th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-</style>

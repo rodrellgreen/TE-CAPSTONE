@@ -6,11 +6,9 @@
       
     </p>
     <router-link v-if="$store.state.token == ''" v-bind:to="{ name: 'login' }">Login</router-link><br>
-    <router-link v-bind:to="{ name: 'profile'}">Profile</router-link>
+    <recent-food/>
   </div>
-  <div>
-      <recent-food/>
-  </div>
+  
 </div>
 </template>
 
@@ -26,18 +24,3 @@ export default {
 }
   
 </script>
-
-<style scoped>
-
-  .home-background {
-    display: grid;
-  }
-
-  .create-profile-container {
-    background-color: red;
-    width: 20%;
-    border: solid black 2px;
-    border-radius: 5px;
-  }
-
-</style>

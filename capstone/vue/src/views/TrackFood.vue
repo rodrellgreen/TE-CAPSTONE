@@ -1,8 +1,8 @@
 
 <template>
-    <div>
-       <food-tracker-form/>
-       <food-diary/>
+    <div class="food-tracker">
+       <food-tracker-form/> <food-diary/>
+       
     </div>
     
 </template>
@@ -22,6 +22,5 @@ export default {
     }
 }
 </script>
-
 
 

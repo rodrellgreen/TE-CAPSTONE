@@ -49,11 +49,3 @@ export default {
 }
 </script>
 
-<style>
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-</style>
