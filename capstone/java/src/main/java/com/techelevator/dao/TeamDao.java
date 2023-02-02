@@ -1,7 +1,7 @@
 package com.techelevator.dao;
 
 
-import com.techelevator.model.Profile;
+
 import com.techelevator.model.Team;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public interface TeamDao {
 
     boolean deleteTeam(int id);
 
-    List<String> getDisplayNamesFromTeam(String teamName);
+    List<String> getDisplayNamesFromTeamId(int teamId);
 
     int getTeamIdByTeamName(String name);
 
@@ -27,4 +27,6 @@ public interface TeamDao {
     int getUserIdFromDisplayName(String displayName);
 
     void addUserToTeam(String teamName,String displayName);
+
+    String getUsersTeam(String displayName);
 }

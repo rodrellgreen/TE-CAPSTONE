@@ -19,4 +19,6 @@ public interface ProfileDao {
     int getUserIdByUsername(String username);
 
     int getProfileIdByUsername(String username);
+
+    String getDisplayNameFromProfileId(int id);
 }

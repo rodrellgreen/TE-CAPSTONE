@@ -32,6 +32,17 @@ public class JdbcProfileDao implements ProfileDao{
     }
 
     @Override
+    public String getDisplayNameFromProfileId(int id) {
+        String sql="SELECT display_name FROM profile WHERE profile_id=?;";
+        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,id);
+        String displayName="";
+        if(results.next()){
+            displayName= results.getString("display_name");
+        }
+        return displayName;
+    }
+
+    @Override
     public int getUserIdByUsername(String username){
         int userId=0;
         String sql="SELECT user_id FROM users u " +
@@ -103,6 +114,8 @@ public class JdbcProfileDao implements ProfileDao{
 
         return getProfileById(profileId);
     }
+
+
 
 
     private Profile mapRowToProfile(SqlRowSet results){
