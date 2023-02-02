@@ -2,32 +2,28 @@
   
   <div  id="app">
     
-    <div class="nav">
-      <nav>
-      <ul id ="nav">
-      <li><img src="~@/assets/techfitness.jpg"></li>
-      <li><button type ="button"> <router-link v-bind:to="{ name: 'home' }">Home</router-link></button></li>
+    <div id="navbar">
+      
+      <a></a>
+      <a><router-link v-bind:to="{ name: 'home' }"><img id="logo" src="~@/assets/techfitness.jpg"></router-link></a>
       &nbsp;
-       <li><button type ="button"  v-if="$store.state.token != ''" ><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food Diary</router-link></button></li>
+       <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food Diary</router-link></a>
       &nbsp;
-       <li>
-         <button type ="button"  v-if="$store.state.token != ''" >
-           <router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>
-          </button>
-        </li>
+       <a><router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link></a>
       &nbsp; 
-       <li>
-         <button type ="button" v-if="$store.state.token != ''">
-          <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link>
-         </button>
-        </li>
-      </ul>
-      </nav>
+       <a><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link></a>
+      
+     
     </div>
     <router-view />
   </div>
   
 </template>
+
+<script>
+
+</script>
+
 
 <style>
 
@@ -40,42 +36,51 @@
   text-decoration-line: none;
   font-weight: 900;
   color: green;
-  
-
-  
-}
-
-
-#nav {
   text-align: center;
+  justify-content: center;
   
-  list-style-type: none;
-  display: flex;
-  height: 9vh;
+
   
 }
 
-img {
-  width: 10%;
-  margin-bottom: 25%;
-  margin-right: 100%;
 
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+}
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 0px;
+  text-decoration: none;
+  width: 100%;
+
+}
+
+#logo {
+  width: 100px;
 }
 
 body.login {
   background-image: url("~@/assets/overnightOats.jpg");
   height: 250vh; 
-  width: 250vh;
+  width: 100%;
   text-align: center;
 }
 div.home-background {
   background-image: url("~@/assets/avocadotoast.png");
-  height: 200vh; 
+  background-size: cover; 
+  height: 200vh;
+
 }
 div.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   height: 200vh; 
   background-color: navy;
+
 }
 
 input {
@@ -106,7 +111,9 @@ input {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 50%;
-  text-align: center;
+  align-content: center;
+  
+  
 }
 
 #food-log td, #food-log th {
@@ -124,6 +131,7 @@ input {
   text-align: left;
   background-color: #04AA6D;
   color: white;
+  
 }
 
 .card-container {
@@ -135,6 +143,10 @@ input {
     background-color: navy;
     border-radius: 25%;
 
+  }
+  recent-food {
+    
+    
   }
  
 
