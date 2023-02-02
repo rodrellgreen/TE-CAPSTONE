@@ -14,7 +14,7 @@
     <th>Servings</th>
     <th>Date</th>
   </tr>
-  <tr v-for="food in sortedFood.slice(0,22)" :key="food.type">
+  <tr v-for="food in sortedFood" :key="food.date">
     <td>{{food.date}}</td>
     <td>{{food.type}}</td>
     <td>{{food.calories}}</td>
