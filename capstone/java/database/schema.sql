@@ -51,7 +51,7 @@ CREATE TABLE profile (
  CREATE TABLE food(
  food_id SERIAL,
  user_id INTEGER,
- date_entered DATE NOT NULL,
+ date_entered DATE,
  food_name VARCHAR(100) NOT NULL,
  calories NUMERIC(10,2) NOT NULL,
  carbs NUMERIC(10,2) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE profile (
  fats NUMERIC(10,2) NOT NULL,
  fiber NUMERIC(10,2) NOT NULL,
  serving_size NUMERIC(10,2) NOT NULL,
- quick_add BOOLEAN NOT NULL,
+ quick_add BOOLEAN,
  CONSTRAINT PK_food PRIMARY KEY (food_id),
  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users (user_id)
  );

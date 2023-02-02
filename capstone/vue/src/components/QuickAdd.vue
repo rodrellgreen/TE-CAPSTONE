@@ -1,11 +1,10 @@
 <template>
   <div>
       <h1> Quick Add Foods </h1>
-      <!-- Load quick add foods -->
-      <!-- display whole food item object -->
-      <!-- Make them clickable; clicking calls log food method which calls food service method :) -->
-      <ul v-for="food in quickAddFoods" :key="food">
-          <li class="quick-add-container" v-on:click="logFood" >
+      <form class="quick-add-form">
+        <label for="quick-add-foods">Select a food to log:</label>
+          <select id=quick-add-foods v-model="foodItem">
+             <option v-for="food in quickAddFoods" :key="food">
               {{food.type}}
               calories: {{food.calories}}
               protein: {{food.protien}}
@@ -13,8 +12,10 @@
               fiber: {{food.fiber}}
               fats: {{food.fats}}
               servings: {{food.servingSize}}
-          </li>
-      </ul>
+             </option>
+          </select>
+      </form>
+      <button v-on:click="logFood">Log Food Item</button>
   </div>
 </template>
 
@@ -26,34 +27,30 @@ export default {
     data() {
       return {
 
-            quickAddFoods: [],
+          quickAddFoods: [],
 
-            foodItem: {
-                type: "",
-                calories: null,
-                carbs: null,
-                protein: null,
-                fats: null,
-                fiber: null,
-                servingSize: null, 
-                quickAdd: null,
-                date: null,
-            }
+          foodItem: {}
+
       }
     },
 
     methods: {
-        logFood() {
-          FoodService.createFood(this.foodItem).then(
-              (response) => {
-                  if(response.status === 201) {
-                    alert("Success! Food Added.");
-                    this.$router.push('/');
+      logFood() {
+        window.alert(this.foodItem)
+        FoodService.createFood(this.foodItem).then(
+            (response) => {
+                if(response.status === 201) {
+                  alert("Success! Food Added.");
+                  this.$router.push('/');
                   
-                  }
+                }
             } 
-          );
+        );
       },
+
+      addToFoodItems(event) {
+        this.foodItems.push(event.target.value);
+      }
     },
 
     created() {
