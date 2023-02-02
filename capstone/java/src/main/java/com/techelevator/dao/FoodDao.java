@@ -22,4 +22,6 @@ public interface FoodDao {
 
     Food getSpecificFood(int id);
 
+    List<Food> getQuickAddFoods(String username);
+
 }
