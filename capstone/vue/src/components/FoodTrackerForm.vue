@@ -35,7 +35,8 @@
 
         <li>
             <label for="quick-add">Add to "Quick Add" List</label>
-            <input id="quick-add" type="checkbox">
+            <input id="quick-add" type="checkbox" v-model="foodItem.quickAdd">
+            <label for="quick-add">{{foodItem.quickAdd}}</label>
         </li>
 
         <li>

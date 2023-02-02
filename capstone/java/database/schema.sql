@@ -16,6 +16,15 @@ team_name varchar(100) NOT NULL,
 CONSTRAINT PK_team_id PRIMARY KEY (team_id)
 );
 
+ CREATE TABLE users_teams(
+ user_id INTEGER NOT NULL,
+ team_id INTEGER NOT NULL,
+ CONSTRAINT PK_users_teams PRIMARY KEY (user_id, team_id),
+ CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+ CONSTRAINT FK_team_id FOREIGN KEY (team_id) REFERENCES teams(team_id)
+ );
+
+
 CREATE TABLE profile (
    profile_id SERIAL,
    user_id INTEGER NOT NULL,
