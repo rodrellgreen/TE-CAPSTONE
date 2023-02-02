@@ -3,7 +3,6 @@ package com.techelevator.model;
 public class Team {
 
     private int teamId;
-    private int userId;
     private String teamName;
 
 
@@ -18,14 +17,6 @@ public class Team {
         this.teamId = teamId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     public String getTeamName() {
         return teamName;
     }
@@ -34,12 +25,5 @@ public class Team {
         this.teamName = teamName;
     }
 
-    @Override
-    public String toString() {
-        return "Team{" +
-                "teamId=" + teamId +
-                ", userId=" + userId +
-                ", teamName='" + teamName + '\'' +
-                '}';
-    }
+
 }

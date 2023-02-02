@@ -7,7 +7,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -129,6 +131,21 @@ public class JdbcFoodDao implements FoodDao{
         }
         return food;
     }
+
+    @Override
+    public List<Food> getTodaysFood(String userName) {
+        List<Food> food = new ArrayList<>();
+        long millis=System.currentTimeMillis();
+        java.sql.Date date=new java.sql.Date(millis);
+        String sql="SELECT * FROM food WHERE date_entered = ? AND user_id = ?;";
+        int id = getUserIdByUsername(userName);
+        SqlRowSet results = jdbcTemplate.queryForRowSet( sql, date, id );
+        while (results.next()){
+            food.add(mapRowToFood(results));
+        }
+        return food;
+    }
+
 
     private Food mapRowToFood(SqlRowSet results) {
         Food food = new Food();
