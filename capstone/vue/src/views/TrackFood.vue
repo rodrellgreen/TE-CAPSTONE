@@ -1,4 +1,3 @@
-
 <template>
     <div class="food-tracker">
        <food-tracker-form/> <food-diary/>
