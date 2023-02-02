@@ -73,10 +73,10 @@ public class JdbcFoodDao implements FoodDao{
     @Override
     public void createFood(Food food) {
         String sql = "Insert INTO food (food_name, user_id, date_entered, calories, carbs, protein" +
-                ", fats, fiber, serving_size) VALUES (?,?,?,?,?,?,?,?,?) " +
+                ", fats, fiber, serving_size, quick_add) VALUES (?,?,?,?,?,?,?,?,?,?) " +
                 "RETURNING food_id";
 
-        Integer foodId = jdbcTemplate.queryForObject(sql, Integer.class,food.getType(),food.getUserId(),food.getDate(), food.getCalories(), food.getCarbs(), food.getProtein(), food.getFats(), food.getFiber(), food.getServingSize());
+    Integer foodId = jdbcTemplate.queryForObject(sql, Integer.class,food.getType(),food.getUserId(), food.getDate(), food.getCalories(), food.getCarbs(), food.getProtein(), food.getFats(), food.getFiber(), food.getServingSize(), food.getQuickAdd());
 
     }
 
@@ -84,9 +84,9 @@ public class JdbcFoodDao implements FoodDao{
     public boolean updateFood(Food food) {
         boolean success = false;
 
-        String sql = "UPDATE food SET food_name = ?, calories = ?, carbs = ?, protein = ?, fats = ?, fiber = ?, serving_size = ?, date_entered = ? WHERE food_id = ?";
+        String sql = "UPDATE food SET food_name = ?, calories = ?, carbs = ?, protein = ?, fats = ?, fiber = ?, serving_size = ?, quick_add = ? date_entered = ? WHERE food_id = ?";
 
-        int linesUpdated = jdbcTemplate.update(sql, food.getType(), food.getCalories(), food.getCarbs(), food.getProtein(), food.getFats(), food.getFiber(), food.getServingSize(), food.getDate(), food.getFoodId() );
+        int linesUpdated = jdbcTemplate.update(sql, food.getType(), food.getCalories(), food.getCarbs(), food.getProtein(), food.getFats(), food.getFiber(), food.getServingSize(), food.getQuickAdd(), food.getDate(), food.getFoodId() );
         if (linesUpdated == 1){
             success = true;
         }
@@ -118,6 +118,18 @@ public class JdbcFoodDao implements FoodDao{
         return food;
     }
 
+    @Override
+    public List<Food> getQuickAddFoods(String username) {
+        List<Food> food = new ArrayList<>();
+        String sql = "SELECT * FROM food WHERE quick_add = true AND user_id = ?;";
+        int id = getUserIdByUsername(username);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        while (results.next()){
+            food.add(mapRowToFood(results));
+        }
+        return food;
+    }
+
     private Food mapRowToFood(SqlRowSet results) {
         Food food = new Food();
         food.setFoodId(results.getInt("food_id"));
@@ -129,6 +141,7 @@ public class JdbcFoodDao implements FoodDao{
         food.setFats(results.getDouble("fats"));
         food.setFiber(results.getDouble("fiber"));
         food.setServingSize(results.getDouble("serving_size"));
+        food.setQuickAdd(results.getBoolean("quick_add"));
         food.setDate(results.getDate("date_entered"));
         return food;
     }

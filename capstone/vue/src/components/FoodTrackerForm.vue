@@ -78,7 +78,7 @@ export default {
                 fats: null,
                 fiber: null,
                 servingSize: null, 
-                //quickAdd: null,
+                quickAdd: null,
                 date: null,
             }
         }
