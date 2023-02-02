@@ -4,13 +4,15 @@
     
     <div id="navbar">
       
-      <a></a>
-      <a><router-link v-bind:to="{ name: 'home' }"><img id="logo" src="~@/assets/techfitness.jpg"></router-link></a>
-      &nbsp;
-       <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food Diary</router-link></a>
-      &nbsp;
+      <a id="logo-container"><router-link v-bind:to="{ name: 'home' }">
+        <img id="logo" src="~@/assets/tef.jpg">
+        &nbsp;&nbsp;
+        </router-link></a>
+      
+       <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food</router-link></a>
+      &nbsp;&nbsp;
        <a><router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link></a>
-      &nbsp; 
+      &nbsp; &nbsp;
        <a><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link></a>
       
      
@@ -28,60 +30,70 @@
 <style>
 
 #app {
-  
- 
-
-  font-size: 25px;
+   font-size: 25px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-decoration-line: none;
   font-weight: 900;
   color: green;
   text-align: center;
-  justify-content: center;
-  
-
-  
+  justify-content: center; 
+}
+h1{
+  margin: 0%;
+  padding: 0%;
 }
 
 
 #navbar {
   overflow: hidden;
   background-color: #333;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  text-align: center;
 }
 #navbar a {
   float: left;
-  display: block;
+  display: flex;
   color: #f2f2f2;
-  text-align: center;
   padding: 0px;
   text-decoration: none;
-  width: 100%;
+  
+  
 
 }
 
 #logo {
-  width: 100px;
+  width: 15%;
+  text-align: center;
+ 
 }
 
-body.login {
+
+body.login{
   background-image: url("~@/assets/overnightOats.jpg");
-  height: 250vh; 
-  width: 100%;
+  height: 200vh; 
+  background-size: cover;
   text-align: center;
+ 
+  
+  
 }
 div.home-background {
   background-image: url("~@/assets/avocadotoast.png");
   background-size: cover; 
   height: 200vh;
+  
+ 
 
 }
 div.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   height: 200vh; 
-  background-color: navy;
+ 
 
 }
+
 
 input {
   width: 100%;
@@ -140,7 +152,7 @@ input {
     align-items: center;
     margin: 50px;
     padding: 0px;
-    background-color: navy;
+   
     border-radius: 25%;
 
   }
