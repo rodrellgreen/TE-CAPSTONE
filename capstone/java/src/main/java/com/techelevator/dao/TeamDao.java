@@ -26,7 +26,9 @@ public interface TeamDao {
 
     int getUserIdFromDisplayName(String displayName);
 
-    void addUserToTeam(String teamName,String displayName);
+    void addUserToTeam(int teamId,String displayName);
 
-    String getUsersTeam(String displayName);
+    List<Team> getUsersTeams(String displayName);
+
+    boolean deleteUserFromTeam(int teamId,String displayName);
 }
