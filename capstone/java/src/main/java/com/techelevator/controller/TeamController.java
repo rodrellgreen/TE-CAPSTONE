@@ -3,6 +3,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ProfileDao;
 import com.techelevator.dao.TeamDao;
+import com.techelevator.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class TeamController {
     ProfileDao profileDao;
 
 
-    @GetMapping(path = "/{teamId}/members")
+        @GetMapping(path = "/{teamId}/members")
         public List<String> getTeamMembersForSpecificTeam(@PathVariable int teamId){
             return teamDao.getDisplayNamesFromTeamId(teamId);
         }
@@ -33,5 +34,12 @@ public class TeamController {
 
             return teamDao.getUsersTeam(displayName);
         }
+
+        @PostMapping()
+        public void createATeam(@RequestBody Team team){
+            teamDao.createTeam(team);
+        }
+
+
 
 }
