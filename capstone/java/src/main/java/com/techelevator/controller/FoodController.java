@@ -63,7 +63,7 @@ public class FoodController {
         }
     }
 
-    @GetMapping
+    @GetMapping(path="/quickAdd")
     public List<Food> getQuickAddFoods(Principal principal) {
         return foodDao.getQuickAddFoods(principal.getName());
     }
