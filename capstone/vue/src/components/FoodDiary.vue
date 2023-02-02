@@ -14,7 +14,7 @@
     <th>Servings</th>
     <th>Date</th>
   </tr>
-  <tr v-for="food in foodLog" :key="food">
+  <tr v-for="food in sortedFood.slice(0,22)" :key="food.type">
     <td>{{food.date}}</td>
     <td>{{food.type}}</td>
     <td>{{food.calories}}</td>
@@ -47,7 +47,25 @@ export default {
                 this.foodLog = response.data;
             }
         )
-    }
+    },
+
+      computed: {
+  sortedFood() {
+    return [...this.foodLog].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      if (dateA > dateB) {
+        return -1;
+      }
+      if (dateA < dateB) {
+        return 1;
+      }
+      return this.foodLog.indexOf(b) - this.foodLog.indexOf(a);
+    });
+    },    
+        
+}
+
 }
    
 </script>
