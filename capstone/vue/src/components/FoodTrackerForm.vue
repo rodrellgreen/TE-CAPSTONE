@@ -1,8 +1,9 @@
 <template>
     <form @submit="logFood" class="food" action="">
         <ul class="flex-outer">
-            <li><h1> Log Food </h1> </li>
-        
+        <li>
+            <h1> Log Food </h1> 
+        </li>
         <li>
             <label for="name">Food</label>
             <input id="name" type="text" v-model="foodItem.type" required placeholder="Ex: Potato">
@@ -35,7 +36,8 @@
 
         <li>
             <label for="quick-add">Add to "Quick Add" List</label>
-            <input id="quick-add" type="checkbox">
+            <input id="quick-add" type="checkbox" v-model="foodItem.quickAdd">
+            <label for="quick-add">{{foodItem.quickAdd}}</label>
         </li>
 
         <li>
@@ -56,8 +58,7 @@
             </div>
         </h3>
         
-    </form>
-    
+    </form>  
 </template>
 
 <script>
