@@ -26,8 +26,8 @@ public class Food {
     private double fiber;
     @NotEmpty
     private double servingSize;
-    @NotEmpty
-    private boolean quickAdd;
+    //@NotEmpty
+    private boolean quickAdd = false;
     @Min(0)
     private int userId;
 //    @NotEmpty
@@ -45,7 +45,7 @@ public class Food {
         this.fats = fats;
         this.fiber = fiber;
         this.servingSize = servingSize;
-        this.quickAdd = quickAdd;
+        //this.quickAdd = quickAdd;
         this.userId = userId;
         this.date = date;
     }
