@@ -25,13 +25,14 @@ public class Profile {
     private String profilePicture;
     @NotEmpty
     private String displayName;
+    boolean publicPrivate=false;
 
 
 
     public Profile() {
     }
 
-    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName) {
+    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName, boolean publicPrivate) {
         this.profileId = profileId;
         this.userId = userId;
         this.email = email;
@@ -42,6 +43,7 @@ public class Profile {
         this.desiredWeight = desiredWeight;
         this.profilePicture=profilePicture;
         this.displayName=displayName;
+        this.publicPrivate=publicPrivate;
 
     }
 
@@ -125,5 +127,11 @@ public class Profile {
         this.displayName = displayName;
     }
 
+    public boolean isPublicPrivate() {
+        return publicPrivate;
+    }
 
+    public void setPublicPrivate(boolean publicPrivate) {
+        this.publicPrivate = publicPrivate;
+    }
 }

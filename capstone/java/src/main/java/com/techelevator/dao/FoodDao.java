@@ -24,4 +24,7 @@ public interface FoodDao {
 
     List<Food> getQuickAddFoods(String username);
 
+    List<Food> getTodaysFood(String userName);
+
+
 }

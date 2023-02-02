@@ -5,14 +5,14 @@
       <!-- display whole food item object -->
       <!-- Make them clickable; clicking calls log food method which calls food service method :) -->
       <ul v-for="food in quickAddFoods" :key="food">
-          <li>
+          <li class="quick-add-container" v-on:click="logFood" >
               {{food.type}}
-              {{food.calories}}
-              {{food.protien}}
-              {{food.carbs}}
-              {{food.fiber}}
-              {{food.fats}}
-              {{food.servingSize}}
+              calories: {{food.calories}}
+              protein: {{food.protien}}
+              carbs: {{food.carbs}}
+              fiber: {{food.fiber}}
+              fats: {{food.fats}}
+              servings: {{food.servingSize}}
           </li>
       </ul>
   </div>
@@ -68,5 +68,8 @@ export default {
 </script>
 
 <style>
-
+  .quick-add-container {
+    background-color: white;
+    border: solid black 2px;
+  }
 </style>
