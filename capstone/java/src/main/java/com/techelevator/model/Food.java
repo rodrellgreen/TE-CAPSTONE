@@ -26,6 +26,8 @@ public class Food {
     private double fiber;
     @NotEmpty
     private double servingSize;
+    @NotEmpty
+    private boolean quickAdd;
     @Min(0)
     private int userId;
 //    @NotEmpty
@@ -35,7 +37,7 @@ public class Food {
 
     }
 
-    public Food(String type, double calories, double carbs, double protein, double fats, double fiber, double servingSize, int userId, Date date) {
+    public Food(String type, double calories, double carbs, double protein, double fats, double fiber, double servingSize, boolean quickAdd, int userId, Date date) {
         this.type = type;
         this.calories = calories;
         this.carbs = carbs;
@@ -43,6 +45,7 @@ public class Food {
         this.fats = fats;
         this.fiber = fiber;
         this.servingSize = servingSize;
+        this.quickAdd = quickAdd;
         this.userId = userId;
         this.date = date;
     }
@@ -125,5 +128,13 @@ public class Food {
 
     public double getServingSize() {
         return servingSize;
+    }
+
+    public boolean getQuickAdd() {
+        return this.quickAdd;
+    }
+
+    public void setQuickAdd(boolean quickAdd) {
+        this.quickAdd = quickAdd;
     }
 }

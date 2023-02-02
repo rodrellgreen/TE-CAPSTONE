@@ -32,6 +32,12 @@
             <label for="servings">Serving</label>
             <input id="servings" type="number" v-model="foodItem.servingSize" required placeholder="Ex: 1">
         </li>
+
+        <li>
+            <label for="quick-add">Add to "Quick Add" List</label>
+            <input id="quick-add" type="checkbox">
+        </li>
+
         <li>
             <label for="date">Date</label>
             <input id="date" type="date" v-model="foodItemDate" required placeholder="Ex: 1">
@@ -72,6 +78,7 @@ export default {
                 fats: null,
                 fiber: null,
                 servingSize: null, 
+                //quickAdd: null,
                 date: null,
             }
         }
