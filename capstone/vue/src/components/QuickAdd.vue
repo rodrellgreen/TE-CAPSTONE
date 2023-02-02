@@ -1,19 +1,17 @@
 <template>
   <div>
       <h1> Quick Add Foods </h1>
-      <form class="quick-add-form">
-        <label for="quick-add-foods">Select a food to log:</label>
-          <select id=quick-add-foods v-model="foodItem">
-             <option v-for="food in quickAddFoods" :key="food">
-              {{food.type}}
-              calories: {{food.calories}}
-              protein: {{food.protien}}
-              carbs: {{food.carbs}}
-              fiber: {{food.fiber}}
-              fats: {{food.fats}}
-              servings: {{food.servingSize}}
-             </option>
-          </select>
+      <form class="quick-add-form" v-for="food in quickAddFoods" v-bind:key="food">
+        <input type="checkbox" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
+         <div class="quick-add-container">
+          {{food.type}}
+          Calories: {{food.calories}}
+          Protein: {{food.protein}}
+          Carbs: {{food.carbs}}
+          Fat: {{food.fats}}
+          Fiber: {{food.fiber}}
+          Serving Size: {{food.servingSize}}
+         </div>
       </form>
       <button v-on:click="logFood">Log Food Item</button>
   </div>
@@ -27,16 +25,25 @@ export default {
     data() {
       return {
 
-          quickAddFoods: [],
+        quickAddFoods: [],
 
-          foodItem: {}
+        foodItem: {
+          type: "",
+          calories: null,
+          carbs: null,
+          protein: null,
+          fats: null,
+          fiber: null,
+          servingSize: null, 
+          quickAdd: null,
+          date: null,
+        }
 
       }
     },
 
     methods: {
       logFood() {
-        window.alert(this.foodItem)
         FoodService.createFood(this.foodItem).then(
             (response) => {
                 if(response.status === 201) {
@@ -48,8 +55,22 @@ export default {
         );
       },
 
-      addToFoodItems(event) {
-        this.foodItems.push(event.target.value);
+      addToFoodItem(event) {
+        if(this.foodItem.type !== event.target.value) {
+          for(let i=0; i<this.quickAddFoods.length; i++) {
+            if(this.quickAddFoods[i].type == event.target.value) {
+              this.foodItem.type = this.quickAddFoods[i].type;
+              this.foodItem.calories = this.quickAddFoods[i].calories;
+              this.foodItem.carbs = this.quickAddFoods[i].carbs;
+              this.foodItem.protein = this.quickAddFoods[i].protein;
+              this.foodItem.fats = this.quickAddFoods[i].fats;
+              this.foodItem.fiber = this.quickAddFoods[i].fiber;
+              this.foodItem.servingSize = this.quickAddFoods[i].servingSize;
+              this.foodItem.quickAdd = this.quickAddFoods[i].quickAdd;
+              this.foodItem.date = this.quickAddFoods[i].date;
+            }
+          }
+        }
       }
     },
 
