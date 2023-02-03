@@ -8,10 +8,14 @@ public interface MealDao {
 
     void createMeal(Meal meal);
 
-    List<Meal> getMeals(String userName);
+    void addFoodsToMeal(int mealId, int foodId);
 
-    boolean updateMeal(Meal meal);
+    List<Meal> getMeals(int userId);
 
-    boolean deleteMeal(int mealId);
+    boolean updateMealType(Meal meal);
+
+    boolean updateMealFood(int mealId, int foodId);
+
+    void deleteMeal(int mealId);
     
 }

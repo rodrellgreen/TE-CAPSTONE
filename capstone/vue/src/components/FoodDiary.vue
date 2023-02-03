@@ -28,6 +28,11 @@
     <td>{{food.fats}}</td>
     <td>{{food.fiber}}</td>
     <td>{{food.servingSize}}</td>
+<<<<<<< HEAD
+=======
+    <td>{{food.date}}</td>
+    
+>>>>>>> main
   </tr>
 </tbody>
  
