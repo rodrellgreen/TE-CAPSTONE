@@ -7,12 +7,12 @@ public class Meal {
     private int mealId;
     private int userId;
     private String mealType;
-    private List<Food> foods;
 
-    public Meal(int userId, String mealType, List<Food> foods) {
+    public Meal() {}
+
+    public Meal(int userId, String mealType) {
         this.userId = userId;
         this.mealType = mealType;
-        this.foods = foods;
     }
 
     public int getMealId() {
@@ -39,11 +39,4 @@ public class Meal {
         this.mealType = mealType;
     }
 
-    public List<Food> getFoods() {
-        return foods;
-    }
-
-    public void setFoods(List<Food> foods) {
-        this.foods = foods;
-    }
 }

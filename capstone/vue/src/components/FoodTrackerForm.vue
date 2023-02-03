@@ -45,15 +45,14 @@
         </div>
         
         
-        <h3 v-if="showOptions" @close="showOptions = false">
-            Would you like to add to Snack, Breakfeast, Lunch, or Dinner?
+        <div id="mealType" v-if="showOptions" @close="showOptions = false">
             <div>
-                <button v-on:click="addNewSnack"> Snack </button>
-                <button v-on:click="addNewBreakfeast"> Breakfeast </button>
-                <button v-on:click="addNewLunch"> Lunch </button>
-                <button v-on:click="addNewDinner"> Dinner </button>
+                <v-btn v-on:click="addNewSnack"> Snack </v-btn>
+                <v-btn v-on:click="addNewBreakfeast"> Breakfast </v-btn>
+                <v-btn v-on:click="addNewLunch"> Lunch </v-btn>
+                <v-btn v-on:click="addNewDinner"> Dinner </v-btn>
             </div>
-        </h3>
+        </div>
         
     </form>
     </div>

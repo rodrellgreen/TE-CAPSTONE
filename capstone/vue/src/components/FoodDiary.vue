@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="foodLogTable">
     <table id="food-log">
       <thead>
@@ -27,6 +28,48 @@
       </tbody>
     </table>
   </div>
+=======
+  <div id="foodLogTable" style="overflow-x:auto;">
+
+
+
+<table  id="food-log">
+  
+<caption class="tableHeader">Food Log</caption>
+<tbody>
+  
+  <tr>
+    <th>Date</th>
+    <th>Food</th>
+    <th>Calories</th>
+    <th>Carbs</th>
+    <th>Protein</th>
+    <th>fats</th>
+    <th>fiber</th>
+    <th>Servings</th>
+    
+  </tr>
+  <tr v-for="food in sortedFood" :key="food">
+    <td>{{food.date}}</td>
+    <td>{{food.type}}</td>
+    <td>{{food.calories}}</td>
+    <td>{{food.carbs}}</td>
+    <td>{{food.protein}}</td>
+    <td>{{food.fats}}</td>
+    <td>{{food.fiber}}</td>
+    <td>{{food.servingSize}}</td>
+<<<<<<< HEAD
+=======
+    <td>{{food.date}}</td>
+    
+>>>>>>> main
+  </tr>
+</tbody>
+ 
+</table>
+
+</div>
+>>>>>>> main
 </template>
 
 <script>

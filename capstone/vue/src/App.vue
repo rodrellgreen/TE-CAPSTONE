@@ -1,6 +1,7 @@
 <template>
   
   <div  id="app">
+    
     <div class="header"><img src="~@/assets/banner.png" ></div>
     <div id="navbar">
       <a></a>
@@ -8,7 +9,6 @@
         <img id="logo" src="~@/assets/tef.jpg">
         &nbsp;&nbsp;
         </router-link></a>
-      
       <a><router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link></a>
       &nbsp;&nbsp;
        <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food</router-link></a>
@@ -19,7 +19,7 @@
     </div>
     <router-view />
   </div>
-  
+ 
 </template>
 
 <script>
@@ -57,7 +57,7 @@ body{
   background-color:#174C4F;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   text-align: center;
 }
 #navbar a {
@@ -106,13 +106,15 @@ div.home{
 }
 div.home-background {
   background-image: url("~@/assets/omelete.jpg");
+  background-size: cover;
+  background-repeat: repeat;
   height: 200vh; 
-  display: flex;
  
 
 }
 div.food-tracker {
   background-image: url("~@/assets/steak.jpg");
+  background-size: cover;
   height: 200vh; 
  
 
@@ -122,15 +124,7 @@ div.food-tracker {
 
  /** Login Styling Below */
 
-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+
 .flex-outer li,
 .flex-inner {
   display: flex;
@@ -155,20 +149,22 @@ input {
   
 }
 
-#food-log td, #food-log th, thead {
+#food-log td, #food-log th{
   border: 1px solid #ddd;
   padding: 3px;
 }
 
 #food-log tr{background-color: #f2f2f2;}
 
-thead {
- display: table-header-group;
+.tableHeader {
+ 
   vertical-align: middle;
+ 
   background-color: #174C4F;
   color: white;
   
 }
+
 
 
 #food-log th {
@@ -192,28 +188,42 @@ thead {
   }
 
   /** Form Styling Below */
+
+  .mealType {
+    font-size: 12px;
+  }
+
+  input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
   
-    #form-container {
+    .form-container {
         background-color: #174C4F;
         color: white;
         text-align: center;
-        padding: 10px;
-        margin: 10px;
+        
+        
         border: solid grey 2px;
         border-radius: 10px;
         width: 460px;
         height: 620px;
-        margin: auto;
-        margin-top: 50px;
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+        
+        display: flex;
+        
         font-size: large;
     }
 
     .form-form {
-        height: 100%;
+        height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -231,6 +241,7 @@ thead {
     .input-box {
       margin-left: 10px;  
       height: 25px;
+      background-color: whitesmoke;
     }
 
     .cancel-btn {
