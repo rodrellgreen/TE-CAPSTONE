@@ -2,7 +2,7 @@
   <div>
       <h1> Quick Add Foods </h1>
       <form class="quick-add-form" v-for="food in quickAddFoods" v-bind:key="food">
-        <input type="checkbox" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
+        <input type="radio" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
          <div class="quick-add-container">
           {{food.type}}
           Calories: {{food.calories}}
@@ -25,7 +25,7 @@ export default {
     data() {
       return {
 
-        quickAddFoods: [],
+        quickAddFoodsUnfiltered: [],
 
         foodItem: {
           type: "",
@@ -75,11 +75,17 @@ export default {
     },
 
     created() {
-         FoodService.getQuickAddFoods().then(
-             (response) => {
-                 this.quickAddFoods = response.data;
-             }
+        FoodService.getQuickAddFoods().then(
+          (response) => {
+            this.quickAddFoods = response.data;
+          }
         );
+    },
+
+    computed: {
+      quickAddFoodsFiltered() {
+        return this.quickAddFoodsUnfiltered;
+      }
     }
 
 }
