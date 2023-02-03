@@ -46,6 +46,14 @@ public class MealController {
     }
 
     @PutMapping("/{id}")
-    public boolean updateMealFood(@PathVariable int foodId, @RequestBody)
+    public boolean updateMealFood(@PathVariable int foodId, @RequestBody Meal meal) {
+        int mealId = meal.getMealId();
+        return mealDao.updateMealFood(mealId, foodId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteMeal(@PathVariable int mealId) {
+        mealDao.deleteMeal(mealId);
+    }
 
 }
