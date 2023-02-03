@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="quick-add">
       <h1> Quick Add Foods </h1>
       <form class="quick-add-form" v-for="food in quickAddFoodsFiltered" v-bind:key="food">
         <input type="radio" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
@@ -102,8 +102,27 @@ export default {
 </script>
 
 <style>
+
+  template {
+    text-align: center;
+    display: flex;
+  }
+
+  .quick-add {
+    background-color: #174C4F;
+    color: white;
+    border: solid grey 5px;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .quick-add-container {
-    background-color: white;
-    border: solid black 2px;
+    /* background-color: white; */
+    border: solid white 1px;
+    border-radius: 5px;
   }
 </style>
