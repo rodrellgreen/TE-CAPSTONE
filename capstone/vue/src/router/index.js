@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import TrackFood from '../views/TrackFood.vue'
 import Profile from '../views/Profile.vue'
-
+import Community from '../views/Community.vue'
 Vue.use(Router)
 
 /**
@@ -78,8 +78,16 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/community",
+      name: "community",
+      component: Community,
+      meta: {
+        requiresAuth: true
+      }
     }
-   
+
   ]
 })
 
