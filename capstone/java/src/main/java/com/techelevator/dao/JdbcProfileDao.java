@@ -82,7 +82,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public boolean updateProfile(Profile profile) {
         boolean success = false;
-        String sql = "UPDATE profile SET email=?, age=?, height_feet=?, height_inches=?, current_weight=?, desired_weight=?, profile_picture=?, display_name=?, public_private=?," +
+        String sql = "UPDATE profile SET email=?, age=?, height_feet=?, height_inches=?, current_weight=?, desired_weight=?, profile_picture=?, display_name=?, public_private=?" +
                 "  WHERE profile_id=?;";
         int linesUpdated = jdbcTemplate.update(sql, profile.getEmail(), profile.getAge(),
                 profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(),profile.getDisplayName(),profile.isPublicPrivate(),profile.getProfileId());

@@ -49,7 +49,7 @@ export default {
         let goal_percentage = (this.calorieTotal / this.calorieGoal) * 100;
        
         goal_percentage = Math.round(goal_percentage);
-        console.log(goal_percentage)
+        
         return goal_percentage
       },
 

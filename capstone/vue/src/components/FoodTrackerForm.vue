@@ -123,7 +123,14 @@ export default {
                                       .replace(/-/, '/'); // replace 2nd "-" with "/"
 
         this.foodItem.date = new Date(strInputValue2);
-        alert(this.foodItem.date)
+        
+        this.foodItem.calories = (((this.foodItem.carbs - this.foodItem.fiber ) * 4) * this.foodItem.servingSize) + ((this.foodItem.protein * 4) * this.foodItem.servingSize) + ((this.foodItem.fats * 9) * this.foodItem.servingSize)
+        
+        this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
+        this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
+        this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
+        this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
+        
           FoodService.createFood(this.foodItem).then(
               (response) => {
                   if(response.status === 201) {
@@ -139,11 +146,15 @@ export default {
 
        addNewSnack(){
      
-           this.foodItem.calories = (this.foodItem.calories - this.foodItem.fiber) * this.foodItem.servingSize;
-           this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
+        //    this.foodItem.calories = (this.foodItem.calories - this.foodItem.fiber) * this.foodItem.servingSize;
+           this.foodItem.calories = (((this.foodItem.carbs - this.foodItem.fiber ) * 4) * this.foodItem.servingSize) + ((this.foodItem.protein * 4) * this.foodItem.servingSize) + ((this.foodItem.fats * 9) * this.foodItem.servingSize)
+           
+           this.foodItem.carbs = (this.foodItem.carbs - this.foodItem.fiber) * this.foodItem.servingSize;
            this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
+           
+           
            this.$store.commit('NEW_SNACK', this.foodItem)
            this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
@@ -158,12 +169,13 @@ export default {
        },
 
         addNewBreakfeast(){
-      
-           this.foodItem.calories = (this.foodItem.calories - this.foodItem.fiber) * this.foodItem.servingSize;
+           this.foodItem.calories = (((this.foodItem.carbs - this.foodItem.fiber ) * 4) * this.foodItem.servingSize) + ((this.foodItem.protein * 4) * this.foodItem.servingSize) + ((this.foodItem.fats * 9) * this.foodItem.servingSize)
+           
            this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
            this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
+
            this.$store.commit('NEW_BREAKFEAST', this.foodItem)
            this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
@@ -178,12 +190,13 @@ export default {
        },
 
         addNewLunch(){
+           this.foodItem.calories = (((this.foodItem.carbs - this.foodItem.fiber ) * 4) * this.foodItem.servingSize) + ((this.foodItem.protein * 4) * this.foodItem.servingSize) + ((this.foodItem.fats * 9) * this.foodItem.servingSize)
            
-           this.foodItem.calories = (this.foodItem.calories - this.foodItem.fiber) * this.foodItem.servingSize;
            this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
            this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
+
            this.$store.commit('NEW_LUNCH', this.foodItem)
            this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",
@@ -200,11 +213,13 @@ export default {
 
         addNewDinner(){
            
-           this.foodItem.calories = (this.foodItem.calories - this.foodItem.fiber) * this.foodItem.servingSize;
+           this.foodItem.calories = (((this.foodItem.carbs - this.foodItem.fiber ) * 4) * this.foodItem.servingSize) + ((this.foodItem.protein * 4) * this.foodItem.servingSize) + ((this.foodItem.fats * 9) * this.foodItem.servingSize)
+           
            this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
            this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
            this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;  
            this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
+
            this.$store.commit('NEW_DINNER', this.foodItem)
            this.$store.commit('NEW_ALLFOODS', this.foodItem)
            this.foodItem = {  type: "",

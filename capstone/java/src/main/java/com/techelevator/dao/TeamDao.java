@@ -18,8 +18,6 @@ public interface TeamDao {
 
     boolean deleteTeam(int id);
 
-    List<String> getDisplayNamesFromTeamId(int teamId);
-
     int getTeamIdByTeamName(String name);
 
     boolean updateUsersOnTeam(String teamName,String displayName);
@@ -31,4 +29,6 @@ public interface TeamDao {
     List<Team> getUsersTeams(String displayName);
 
     boolean deleteUserFromTeam(int teamId,String displayName);
+
+    List<String> getDisplayNamesFromTeamId(int teamId);
 }
