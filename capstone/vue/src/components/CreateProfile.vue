@@ -137,7 +137,7 @@ export default {
                   if(response.status === 201) {
                     // add to store??
                     alert("Success! Profile added.");
-                    this.$router.push('/');
+                    this.$router.go();
                   }
             } 
           );

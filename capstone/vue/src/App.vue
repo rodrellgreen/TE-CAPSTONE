@@ -155,20 +155,27 @@ input {
   
 }
 
-#food-log td, #food-log th {
+#food-log td, #food-log th, thead {
   border: 1px solid #ddd;
   padding: 3px;
 }
 
-#food-log tr:nth-child(even){background-color: #f2f2f2;}
+#food-log tr{background-color: #f2f2f2;}
 
-#food-log tr:hover {background-color: #ddd;}
+thead {
+ display: table-header-group;
+  vertical-align: middle;
+  background-color: #174C4F;
+  color: white;
+  
+}
+
 
 #food-log th {
   padding-top: 12px;
   padding-bottom: 12px;
  
-  background-color: #04AA6D;
+  background-color: #174C4F;
   color: white;
   
 }

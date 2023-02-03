@@ -128,7 +128,7 @@ export default {
               (response) => {
                   if(response.status === 201) {
                     alert("Success! Food Added.");
-                    this.$router.push('/');
+                    this.$router.go();
                   
                   }
             } 
