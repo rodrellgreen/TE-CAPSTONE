@@ -19,6 +19,9 @@ export default {
     },
     getQuickAddFoods() {
         return axios.get('/food/quickAdd')
+    },
+    getTodaysFood(){
+        return axios.get('/food/today')
     }
 
 }
