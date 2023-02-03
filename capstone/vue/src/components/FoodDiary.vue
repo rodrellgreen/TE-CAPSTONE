@@ -19,7 +19,8 @@
     <th>Servings</th>
     
   </tr>
-  <tr v-for="food in sortedFood" :key="food.date">
+  <tr v-for="food in sortedFood" :key="food">
+    <td>{{food.date}}</td>
     <td>{{food.type}}</td>
     <td>{{food.calories}}</td>
     <td>{{food.carbs}}</td>
@@ -27,14 +28,6 @@
     <td>{{food.fats}}</td>
     <td>{{food.fiber}}</td>
     <td>{{food.servingSize}}</td>
-<<<<<<< HEAD
-    <td>{{food.date}}</td>
-
-
-    
-    
-=======
->>>>>>> main
   </tr>
 </tbody>
  

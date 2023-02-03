@@ -5,6 +5,7 @@
 
 <table  id="food-log">
   <tr>
+    <th>Date</th>
     <th>Food</th>
     <th>Calories</th>
     <th>Carbs</th>
@@ -12,9 +13,10 @@
     <th>fats</th>
     <th>fiber</th>
     <th>Servings</th>
-    <th>Date</th>
+    
   </tr>
   <tr v-for="food in sortedFood.slice(0, 7)" :key="food.date">
+    <td>{{food.date}}</td>
     <td>{{food.type}}</td>
     <td>{{food.calories}}</td>
     <td>{{food.carbs}}</td>
@@ -22,7 +24,7 @@
     <td>{{food.fats}}</td>
     <td>{{food.fiber}}</td>
     <td>{{food.servingSize}}</td>
-    <td>{{food.date}}</td>
+    
 
     
     
