@@ -1,9 +1,13 @@
-
 <template>
-    <div class="food-tracker">
-       <food-tracker-form/> <food-diary/>
-       <quick-add/>
-    </div>
+
+  <div class="food-tracker">
+        <food-tracker-form v-if="!showQuickAdd"/>
+        <quick-add v-if="showQuickAdd"/>
+        <button v-if="!showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Quick Add</button>
+        <button v-if="showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Cancel</button>
+       <food-diary/>
+</div>
+
     
 </template>
 
@@ -15,6 +19,13 @@ import QuickAdd from '../components/QuickAdd.vue';
 
 
 export default {
+
+    data() {
+        return {
+            showQuickAdd: false
+        }
+    },
+
     name: 'food',
     components:{
         FoodTrackerForm,

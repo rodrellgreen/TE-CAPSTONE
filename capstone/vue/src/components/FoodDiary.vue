@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <div id="foodLogTable">
 
 <h1>Food Log</h1>
 
@@ -30,7 +30,7 @@
  
 </table>
 
-</body>
+</div>
 </template>
 
 <script>

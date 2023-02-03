@@ -5,7 +5,11 @@ import com.techelevator.dao.ProfileDao;
 import com.techelevator.dao.TeamDao;
 import com.techelevator.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.method.P;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
@@ -28,16 +32,49 @@ public class TeamController {
         }
 
         @GetMapping()
-        public String getTeamForMember(Principal principal){
+        public List<Team> getTeamsForMember(Principal principal){
             int profileId= profileDao.getProfileIdByUsername(principal.getName());
             String displayName=profileDao.getDisplayNameFromProfileId(profileId);
 
-            return teamDao.getUsersTeam(displayName);
+            return teamDao.getUsersTeams(displayName);
         }
 
         @PostMapping()
         public void createATeam(@RequestBody Team team){
             teamDao.createTeam(team);
+        }
+
+        @PostMapping(path = "/addMember")
+        public void addUsertoTeam(Principal principal, @RequestBody Team team){
+            int profileId=profileDao.getProfileIdByUsername(principal.getName());
+            String displayName=profileDao.getDisplayNameFromProfileId(profileId);
+            teamDao.addUserToTeam(team.getTeamId(),displayName);
+        }
+
+        @GetMapping(path="/allTeams")
+    public List<Team> getAllTeamsAvailable(){
+            return teamDao.getAllTeams();
+        }
+
+        @PutMapping()
+    public void updateTeamName(@RequestBody Team team){
+            boolean updated=teamDao.updateTeam(team);
+            if (!updated){
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Team not updated");
+            }
+        }
+
+        @DeleteMapping(path="/{id}")
+        public void deleteUserFromTeam(Principal principal, @PathVariable int id){
+            int profileId=profileDao.getProfileIdByUsername(principal.getName());
+            String displayName=profileDao.getDisplayNameFromProfileId(profileId);
+            teamDao.deleteUserFromTeam(id,displayName);
+        }
+
+        @PreAuthorize("hasRole('ADMIN')")
+        @DeleteMapping(path="/remove/{id}")
+        public void deleteTeam(@PathVariable int id){
+            teamDao.deleteTeam(id);
         }
 
 
