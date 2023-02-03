@@ -1,10 +1,13 @@
 <template>
   <div id="foodLogTable">
 
-<h1>Food Log</h1>
+
 
 <table  id="food-log">
+<thead> <td> Food Log </td></thead>
+<tbody>
   <tr>
+    <th>Date</th>
     <th>Food</th>
     <th>Calories</th>
     <th>Carbs</th>
@@ -12,7 +15,7 @@
     <th>fats</th>
     <th>fiber</th>
     <th>Servings</th>
-    <th>Date</th>
+    
   </tr>
   <tr v-for="food in sortedFood" :key="food.date">
     <td>{{food.type}}</td>
@@ -22,12 +25,16 @@
     <td>{{food.fats}}</td>
     <td>{{food.fiber}}</td>
     <td>{{food.servingSize}}</td>
+<<<<<<< HEAD
     <td>{{food.date}}</td>
 
 
     
     
+=======
+>>>>>>> main
   </tr>
+</tbody>
  
 </table>
 
