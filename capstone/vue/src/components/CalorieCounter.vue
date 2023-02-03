@@ -4,9 +4,9 @@
      
  
       <h1> Calorie Total: {{calorieTotal}} </h1>
-       
+      <h2> Daily Calorie Percentage: {{updateCalorieBar}}%</h2>
     <div class="progress">
-      <div class="goal_percentage" :style="{'width': goal_percentage + '%'}">
+      <div class="goal_percentage" :style="{'width': updateCalorieBar + '%'}">
         <span class="progress__text">great things loading...</span> 
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
         return{
         foodLog: [],
         profile: [],
-        goal_percentage: 0,
+        goal_percentage: 0        
         }
     },
 
@@ -44,16 +44,22 @@ export default {
 
     computed: {
       
-      updateCalorieBar(goal_percentage, calorieGoal, calorieTotal){
-        goal_percentage = (calorieTotal / calorieGoal) * 100;
+      updateCalorieBar(){
+
+        let goal_percentage = (this.calorieTotal / this.calorieGoal) * 100;
+       
         goal_percentage = Math.round(goal_percentage);
+        
         return goal_percentage
       },
 
       calorieGoal(){
         if(this.profile.currentWeight > this.profile.desiredWeight){
+          
+          
           return this.profile.currentWeight * 14.5 - 250;
         } else {
+          
           return this.profile.currentWeight * 14.5 + 250;
         }
       },
@@ -89,8 +95,8 @@ export default {
 
 .goal_percentage {
   height: 100%;
-  
   background-color: green;
+  
   transition: all 1s;
 }
 
