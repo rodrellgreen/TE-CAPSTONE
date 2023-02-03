@@ -40,9 +40,8 @@ export default new Vuex.Store({
     dinner: [
 
     ],
-    allTeams: [],
-    userTeams: [],
-    profile: {}
+    newTeam: {},
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -76,12 +75,9 @@ export default new Vuex.Store({
     NEW_ALLFOODS(state, foodItem) {
       state.allFoods.unshift(foodItem)
     },
-    USER_TEAMS(state, userTeams) {
-      state.userTeams = userTeams;
-    },
-    ALL_TEAMS(state, allTeams) {
-      state.allTeams = allTeams;
-    },
+    NEW_TEAM(state, newTeam) {
+      state.newTeam = newTeam;
+    }
 
   }
 })

@@ -25,6 +25,9 @@ export default {
     },
     deleteTeam(teamId) {
         return axios.delete(`/teams/remove/${teamId}`)
+    },
+    getSpecificTeam(teamId) {
+        return axios.get(`/teams/${teamId}`)
     }
 
 }
