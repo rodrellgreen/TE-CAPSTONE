@@ -1,6 +1,7 @@
 <template>
   
   <div  id="app">
+    
     <div class="header"><img src="~@/assets/banner.png" ></div>
     <div id="navbar">
       <a></a>
@@ -8,7 +9,6 @@
         <img id="logo" src="~@/assets/tef.jpg">
         &nbsp;&nbsp;
         </router-link></a>
-      
       <a><router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link></a>
       &nbsp;&nbsp;
        <a><router-link v-bind:to="{ name: 'trackFood' }" v-if="$store.state.token != ''">Food</router-link></a>
@@ -19,7 +19,7 @@
     </div>
     <router-view />
   </div>
-  
+ 
 </template>
 
 <script>
@@ -57,7 +57,7 @@ body{
   background-color:#174C4F;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   text-align: center;
 }
 #navbar a {
@@ -106,8 +106,8 @@ div.home{
 }
 div.home-background {
   background-image: url("~@/assets/omelete.jpg");
+  background-size: cover;
   height: 200vh; 
-  display: flex;
  
 
 }
@@ -162,9 +162,10 @@ input {
 
 #food-log tr{background-color: #f2f2f2;}
 
-thead {
- display: table-header-group;
+.tableHeader {
+ 
   vertical-align: middle;
+ 
   background-color: #174C4F;
   color: white;
   
