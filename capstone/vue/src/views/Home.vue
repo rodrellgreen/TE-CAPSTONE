@@ -6,6 +6,7 @@
       
     </p>
     <router-link v-if="$store.state.token == ''" v-bind:to="{ name: 'login' }">Login</router-link><br>
+    <streak-tracker/>
     <calorie-counter/>
     <recent-food/>
   </div>
@@ -16,12 +17,14 @@
 <script>
 import RecentFood from '../components/RecentFood.vue'
 import CalorieCounter from '../components/CalorieCounter.vue'
+import StreakTracker from '../components/StreakTracker.vue'
 
 export default {
   name: "home",
   components:{
   RecentFood,
-  CalorieCounter
+  CalorieCounter,
+    StreakTracker
 }
 }
   

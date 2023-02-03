@@ -25,6 +25,10 @@ public class TeamController {
     @Autowired
     ProfileDao profileDao;
 
+    @GetMapping(path="/{teamId}")
+    public Team getSpecificTeam(@PathVariable int teamId){
+        return teamDao.getTeam(teamId);
+    }
 
         @GetMapping(path = "/{teamId}/members")
         public List<String> getTeamMembersForSpecificTeam(@PathVariable int teamId){

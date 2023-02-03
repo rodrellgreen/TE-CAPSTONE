@@ -107,12 +107,14 @@ div.home{
 div.home-background {
   background-image: url("~@/assets/omelete.jpg");
   background-size: cover;
+  background-repeat: repeat;
   height: 200vh; 
  
 
 }
 div.food-tracker {
   background-image: url("~@/assets/steak.jpg");
+  background-size: cover;
   height: 200vh; 
  
 
@@ -122,15 +124,7 @@ div.food-tracker {
 
  /** Login Styling Below */
 
-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+
 .flex-outer li,
 .flex-inner {
   display: flex;
@@ -155,7 +149,7 @@ input {
   
 }
 
-#food-log td, #food-log th, thead {
+#food-log td, #food-log th{
   border: 1px solid #ddd;
   padding: 3px;
 }
@@ -170,6 +164,7 @@ input {
   color: white;
   
 }
+
 
 
 #food-log th {
@@ -193,28 +188,42 @@ input {
   }
 
   /** Form Styling Below */
+
+  .mealType {
+    font-size: 12px;
+  }
+
+  input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
   
-    #form-container {
+    .form-container {
         background-color: #174C4F;
         color: white;
         text-align: center;
-        padding: 10px;
-        margin: 10px;
+        
+        
         border: solid grey 2px;
         border-radius: 10px;
         width: 460px;
         height: 620px;
-        margin: auto;
-        margin-top: 50px;
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+        
+        display: flex;
+        
         font-size: large;
     }
 
     .form-form {
-        height: 100%;
+        height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -232,6 +241,7 @@ input {
     .input-box {
       margin-left: 10px;  
       height: 25px;
+      background-color: whitesmoke;
     }
 
     .cancel-btn {

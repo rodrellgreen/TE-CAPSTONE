@@ -8,6 +8,7 @@ import store from '../store/index'
 import TrackFood from '../views/TrackFood.vue'
 import Profile from '../views/Profile.vue'
 import Community from '../views/Community.vue'
+import Team from '../views/Team.vue'
 Vue.use(Router)
 
 /**
@@ -83,6 +84,15 @@ const router = new Router({
       path: "/community",
       name: "community",
       component: Community,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/community/:id",
+      name: "team",
+      component: Team,
+      props: true,
       meta: {
         requiresAuth: true
       }
