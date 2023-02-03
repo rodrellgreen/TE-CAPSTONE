@@ -123,7 +123,7 @@ public class JdbcFoodDao implements FoodDao{
     @Override
     public List<Food> getQuickAddFoods(String username) {
         List<Food> food = new ArrayList<>();
-        String sql = "SELECT DISTINCT food_name, calories, carbs, protein, fats, fiber, serving_size, quick_add FROM food WHERE quick_add = true AND user_id = ?;";
+        String sql = "SELECT * FROM food WHERE quick_add = true AND user_id = ?;";
         int id = getUserIdByUsername(username);
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while (results.next()){
