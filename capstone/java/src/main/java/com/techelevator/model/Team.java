@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+
+
 public class Team {
 
     private int teamId;

@@ -12,7 +12,7 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
@@ -40,6 +40,9 @@ export default new Vuex.Store({
     dinner: [
 
     ],
+    allTeams: [],
+    userTeams: [],
+    profile: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -49,7 +52,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -58,20 +61,26 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    NEW_SNACK( state, foodItem ) {
+    NEW_SNACK(state, foodItem) {
       state.snacks.push(foodItem);
     },
-    NEW_BREAKFEAST( state, foodItem ) {
+    NEW_BREAKFEAST(state, foodItem) {
       state.breakfeast.push(foodItem);
     },
-    NEW_LUNCH( state, foodItem ) {
+    NEW_LUNCH(state, foodItem) {
       state.lunch.push(foodItem);
     },
-    NEW_DINNER( state, foodItem ) {
+    NEW_DINNER(state, foodItem) {
       state.dinner.push(foodItem);
     },
-    NEW_ALLFOODS(state, foodItem){
+    NEW_ALLFOODS(state, foodItem) {
       state.allFoods.unshift(foodItem)
+    },
+    USER_TEAMS(state, userTeams) {
+      state.userTeams = userTeams;
+    },
+    ALL_TEAMS(state, allTeams) {
+      state.allTeams = allTeams;
     },
 
   }

@@ -38,12 +38,13 @@ public class TeamController {
 
             return teamDao.getUsersTeams(displayName);
         }
-
+        @ResponseStatus(HttpStatus.CREATED)
         @PostMapping()
         public void createATeam(@RequestBody Team team){
             teamDao.createTeam(team);
         }
 
+        @ResponseStatus(HttpStatus.CREATED)
         @PostMapping(path = "/addMember")
         public void addUsertoTeam(Principal principal, @RequestBody Team team){
             int profileId=profileDao.getProfileIdByUsername(principal.getName());
