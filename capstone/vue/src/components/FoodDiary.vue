@@ -1,11 +1,13 @@
 <template>
-  <div id="foodLogTable">
+  <div id="foodLogTable" style="overflow-x:auto;">
 
 
 
 <table  id="food-log">
-<thead> <td> Food Log </td></thead>
+  
+<caption class="tableHeader">Food Log</caption>
 <tbody>
+  
   <tr>
     <th>Date</th>
     <th>Food</th>

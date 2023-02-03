@@ -126,14 +126,13 @@ public class JdbcTeamDao implements TeamDao{
     public boolean deleteUserFromTeam(int teamId,String displayName) {
         String sql="DELETE FROM users_teams WHERE user_id=? AND team_id=?;";
         int userId=getUserIdFromDisplayName(displayName);
-        int linesUpdated= jdbcTemplate.update(sql,teamId,userId);
+        int linesUpdated= jdbcTemplate.update(sql,userId,teamId);
         boolean success=false;
         if(linesUpdated==1){
             success=true;
         }
         return success;
     }
-
 
     @Override
     public List<String> getDisplayNamesFromTeamId(int teamId) {
