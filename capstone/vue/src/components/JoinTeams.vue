@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ul v-for="team in this.$store.state.allTeams" :key="team.teamId">
+    <h2>Available Teams</h2>
+    <ul v-for="team in this.allTeams" :key="team.teamId">
       <li>
         {{ team.teamName
         }}<span v-if="isOnTeam(team.teamId)"
@@ -29,12 +30,10 @@ export default {
   created() {
     teamService.getAllAvailableTeams().then((response) => {
       this.allTeams = response.data;
-      this.$store.commit("ALL_TEAMS", this.allTeams);
     });
 
     teamService.getUsersTeams().then((response) => {
       this.userTeams = response.data;
-      this.$store.commit("USER_TEAMS", this.userTeams);
     });
   },
   computed: {},
@@ -43,7 +42,7 @@ export default {
       teamService.addUserToTeam(team).then((response) => {
         if (response.status == 201) {
           alert(`You have joined ${team.teamName}`);
-          this.$router.push("/community");
+          window.location.reload();
         }
       });
     },
@@ -51,7 +50,7 @@ export default {
       teamService.removeUserFromTeam(teamId).then((response) => {
         if (response.status == 200) {
           alert("Removed from team");
-          this.$router.push("/community");
+          window.location.reload();
         }
       });
     },
@@ -61,7 +60,7 @@ export default {
       });
     },
     isOnTeam(teamId) {
-      return this.$store.state.userTeams.some((team) => team.teamId == teamId);
+      return this.userTeams.some((team) => team.teamId == teamId);
     },
   },
 };
