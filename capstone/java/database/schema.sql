@@ -73,6 +73,16 @@ CREATE TABLE profile (
  CONSTRAINT FK_food_id FOREIGN KEY (food_id) REFERENCES food(food_id)
  );
 
+ CREATE TABLE community_posts(
+ post_id SERIAL,
+ team_id INTEGER NOT NULL,
+ user_id INTEGER NOT NULL,
+ post varchar(2000),
+ CONSTRAINT PK_post_id PRIMARY KEY (post_id),
+ CONSTRAINT FK_team_id FOREIGN KEY (team_id) REFERENCES teams(team_id),
+ CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
+ );
+
 
 
 COMMIT TRANSACTION;

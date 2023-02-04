@@ -62,9 +62,11 @@ public class JdbcTeamDao implements TeamDao{
     @Override
     public boolean deleteTeam(int id) {
         boolean success=false;
+        String sql3="DELETE FROM community_posts WHERE team_id=?";
         String sql="DELETE FROM users_teams WHERE team_id=?";
         String sql2="DELETE FROM teams WHERE team_id=?;";
 
+        jdbcTemplate.update(sql3,id);
         int linesUpdated= jdbcTemplate.update(sql,id);
         int linesUpdated2=jdbcTemplate.update(sql2,id);
         if(linesUpdated==1&&linesUpdated2==1){

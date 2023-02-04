@@ -2,8 +2,10 @@
   <div>
     <h2>My Teams</h2>
     <ul>
-      <li v-for="team in myTeams" :key="team.teamId" @click="showDetails(team)">
-        {{ team.teamName }}
+      <li v-for="team in myTeams" :key="team.teamId">
+        <router-link :to="{ name: 'team', params: { teamIndex: team.teamId } }">
+          {{ team.teamName }}</router-link
+        >
       </li>
     </ul>
   </div>
@@ -23,16 +25,14 @@ export default {
       this.myTeams = response.data;
     });
   },
-  methods: {
-    showDetails(team) {
-      this.$router.push({
-        name: "team",
-        params: { id: team.teamId },
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
 <style>
 </style>
+
+
+
+
+

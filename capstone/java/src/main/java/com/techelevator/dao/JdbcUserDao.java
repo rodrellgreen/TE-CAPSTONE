@@ -95,8 +95,10 @@ public class JdbcUserDao implements UserDao {
     @Override
     public boolean deleteUser(String username){
        boolean success=false;
+       String sql2="DELETE FROM community_posts WHERE user_id=?";
        String sql="DELETE FROM users u WHERE user_id=?";
        int id=findIdByUsername(username);
+       jdbcTemplate.update(sql2,id);
        int linesUpdated=jdbcTemplate.update(sql,id);
        if(linesUpdated==1){
            success=true;
