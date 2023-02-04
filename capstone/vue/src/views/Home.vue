@@ -6,6 +6,7 @@
       
     </p>
     <router-link v-if="$store.state.token == ''" v-bind:to="{ name: 'login' }">Login</router-link><br>
+    <weekly-graph/>
     <streak-tracker/>
     <calorie-counter/>
     <recent-food/>
@@ -24,7 +25,7 @@ export default {
   components:{
   RecentFood,
   CalorieCounter,
-    StreakTracker
+  StreakTracker
 }
 }
   
