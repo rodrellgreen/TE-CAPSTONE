@@ -19,13 +19,16 @@
 import RecentFood from '../components/RecentFood.vue'
 import CalorieCounter from '../components/CalorieCounter.vue'
 import StreakTracker from '../components/StreakTracker.vue'
+import WeeklyGraph from '../components/WeeklyGraph.vue'
 
 export default {
   name: "home",
   components:{
   RecentFood,
   CalorieCounter,
-  StreakTracker
+  StreakTracker,
+  WeeklyGraph
+
 }
 }
   

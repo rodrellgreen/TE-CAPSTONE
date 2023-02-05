@@ -66,7 +66,7 @@ export default {
     data() {
         return{
             
-            foodItemDate: '',
+            // foodItemDate: '',
 
             foodItem: {
                 type: "",
@@ -82,24 +82,24 @@ export default {
         }
     },
 
-   watch: {
-  foodItemDate(newDate) {
+//    watch: {
+//   foodItemDate(newDate) {
       
-    this.foodItem.date = new Date(newDate).toJSON();
-    // console.log(this.foodItemDate)
-  }
-},
-    // created(){
-    //     FoodService.createFood(this.foodItem).then(
+//     this.foodItem.date = new Date(newDate).toJSON();
+//     // console.log(this.foodItemDate)
+//   }
+// },
+    created(){
+        FoodService.createFood(this.foodItem).then(
 
-    //         (response) => {
-    //             if(response.status == 200){
-    //                 this.$router.push('/')
-    //             }
+            (response) => {
+                if(response.status == 200){
+                    this.$router.push('/')
+                }
                 
-    //         }
-    //     )
-    // },
+            }
+        )
+    },
 
     computed: {
         showOptions(){

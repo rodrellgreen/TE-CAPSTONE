@@ -32,11 +32,12 @@
     "cypress": "8.2.0",
     "eslint": "^7.21.0",
     "eslint-plugin-vue": "^7.7.0",
-    "vue-loader-v16": "npm:vue-loader@16.1.2",
-    "vue-template-compiler": "^2.6.12",
+    "jscharting-vue": "^2.3.1",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
-    "vue-cli-plugin-vuetify":"~2.5.8",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "vue-loader-v16": "npm:vue-loader@16.1.2",
+    "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.7.0"
   }
 }
