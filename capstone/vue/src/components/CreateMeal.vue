@@ -1,17 +1,18 @@
 <template>
   <div class="meal-form-container">
       <h1>Create New Meal</h1>
-      <form class="meal-form">
+      <form class="meal-form" @submit.prevent="createMeal">
           <label for="name">Meal Name:</label>
           <input
             type="text"
             id="name"
             class="input-box"
             placeholder="Ex: Spaghetti"
-            v-model="newMealName"
+            v-model="mealType"
             required
             autofocus
-        />
+          />
+          <button class="create-meal-btn" type="submit">Add</button>
       </form>
   </div>
 </template>
@@ -24,17 +25,17 @@ export default {
     data() {
         return {
 
-            newMealName: ""
+            mealType: ""
 
         }
     },
 
     methods: {
         createMeal() {
-            MealService.createMeal(this.newMealName).then(
+            MealService.createMeal(this.mealType).then(
                 (response) => {
                     if(response.status === 201) {
-                        alert("Success! Meal created");
+                        alert(`Success! ${this.mealType} created`);
                         this.$router.go();
                     }
                 }

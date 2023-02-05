@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default {
 
-    createMeal(meal) {
-        return axios.post('/meals', meal);
+    createMeal(mealType) {
+        return axios.post('/meals', mealType);
     },
 
     addFoodToMeal(id, meal) {
@@ -23,7 +23,7 @@ export default {
     },
 
     deleteMeal(id) {
-        return axios.delete(`/meal/${id}`);
+        return axios.delete(`/meals/${id}`);
     }
 
 }

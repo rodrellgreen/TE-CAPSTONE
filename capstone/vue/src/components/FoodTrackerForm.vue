@@ -101,10 +101,10 @@
 
       <div id="mealType" v-if="showOptions" @close="showOptions = false">
         <div>
-          <v-btn v-on:click="addNewSnack"> Snack </v-btn>
-          <v-btn v-on:click="addNewBreakfeast"> Breakfast </v-btn>
-          <v-btn v-on:click="addNewLunch"> Lunch </v-btn>
-          <v-btn v-on:click="addNewDinner"> Dinner </v-btn>
+          <v-btn v-on:click="logFood"> Snack </v-btn>
+          <v-btn v-on:click="logFood"> Breakfast </v-btn>
+          <v-btn v-on:click="logFood"> Lunch </v-btn>
+          <v-btn v-on:click="logFood"> Dinner </v-btn>
         </div>
       </div>
     </form>
