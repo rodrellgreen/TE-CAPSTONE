@@ -9,6 +9,7 @@ import TrackFood from '../views/TrackFood.vue'
 import Profile from '../views/Profile.vue'
 import Community from '../views/Community.vue'
 import Team from '../views/Team.vue'
+import Meals from '../views/Meals.vue'
 Vue.use(Router)
 
 /**
@@ -26,7 +27,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
+      name: 'welcome',
       component: Login,
       meta: {
         requiresAuth: false
@@ -93,6 +94,14 @@ const router = new Router({
       name: "team",
       component: Team,
       props: true,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/meals",
+      name: "meals",
+      component: Meals,
       meta: {
         requiresAuth: true
       }

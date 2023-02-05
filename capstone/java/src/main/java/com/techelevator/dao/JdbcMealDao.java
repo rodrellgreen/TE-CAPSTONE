@@ -17,10 +17,11 @@ public class JdbcMealDao implements MealDao {
     }
 
     @Override
-    public void createMeal(Meal meal) {
+    public void createMeal(int userId, String mealType) {
         String sql = "INSERT INTO meal (user_id, meal_type) " +
                 "VALUES (?, ?) RETURNING meal_id;";
-        Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, meal.getUserId(), meal.getMealType());
+        Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, userId, mealType);
+        
     }
 
     @Override
@@ -33,8 +34,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public List<Meal> getMeals(int userId) {
         List<Meal> meals = new ArrayList<>();
-        String sql = "SELECT * FROM meal OUTER JOIN meal_food ON meal.meal_id = meal_food.meal_id " +
-                "WHERE user_id = ?;";
+        String sql = "SELECT * FROM meal WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
             meals.add(mapRowToMeal(results));

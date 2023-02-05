@@ -110,7 +110,7 @@ public class JdbcProfileDao implements ProfileDao{
         String sql="INSERT INTO profile (user_id, email, age, height_feet, height_inches, " +
                 "current_weight, desired_weight, profile_picture, display_name, public_private) VALUES (?,?,?,?,?,?,?,?,?,?) RETURNING profile_id";
         Integer profileId=jdbcTemplate.queryForObject(sql,Integer.class,profile.getUserId(),profile.getEmail(),profile.getAge(),
-        profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(), profile.getDisplayName(),false);
+        profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(), profile.getDisplayName(),profile.isPublicPrivate());
 
         return getProfileById(profileId);
     }

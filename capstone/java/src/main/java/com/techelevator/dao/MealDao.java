@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MealDao {
 
-    void createMeal(Meal meal);
+    void createMeal(int userId, String mealType);
 
     void addFoodsToMeal(int mealId, int foodId);
 
