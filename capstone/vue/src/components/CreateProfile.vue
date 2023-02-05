@@ -149,15 +149,7 @@ export default {
     },
 
     sendHome() {
-      this.newProfile.email = "";
-      this.newProfile.age = null;
-      this.newProfile.feet = null;
-      this.newProfile.inches = null;
-      this.newProfile.currentWeight = null;
-      this.newProfile.desiredWeight = null;
-      this.newProfile.displayName = "";
-      this.newProfile.profilePicture = "";
-      this.$router.push("/");
+     this.$router.go();
     },
   },
 };
