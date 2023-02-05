@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-container class="teams">
     <v-container>
       <v-row>
-        <v-col class="d-flex flex-column" cols="3">
+        <v-col>
           <h2 id="teamName">{{ team.teamName }}</h2>
 
           <h3 id="membersTitle">Members</h3>
@@ -14,7 +14,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container class="d-flex flex-wrap justify-center">
+    <v-container>
       <v-card v-for="post in teamPosts" :key="post.postId" class="posts">
         <v-card-title id="posterName">{{ post.displayName }}</v-card-title>
         <v-card-text id="posterMessage">{{ post.message }}</v-card-text>
@@ -22,18 +22,18 @@
     </v-container>
 
     <v-card-actions>
-      <v-container class="d-flex flex-wrap justify-center">
+      <v-container>
         <v-textarea
           v-model="post.message"
-          label="Post A Message"
+          label="Post a Message"
           auto-grow
           row="2"
           class="postArea"
         ></v-textarea>
+        <v-btn @click="addPost(post)">Post</v-btn>
       </v-container>
-      <v-btn @click="addPost(post)">Post</v-btn>
     </v-card-actions>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -79,13 +79,4 @@ export default {
 </script>
 
 <style>
-.postArea {
-  width: 70vw;
-  height: 500px;
-  padding-left: 10vw;
-}
-.posts {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  width: 70vw;
-}
 </style>

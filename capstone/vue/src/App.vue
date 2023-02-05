@@ -32,13 +32,13 @@
           >Profile</router-link
         ></a
       >
-      &nbsp; &nbsp;
+
       <a
         ><router-link
           v-bind:to="{ name: 'community' }"
           v-if="profile.publicPrivate === true && $store.state.token != ''"
-          >Community</router-link
-        ></a
+          >&nbsp; &nbsp;Community
+        </router-link></a
       >
       &nbsp; &nbsp;
       <a

@@ -101,10 +101,10 @@
 
       <div id="mealType" v-if="showOptions" @close="showOptions = false">
         <div>
-          <v-btn v-on:click="addNewSnack"> Snack </v-btn>
-          <v-btn v-on:click="addNewBreakfeast"> Breakfast </v-btn>
-          <v-btn v-on:click="addNewLunch"> Lunch </v-btn>
-          <v-btn v-on:click="addNewDinner"> Dinner </v-btn>
+          <v-btn v-on:click="logFood"> Snack </v-btn>
+          <v-btn v-on:click="logFood"> Breakfast </v-btn>
+          <v-btn v-on:click="logFood"> Lunch </v-btn>
+          <v-btn v-on:click="logFood"> Dinner </v-btn>
         </div>
       </div>
     </form>
@@ -196,115 +196,6 @@ export default {
     },
   },
 
-  addNewSnack() {
-    //    this.foodItem.calories = (this.foodItem.calories - this.foodItem.fiber) * this.foodItem.servingSize;
-    this.foodItem.calories =
-      (this.foodItem.carbs - this.foodItem.fiber) *
-        4 *
-        this.foodItem.servingSize +
-      this.foodItem.protein * 4 * this.foodItem.servingSize +
-      this.foodItem.fats * 9 * this.foodItem.servingSize;
-
-    this.foodItem.carbs =
-      (this.foodItem.carbs - this.foodItem.fiber) * this.foodItem.servingSize;
-    this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
-    this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;
-    this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
-
-    this.$store.commit("NEW_SNACK", this.foodItem);
-    this.$store.commit("NEW_ALLFOODS", this.foodItem);
-    this.foodItem = {
-      type: "",
-      calories: null,
-      carbs: null,
-      protein: null,
-      fats: null,
-      fiber: null,
-      servingSize: null,
-      date_entered: null,
-    };
-  },
-
-  addNewBreakfeast() {
-    this.foodItem.calories =
-      (this.foodItem.carbs - this.foodItem.fiber) *
-        4 *
-        this.foodItem.servingSize +
-      this.foodItem.protein * 4 * this.foodItem.servingSize +
-      this.foodItem.fats * 9 * this.foodItem.servingSize;
-
-    this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
-    this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
-    this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;
-    this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
-
-    this.$store.commit("NEW_BREAKFEAST", this.foodItem);
-    this.$store.commit("NEW_ALLFOODS", this.foodItem);
-    this.foodItem = {
-      type: "",
-      calories: null,
-      carbs: null,
-      protein: null,
-      fats: null,
-      fiber: null,
-      servingSize: null,
-      date_entered: null,
-    };
-  },
-
-  addNewLunch() {
-    this.foodItem.calories =
-      (this.foodItem.carbs - this.foodItem.fiber) *
-        4 *
-        this.foodItem.servingSize +
-      this.foodItem.protein * 4 * this.foodItem.servingSize +
-      this.foodItem.fats * 9 * this.foodItem.servingSize;
-
-    this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
-    this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
-    this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;
-    this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
-
-    this.$store.commit("NEW_LUNCH", this.foodItem);
-    this.$store.commit("NEW_ALLFOODS", this.foodItem);
-    this.foodItem = {
-      type: "",
-      calories: null,
-      carbs: null,
-      protein: null,
-      fats: null,
-      fiber: null,
-      servingSize: null,
-      date_entered: null,
-    };
-  },
-
-  addNewDinner() {
-    this.foodItem.calories =
-      (this.foodItem.carbs - this.foodItem.fiber) *
-        4 *
-        this.foodItem.servingSize +
-      this.foodItem.protein * 4 * this.foodItem.servingSize +
-      this.foodItem.fats * 9 * this.foodItem.servingSize;
-
-    this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
-    this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
-    this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;
-    this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
-
-    this.$store.commit("NEW_DINNER", this.foodItem);
-    this.$store.commit("NEW_ALLFOODS", this.foodItem);
-    this.foodItem = {
-      type: "",
-      calories: null,
-      carbs: null,
-      protein: null,
-      fats: null,
-      fiber: null,
-      servingSize: null,
-      date_entered: null,
-    };
-  },
-};
+}
 </script>
 

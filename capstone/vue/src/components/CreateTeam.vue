@@ -1,10 +1,16 @@
 <template>
   <div>
-    <form id="addTeam" @submit="createTeam()" action="">
-      <h2>Create Your Own Team</h2>
-      <label for="teamName">Enter Your Team Name: </label>
-      <input id="teamName" type="text" v-model="newTeam.teamName" required />
-    </form>
+    <v-container>
+      <v-text-field
+        v-model="newTeam.teamName"
+        label="Create A Team"
+        auto-grow
+        row="2"
+        class="createTeam"
+      >
+      </v-text-field>
+    </v-container>
+    <v-btn @click="createTeam()">Create</v-btn>
   </div>
 </template>
 

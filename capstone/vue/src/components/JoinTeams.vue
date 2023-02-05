@@ -1,15 +1,14 @@
 <template>
-  <div>
+  <div class="allTeams">
     <h2>Available Teams</h2>
     <ul v-for="team in this.allTeams" :key="team.teamId">
       <li>
-        {{ team.teamName
-        }}<span v-if="isOnTeam(team.teamId)"
-          ><button v-on:click="removeUserFromTeam(team.teamId)">
+        {{ team.teamName }}&nbsp;<span v-if="isOnTeam(team.teamId)"
+          ><v-btn v-on:click="removeUserFromTeam(team.teamId)">
             Leave Team
-          </button></span
+          </v-btn></span
         ><span v-else
-          ><button v-on:click="addUserToTeam(team)">Join Team</button></span
+          ><v-btn v-on:click="addUserToTeam(team)">Join Team</v-btn></span
         >
       </li>
     </ul>
