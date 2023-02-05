@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
 
     createMeal(mealType) {
-        return axios.post('/meals', mealType);
+        return axios.post(`/meals/${mealType}`, mealType);
     },
 
     addFoodToMeal(id, meal) {

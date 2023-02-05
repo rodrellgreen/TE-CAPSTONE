@@ -22,15 +22,15 @@ public class MealController {
     UserDao userDao;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping()
-    public void createMeal(Principal principal, String mealType) {
+    @PostMapping("/{mealType}")
+    public void createMeal(Principal principal, @RequestParam(value="mealType") String mealType) {
         String userName = principal.getName();
         int userId = userDao.findIdByUsername(userName);
         mealDao.createMeal(userId, mealType);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{id}")
+    @PostMapping("/{foodId}")
     public void addFoodToMeal(@PathVariable int foodId, @RequestBody Meal meal) {
         mealDao.addFoodsToMeal(meal.getMealId(), foodId);
     }
@@ -53,7 +53,7 @@ public class MealController {
         return mealDao.updateMealFood(mealId, foodId);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{mealId}")
     public void deleteMeal(@PathVariable int mealId) {
         mealDao.deleteMeal(mealId);
     }

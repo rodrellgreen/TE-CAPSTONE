@@ -21,7 +21,6 @@ public class JdbcMealDao implements MealDao {
         String sql = "INSERT INTO meal (user_id, meal_type) " +
                 "VALUES (?, ?) RETURNING meal_id;";
         Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, userId, mealType);
-        
     }
 
     @Override
@@ -67,9 +66,9 @@ public class JdbcMealDao implements MealDao {
     @Override
     public void deleteMeal(int mealId) {
         boolean success = false;
-        String sql = "DELETE * FROM meal WHERE meal_id = ?;";
+        String sql = "DELETE FROM meal WHERE meal_id = ?;";
         int linesUpdated = jdbcTemplate.update(sql, mealId);
-        String sql2 = "DELETE * FROM meal_food WHERE meal_id = ?;";
+        String sql2 = "DELETE FROM meal_food WHERE meal_id = ?;";
         int linesUpdated2 = jdbcTemplate.update(sql2, mealId);
         if(linesUpdated == 1 && linesUpdated2 == 1) {
             success = true;
