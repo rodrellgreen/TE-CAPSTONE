@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.tomcat.jni.Local;
 
 import javax.validation.constraints.Min;
@@ -31,6 +32,7 @@ public class Food {
     @Min(0)
     private int userId;
 //    @NotEmpty
+    @JsonFormat(locale = "zh", timezone = "EST", pattern="yyyy-MM-dd")
     private Date date;
 
     public Food() {
