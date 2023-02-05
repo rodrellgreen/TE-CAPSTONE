@@ -69,7 +69,7 @@ const router = new Router({
       name: "trackFood",
       component: TrackFood,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
