@@ -21,6 +21,7 @@ public class JdbcMealDao implements MealDao {
         String sql = "INSERT INTO meal (user_id, meal_type) " +
                 "VALUES (?, ?) RETURNING meal_id;";
         Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, userId, mealType);
+        
     }
 
     @Override

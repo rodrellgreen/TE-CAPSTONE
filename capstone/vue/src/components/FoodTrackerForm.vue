@@ -1,6 +1,6 @@
 <template>
 <div id="form-container" class="form-container">
-    <form class="form-form" @submit="logFood" action="">
+    <form class="form-form" @submit="logFood">
         <h1>Log Food</h1>
         
         <div class="flex-container">
