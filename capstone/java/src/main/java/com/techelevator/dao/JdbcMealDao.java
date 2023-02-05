@@ -17,10 +17,10 @@ public class JdbcMealDao implements MealDao {
     }
 
     @Override
-    public void createMeal(Meal meal) {
+    public void createMeal(int userId, String mealType) {
         String sql = "INSERT INTO meal (user_id, meal_type) " +
                 "VALUES (?, ?) RETURNING meal_id;";
-        Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, meal.getUserId(), meal.getMealType());
+        Integer mealId = jdbcTemplate.queryForObject(sql, Integer.class, userId, mealType);
     }
 
     @Override

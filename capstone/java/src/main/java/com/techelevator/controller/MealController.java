@@ -23,8 +23,10 @@ public class MealController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
-    public void createMeal(@RequestBody Meal meal) {
-        mealDao.createMeal(meal);
+    public void createMeal(Principal principal, String mealType) {
+        String userName = principal.getName();
+        int userId = userDao.findIdByUsername(userName);
+        mealDao.createMeal(userId, mealType);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
