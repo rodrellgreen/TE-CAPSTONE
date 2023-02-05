@@ -1,8 +1,17 @@
-<template>
-  <div>
+<template >
+ <div >
+  <div class="graph">
     <JSCharting :options="options" style="height: 400px"></JSCharting>
-    <button v-on:click="updateData">Update Chart Data</button>
+    <!-- <button v-on:click="updateData">Update Chart Data</button> -->
   </div>
+  <div>
+      <button v-on:click="Weekly"> Last Week </button> | 
+      <button v-on:click="Monthly"> Last Month </button> |
+      <button v-on:click="ThreeMonths"> Last 3 Months </button> |
+      <button v-on:click="SixMonths"> Last 6 Months </button>
+      
+  </div>
+</div>
 </template>
 
 <script>
@@ -14,7 +23,7 @@ export default {
   data() {
     let options = {
       type: "line spline",
-      title: { label: { text: "Series updates" } },
+      title: { label: { text: "" } },
       legend: {
         position: "inside top right",
       },
@@ -135,34 +144,216 @@ export default {
       });
     }
 
+    for (let i = 0; i < 4; i++) {
+      this.foodLog.push({
+        type: "",
+        calories: 300 + Math.random() * 100,
+        carbs: null,
+        protein: null,
+        fats: null,
+        fiber: null,
+        servingSize: null,
+        quickAdd: null,
+        date: "09/29/2022",
+      });
+    }
+
+    for (let i = 0; i < 4; i++) {
+      this.foodLog.push({
+        type: "",
+        calories: 300 + Math.random() * 100,
+        carbs: null,
+        protein: null,
+        fats: null,
+        fiber: null,
+        servingSize: null,
+        quickAdd: null,
+        date: "08/29/2022",
+      });
+    }
+
+    for (let i = 0; i < 4; i++) {
+      this.foodLog.push({
+        type: "",
+        calories: 300 + Math.random() * 100,
+        carbs: null,
+        protein: null,
+        fats: null,
+        fiber: null,
+        servingSize: null,
+        quickAdd: null,
+        date: "07/29/2022",
+      });
+    }
+
+      for (let i = 0; i < 4; i++) {
+      this.foodLog.push({
+        type: "",
+        calories: 300 + Math.random() * 100,
+        carbs: null,
+        protein: null,
+        fats: null,
+        fiber: null,
+        servingSize: null,
+        quickAdd: null,
+        date: "11/29/2022",
+      });
+    }
+
     this.options.series = [
       {
-        name: "FoodLog",
-        points: this.getFoodPoints(),
+        name: "Total Weekly Calories",
+        points: this.getWeeklyFoodPoints(),
       },
     ];
-    console.log("FoodLog:", this.foodLog);
+    // console.log("FoodLog:", this.foodLog);
     //   FoodService.getAllFoods().then((response) => {
     //   this.foodLog = response.data;
     // });
   },
 
   methods: {
-    updateData() {
+    Weekly() {
       this.options = {
         series: [
           {
-            name: "Purchases",
-            points: this.getFoodPoints(),
+            name: "Total Weekly Calories",
+            points: this.getWeeklyFoodPoints(),
           },
         ],
       };
     },
 
-    getFoodPoints() {
+      Monthly() {
+      this.options = {
+        series: [
+          {
+            name: "Last Month Total Calories",
+            points: this.getMonthlyFoodPoints(),
+          },
+        ],
+      };
+    },
+
+    ThreeMonths() {
+      this.options = {
+        series: [
+          {
+            name: "Last 3 Months Total Calories",
+            points: this.get3MonthsFoodPoints(),
+          },
+        ],
+      };
+    },
+
+    SixMonths() {
+      this.options = {
+        series: [
+          {
+            name: "Last 6 Months Total Calories",
+            points: this.get6MonthsFoodPoints(),
+          },
+        ],
+      };
+    },
+
+    getWeeklyFoodPoints() {
       let points = [];
       let now = new Date();
       for (let i = 0; i < 7; i++) {
+        let eachDay = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+        
+
+        let totalCalories = this.foodLog
+          .filter((food) => {
+            let foodDate = new Date(food.date);
+            let sameDay = foodDate.getDate() == eachDay.getDate();
+            let sameMonth = foodDate.getMonth() == eachDay.getMonth();
+            let sameYear = foodDate.getFullYear() == eachDay.getFullYear();
+
+            return sameMonth && sameDay && sameYear;
+          })
+          .reduce((calories, food) => {
+            return calories + food.calories;
+          }, 0);
+
+        let foodPoint = {
+          id: "p" + (i + 1),
+          x: eachDay,
+          y: totalCalories,
+        };
+        points.push(foodPoint);
+      }
+
+      return points;
+    },
+
+     getMonthlyFoodPoints() {
+      let points = [];
+      let now = new Date();
+      for (let i = 0; i < 30; i++) {
+        let eachDay = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+        
+
+        let totalCalories = this.foodLog
+          .filter((food) => {
+            let foodDate = new Date(food.date);
+            let sameDay = foodDate.getDate() == eachDay.getDate();
+            let sameMonth = foodDate.getMonth() == eachDay.getMonth();
+            let sameYear = foodDate.getFullYear() == eachDay.getFullYear();
+
+            return sameMonth && sameDay && sameYear;
+          })
+          .reduce((calories, food) => {
+            return calories + food.calories;
+          }, 0);
+
+        let foodPoint = {
+          id: "p" + (i + 1),
+          x: eachDay,
+          y: totalCalories,
+        };
+        points.push(foodPoint);
+      }
+
+      return points;
+    },
+
+     get3MonthsFoodPoints() {
+      let points = [];
+      let now = new Date();
+      for (let i = 0; i < 90; i++) {
+        let eachDay = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+        
+
+        let totalCalories = this.foodLog
+          .filter((food) => {
+            let foodDate = new Date(food.date);
+            let sameDay = foodDate.getDate() == eachDay.getDate();
+            let sameMonth = foodDate.getMonth() == eachDay.getMonth();
+            let sameYear = foodDate.getFullYear() == eachDay.getFullYear();
+
+            return sameMonth && sameDay && sameYear;
+          })
+          .reduce((calories, food) => {
+            return calories + food.calories;
+          }, 0);
+
+        let foodPoint = {
+          id: "p" + (i + 1),
+          x: eachDay,
+          y: totalCalories,
+        };
+        points.push(foodPoint);
+      }
+
+      return points;
+    },
+
+     get6MonthsFoodPoints() {
+      let points = [];
+      let now = new Date();
+      for (let i = 0; i < 180; i++) {
         let eachDay = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
         
 
@@ -197,3 +388,8 @@ export default {
   },
 };
 </script>
+<style >
+.graph {
+width: 96.5%;
+}
+</style>
