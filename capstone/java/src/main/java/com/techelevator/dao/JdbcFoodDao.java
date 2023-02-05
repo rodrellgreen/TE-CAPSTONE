@@ -86,7 +86,7 @@ public class JdbcFoodDao implements FoodDao{
     public boolean updateFood(Food food) {
         boolean success = false;
 
-        String sql = "UPDATE food SET food_name = ?, calories = ?, carbs = ?, protein = ?, fats = ?, fiber = ?, serving_size = ?, quick_add = ? date_entered = ? WHERE food_id = ?";
+        String sql = "UPDATE food SET food_name = ?, calories = ?, carbs = ?, protein = ?, fats = ?, fiber = ?, serving_size = ?, quick_add = ?, date_entered = ? WHERE food_id = ?";
 
         int linesUpdated = jdbcTemplate.update(sql, food.getType(), food.getCalories(), food.getCarbs(), food.getProtein(), food.getFats(), food.getFiber(), food.getServingSize(), food.getQuickAdd(), food.getDate(), food.getFoodId() );
         if (linesUpdated == 1){

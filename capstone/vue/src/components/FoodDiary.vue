@@ -14,6 +14,7 @@
           <th>fats</th>
           <th>fiber</th>
           <th>Servings</th>
+          <th>Edit Food</th>
         </tr>
         <tr v-for="food in sortedFood" :key="food">
           <td>{{ food.date }}</td>
@@ -24,6 +25,7 @@
           <td>{{ food.fats }}</td>
           <td>{{ food.fiber }}</td>
           <td>{{ food.servingSize }}</td>
+          <v-btn class="editFoodEntry" type="submit">edit</v-btn>
         </tr>
       </tbody>
     </table>
