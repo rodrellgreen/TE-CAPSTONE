@@ -34,8 +34,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public List<Meal> getMeals(int userId) {
         List<Meal> meals = new ArrayList<>();
-        String sql = "SELECT * FROM meal OUTER JOIN meal_food ON meal.meal_id = meal_food.meal_id " +
-                "WHERE user_id = ?;";
+        String sql = "SELECT * FROM meal WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
             meals.add(mapRowToMeal(results));
