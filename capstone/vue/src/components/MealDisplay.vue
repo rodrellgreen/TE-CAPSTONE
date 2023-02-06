@@ -4,15 +4,14 @@
       <div class="meal-container">
       <ul v-for="meal in meals" :key="meal.mealId">
           <li>{{meal.mealType}}</li>
-          <button v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId" v-if="!showAddFood">Add Food</button>
+          <v-btn v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId" v-if="!showAddFood">Add Food</v-btn>
           <button v-on:click="showAddFood = !showAddFood" v-else>Cancel</button>
           <button v-on:click="removeMeal(meal.mealId)">Remove Meal</button>
           <button v-if="!addDate" v-on:click="getFoods(meal)">Log</button>
-          <button v-if="addDate" v-on:click="addDate=!addDate">Cancel</button>
+          <button v-else v-on:click="addDate=!addDate">Cancel</button>
       </ul>
       <form class="add-food-form" v-if="showAddFood">
         <h3>{{mealType}}</h3>
-        <h3>{{mealId}}</h3>
         <label for="food">Food:</label>
         <input v-model="foodItem.type" id="food" type="text" class="input-box" required/>
         <label for="calories">Calories:</label>
@@ -46,6 +45,7 @@ export default {
 
     data() {
         return{
+            addFoodBtn: 0,
             meals: [],
             showAddFood: false,
             addDate: false,
