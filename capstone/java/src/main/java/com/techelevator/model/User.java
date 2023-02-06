@@ -15,6 +15,7 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private int streak;
 
    public User() { }
 
@@ -24,6 +25,15 @@ public class User {
       this.password = password;
       if(authorities != null) this.setAuthorities(authorities);
       this.activated = true;
+
+   }
+
+   public int getStreak() {
+      return streak;
+   }
+
+   public void setStreak(int streak) {
+      this.streak = streak;
    }
 
    public int getId() {
@@ -73,6 +83,7 @@ public class User {
          this.authorities.add(new Authority(authority));
       }
    }
+
 
    @Override
    public boolean equals(Object o) {

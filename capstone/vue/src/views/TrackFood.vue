@@ -1,7 +1,7 @@
 <template>
 
   <div class="food-tracker">
-         {{$store.state.foodItemToUpdate}}
+        
         <food-tracker-form v-if="!showQuickAdd"/>
         <quick-add v-if="showQuickAdd"/>
         <router-link v-bind:to="{name: 'meals'}">Quick Meals</router-link>

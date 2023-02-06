@@ -16,6 +16,9 @@ export default {
 
     deleteProfile() {
         return axios.delete('/profile');
+    },
+    updateStreak(user) {
+        return axios.put('/profile/streak', user);
     }
 
 }

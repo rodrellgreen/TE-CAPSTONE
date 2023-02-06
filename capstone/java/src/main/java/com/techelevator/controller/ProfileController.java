@@ -1,7 +1,9 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.ProfileDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Profile;
+import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,6 +20,9 @@ import java.security.Principal;
 public class ProfileController {
     @Autowired
     private ProfileDao profileDao;
+
+    @Autowired
+    private UserDao userDao;
 
     @GetMapping()
     public Profile getProfileByUsername(Principal principal){
@@ -50,6 +55,20 @@ public class ProfileController {
 
        if(!updated){
            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Profile Not Updated");
+        }
+    }
+
+    @PutMapping(path = "/streak")
+    public void updateStreak(Principal principal,@RequestBody User user){
+        int userId= userDao.findIdByUsername(principal.getName());
+        User oldUser=userDao.getUserById(userId);
+        user.setId(oldUser.getId());
+        user.setAuthorities(oldUser.getAuthorities());
+        user.setUsername(oldUser.getUsername());
+        user.setPassword(oldUser.getPassword());
+        boolean updated=userDao.updateStreak(user);
+        if(!updated){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Streak Not Updated");
         }
     }
 

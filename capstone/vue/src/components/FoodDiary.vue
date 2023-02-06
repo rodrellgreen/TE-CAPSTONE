@@ -6,7 +6,6 @@
       </caption>
       <tbody>
         <tr>
-          
           <th>Date</th>
           <th>Food</th>
           <th>Calories</th>
@@ -18,7 +17,6 @@
           <th>Edit Food</th>
         </tr>
         <tr v-for="food in sortedFood" :key="food">
-          
           <td>{{ food.date }}</td>
           <td>{{ food.type }}</td>
           <td>{{ food.calories }}</td>
@@ -27,27 +25,33 @@
           <td>{{ food.fats }}</td>
           <td>{{ food.fiber }}</td>
           <td>{{ food.servingSize }}</td>
-          
-          <v-btn class="editFoodEntry" v-on:click="startUpdate(food)" v-bind="food.id">Edit</v-btn>
-         
+
+          <td>
+            <v-btn
+              class="editFoodEntry"
+              v-on:click="startUpdate(food)"
+              v-bind="food.id"
+              >Edit</v-btn
+            >
+          </td>
         </tr>
-        
       </tbody>
-      
     </table>
-  
+    <div>Food Log Streak {{ this.streak }}</div>
   </div>
 </template>
 
 <script>
 import FoodService from "../services/FoodService.js";
+
 export default {
   methods: {
-      startUpdate(food) {
-          this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem
-          this.$store.state.foodItemToUpdate = food;
-      }
+    startUpdate(food) {
+      this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem;
+      this.$store.state.foodItemToUpdate = food;
+    },
   },
+
   data() {
     return {
       foodLog: [],
@@ -73,6 +77,29 @@ export default {
         }
         return this.foodLog.indexOf(b) - this.foodLog.indexOf(a);
       });
+    },
+    streak() {
+      let streak = 0;
+      let firstDate = new Date(this.sortedFood[0].date);
+      let lastDate = new Date(this.sortedFood[1].date);
+      let lastDatePlusOne = new Date(lastDate.getTime() + 24 * 60 * 60 * 1000);
+      for (let i = 0; i < this.sortedFood.length - 1; i++) {
+        let newDate = new Date(this.sortedFood[i].date);
+        let oldDate = new Date(this.sortedFood[i + 1].date);
+        let oldDatePlusOne = new Date(oldDate.getTime() + 24 * 60 * 60 * 1000);
+        if (
+          newDate.toISOString().slice(0, 10) ==
+          oldDatePlusOne.toISOString().slice(0, 10)
+        ) {
+          streak++;
+        } else {
+          streak = 0;
+        }
+      }
+      if (firstDate > lastDatePlusOne) {
+        streak = 0;
+      }
+      return streak;
     },
   },
 };
