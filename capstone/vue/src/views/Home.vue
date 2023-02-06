@@ -8,6 +8,7 @@
     <router-link v-if="$store.state.token == ''" v-bind:to="{ name: 'login' }">Login</router-link><br>
     <weekly-graph/>
     <streak-tracker/>
+    <progress-circle/>
     <calorie-counter/>
     <recent-food/>
   </div>
@@ -20,6 +21,7 @@ import RecentFood from '../components/RecentFood.vue'
 import CalorieCounter from '../components/CalorieCounter.vue'
 import StreakTracker from '../components/StreakTracker.vue'
 import WeeklyGraph from '../components/WeeklyGraph.vue'
+import ProgressCircle from '../components/WeeklyGraph.vue'
 
 export default {
   name: "home",
@@ -27,7 +29,8 @@ export default {
   RecentFood,
   CalorieCounter,
   StreakTracker,
-  WeeklyGraph
+  WeeklyGraph,
+  ProgressCircle
 
 }
 }
