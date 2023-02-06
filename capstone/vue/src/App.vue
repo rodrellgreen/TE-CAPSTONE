@@ -187,6 +187,9 @@ div.food-tracker {
   background-color: #174c4f;
   color: white;
 }
+.tableCaption{
+  font: 5px;
+}
 
 #food-log th {
   padding-top: 12px;
