@@ -7,7 +7,6 @@
           <button v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId" v-if="!showAddFood">Add Food</button>
           <button v-on:click="showAddFood = !showAddFood" v-else>Cancel</button>
           <button v-on:click="removeMeal(meal.mealId)">Remove Meal</button>
-          <button>Edit</button>
           <button v-if="!addDate" v-on:click="getFoods(meal)">Log</button>
           <button v-if="addDate" v-on:click="addDate=!addDate">Cancel</button>
       </ul>
