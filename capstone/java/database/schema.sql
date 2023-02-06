@@ -67,7 +67,7 @@ CREATE TABLE profile (
 
  CREATE TABLE meal_food(
  meal_id INTEGER NOT NULL,
- food_name INTEGER NOT NULL,
+ food_name VARCHAR(100) NOT NULL,
  calories NUMERIC(10,2) NOT NULL,
  protein NUMERIC(10,2) NOT NULL,
  carbs NUMERIC(10,2) NOT NULL,

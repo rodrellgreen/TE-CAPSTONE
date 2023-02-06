@@ -6,12 +6,16 @@ export default {
         return axios.post(`/meals/new-meal`, mealObj);
     },
 
-    addFoodToMeal(id, meal) {
-        return axios.post(`/meals/${id}`, meal)
+    addFoodToMeal(mealId, foodItem) {
+        return axios.post(`/meals/${mealId}`, foodItem)
     },
 
     getMeals() {
         return axios.get('/meals');
+    },
+
+    getFoods(mealId) {
+        return axios.get(`/meals/${mealId}`)
     },
 
     updateMealType(meal) {
@@ -24,6 +28,6 @@ export default {
 
     deleteMeal(id) {
         return axios.delete(`/meals/${id}`);
-    }
+    },
 
 }
