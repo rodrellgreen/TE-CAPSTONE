@@ -101,10 +101,15 @@
 
       <div id="mealType" class="flex-container">
         <div>
-          <v-btn v-on:click="logFood"> Snack </v-btn>
-          <v-btn v-on:click="logFood"> Breakfast </v-btn>
-          <v-btn v-on:click="logFood"> Lunch </v-btn>
-          <v-btn v-on:click="logFood"> Dinner </v-btn>
+          <v-btn v-on:click="updateFood"> Snack </v-btn>
+          <v-btn v-on:click="updateFood"> Breakfast </v-btn>
+          <v-btn v-on:click="updateFood"> Lunch </v-btn>
+          <v-btn v-on:click="updateFood"> Dinner </v-btn>
+          <v-btn v-on:click="deleteFood"> Delete </v-btn>
+
+          
+
+          
         </div>
       </div>
     </form>
@@ -135,11 +140,7 @@ export default {
     };
     },
     created() {
-    FoodService.updateFoodItem().then((response) => {
-      if (response.status == 200) {
-        this.$router.go();
-      }
-    });
+    
   },
 
     computed: {
@@ -160,7 +161,23 @@ export default {
     },
   },
     methods: {
-        
+    updateFood(){
+      this.foodItem = this.$store.state.foodItemToUpdate
+       FoodService.updateFoodItem(this.foodItem.foodId, this.foodItem).then((response) => {
+      if (response.status == 200) {
+        this.$router.go();
+      }
+    });
+    },
+     deleteFood(){
+      this.foodItem =this.$store.state.foodItemToUpdate
+      FoodService.deleteFoodItem(this.foodItem.foodId).then((response)=> {
+        if (response.status == 200){
+          this.$router.go();
+        }
+      })
+    },
+       
     
 }
     

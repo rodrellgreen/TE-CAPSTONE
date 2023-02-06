@@ -16,6 +16,7 @@
           <th>fiber</th>
           <th>Servings</th>
           <th>Edit Food</th>
+          
         </tr>
         <tr v-for="food in sortedFood" :key="food">
           
@@ -28,7 +29,8 @@
           <td>{{ food.fiber }}</td>
           <td>{{ food.servingSize }}</td>
           
-          <v-btn class="editFoodEntry" v-on:click="startUpdate(food)" v-bind="food.id">Edit</v-btn>
+         <td> <v-btn class="editFoodEntry" v-on:click="startUpdate(food)" v-bind="food.id">Edit</v-btn></td>
+          
          
         </tr>
         
@@ -48,6 +50,7 @@ export default {
           this.$store.state.foodItemToUpdate = food;
       }
   },
+ 
   data() {
     return {
       foodLog: [],
