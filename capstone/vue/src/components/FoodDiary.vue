@@ -26,12 +26,14 @@
           <td>{{ food.fiber }}</td>
           <td>{{ food.servingSize }}</td>
 
-          <v-btn
-            class="editFoodEntry"
-            v-on:click="startUpdate(food)"
-            v-bind="food.id"
-            >Edit</v-btn
-          >
+          <td>
+            <v-btn
+              class="editFoodEntry"
+              v-on:click="startUpdate(food)"
+              v-bind="food.id"
+              >Edit</v-btn
+            >
+          </td>
         </tr>
       </tbody>
     </table>
@@ -47,6 +49,7 @@ export default {
       this.$store.state.foodItemToUpdate = food;
     },
   },
+
   data() {
     return {
       foodLog: [],
