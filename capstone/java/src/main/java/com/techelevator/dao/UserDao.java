@@ -20,4 +20,6 @@ public interface UserDao {
     boolean updateUser(String username, LoginDto updatedUser);
 
     boolean deleteUser(String username);
+
+    boolean updateStreak(User user);
 }

@@ -14,7 +14,7 @@
           placeholder="Ex: Potato"
         />
       </div>
-      <div class="flex-container">
+      <!-- <div class="flex-container">
         <label class="input-label" for="calories">Calories</label>
         <input
           class="input-box"
@@ -24,7 +24,7 @@
           required
           placeholder="Ex: 163"
         />
-      </div>
+      </div> -->
       <div class="flex-container">
         <label class="input-label" for="carbs">Carbs</label>
         <input
@@ -113,10 +113,13 @@
 
 <script>
 import FoodService from "../services/FoodService";
+import profileService from "../services/ProfileService.js";
 export default {
   data() {
     return {
-    
+      user: {
+        streak: 0,
+      },
 
       foodItem: {
         type: "",
@@ -151,7 +154,7 @@ export default {
     showOptions() {
       if (
         this.foodItem.type &&
-        this.foodItem.calories &&
+        // this.foodItem.calories &&
         this.foodItem.carbs &&
         this.foodItem.protein &&
         this.foodItem.fats &&
@@ -195,8 +198,14 @@ export default {
         }
       });
     },
+    updateStreak(user) {
+      profileService.updateStreak(user).then((response) => {
+        if (response.status == 200) {
+          this.$router.go();
+        }
+      });
+    },
   },
-
-}
+};
 </script>
 
