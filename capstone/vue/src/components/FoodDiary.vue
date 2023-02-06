@@ -37,11 +37,13 @@
         </tr>
       </tbody>
     </table>
+    <div>Food Log Streak {{ this.streak }}</div>
   </div>
 </template>
 
 <script>
 import FoodService from "../services/FoodService.js";
+
 export default {
   methods: {
     startUpdate(food) {
@@ -78,11 +80,23 @@ export default {
     },
     streak() {
       let streak = 0;
-      let newDate = new Date(this.sortedFood[0].date);
-      let oldDate = new Date(this.sortedFood[1].date);
-      if (newDate.getDate() == oldDate.getDate() + 1) {
-        streak++;
-      } else {
+      let firstDate = new Date(this.sortedFood[0].date);
+      let lastDate = new Date(this.sortedFood[1].date);
+      let lastDatePlusOne = new Date(lastDate.getTime() + 24 * 60 * 60 * 1000);
+      for (let i = 0; i < this.sortedFood.length - 1; i++) {
+        let newDate = new Date(this.sortedFood[i].date);
+        let oldDate = new Date(this.sortedFood[i + 1].date);
+        let oldDatePlusOne = new Date(oldDate.getTime() + 24 * 60 * 60 * 1000);
+        if (
+          newDate.toISOString().slice(0, 10) ==
+          oldDatePlusOne.toISOString().slice(0, 10)
+        ) {
+          streak++;
+        } else {
+          streak = 0;
+        }
+      }
+      if (firstDate > lastDatePlusOne) {
         streak = 0;
       }
       return streak;

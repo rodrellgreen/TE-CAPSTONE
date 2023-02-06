@@ -113,14 +113,9 @@
 
 <script>
 import FoodService from "../services/FoodService";
-import profileService from "../services/ProfileService.js";
 export default {
   data() {
     return {
-      user: {
-        streak: 0,
-      },
-
       foodItem: {
         type: "",
         calories: null,
@@ -194,13 +189,6 @@ export default {
       FoodService.createFood(this.foodItem).then((response) => {
         if (response.status === 201) {
           alert("Success! Food Added.");
-          this.$router.go();
-        }
-      });
-    },
-    updateStreak(user) {
-      profileService.updateStreak(user).then((response) => {
-        if (response.status == 200) {
           this.$router.go();
         }
       });
