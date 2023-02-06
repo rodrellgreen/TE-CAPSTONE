@@ -1,7 +1,7 @@
 <template>
   <div id="form-container" class="form-container">
-    <form class="form-form" @submit="logFood" action="">
-      <h1>Log Food</h1>
+    <form class="form-form" @submit.prevent="logFood" action="">
+      <h1>Edit Food</h1>
 
       <div class="flex-container">
         <label class="input-label" for="name">Food</label>
@@ -9,7 +9,7 @@
           class="input-box"
           id="name"
           type="text"
-          v-model="foodItem.type"
+          v-model="$store.state.foodItemToUpdate.type"
           required
           placeholder="Ex: Potato"
         />
@@ -20,7 +20,7 @@
           class="input-box"
           id="calories"
           type="number"
-          v-model="foodItem.calories"
+          v-model="$store.state.foodItemToUpdate.calories"
           required
           placeholder="Ex: 163"
         />
@@ -31,7 +31,7 @@
           class="input-box"
           id="carbs"
           type="number"
-          v-model="foodItem.carbs"
+          v-model="$store.state.foodItemToUpdate.carbs"
           required
           placeholder="Ex: 37"
         />
@@ -42,7 +42,7 @@
           class="input-box"
           id="protein"
           type="number"
-          v-model="foodItem.protein"
+          v-model="$store.state.foodItemToUpdate.protein"
           required
           placeholder="Ex: 4"
         />
@@ -53,7 +53,7 @@
           class="input-box"
           id="fats"
           type="number"
-          v-model="foodItem.fats"
+          v-model="$store.state.foodItemToUpdate.fats"
           required
           placeholder="Ex: 0"
         />
@@ -64,7 +64,7 @@
           class="input-box"
           id="fiber"
           type="number"
-          v-model="foodItem.fiber"
+          v-model="$store.state.foodItemToUpdate.fiber"
           required
           placeholder="Ex: 5"
         />
@@ -76,7 +76,7 @@
           class="input-box"
           id="servings"
           type="number"
-          v-model="foodItem.servingSize"
+          v-model="$store.state.foodItemToUpdate.servingSize"
           required
           placeholder="Ex: 1"
         />
@@ -84,7 +84,7 @@
 
       <div class="flex-container">
         <label class="input-checkbox" for="quick-add">Enable "Quick Add"</label>
-        <input id="quick-add" type="checkbox" v-model="foodItem.quickAdd" />
+        <input id="quick-add" type="checkbox" v-model="$store.state.foodItemToUpdate.quickAdd" />
       </div>
 
       <div class="flex-container">
@@ -93,13 +93,13 @@
           class="input-box"
           id="date"
           type="date"
-          v-model="foodItem.date"
+          v-model="$store.state.foodItemToUpdate.date"
           required
           placeholder="Ex: 1"
         />
       </div>
 
-      <div id="mealType" v-if="showOptions" @close="showOptions = false">
+      <div id="mealType" class="flex-container">
         <div>
           <v-btn v-on:click="logFood"> Snack </v-btn>
           <v-btn v-on:click="logFood"> Breakfast </v-btn>
@@ -112,10 +112,13 @@
 </template>
 
 <script>
-import FoodService from "../services/FoodService";
+import FoodService from '../services/FoodService';
+//import FoodService from "../services/FoodService"
 export default {
-  data() {
-    return {
+ 
+
+    data(){
+        return {
     
 
       foodItem: {
@@ -130,24 +133,16 @@ export default {
         date: "",
       },
     };
-  },
-
-  //    watch: {
-  //   foodItemDate(newDate) {
-
-  //     this.foodItem.date = new Date(newDate).toJSON();
-  //     // console.log(this.foodItemDate)
-  //   }
-  // },
-  created() {
-    FoodService.createFood(this.foodItem).then((response) => {
+    },
+    created() {
+    FoodService.updateFoodItem().then((response) => {
       if (response.status == 200) {
         this.$router.go();
       }
     });
   },
 
-  computed: {
+    computed: {
     showOptions() {
       if (
         this.foodItem.type &&
@@ -156,8 +151,7 @@ export default {
         this.foodItem.protein &&
         this.foodItem.fats &&
         this.foodItem.fiber &&
-        this.foodItem.servingSize &&
-        this.foodItem.date
+        this.foodItem.servingSize
       ) {
         return true;
       } else {
@@ -165,38 +159,14 @@ export default {
       }
     },
   },
-
-  methods: {
-    logFood() {
-      var strInputValue = this.foodItem.date; // <-- get my date string
-
-      let strInputValue2 = strInputValue
-        .replace(/-/, "/") // replace 1st "-" with "/"
-        .replace(/-/, "/"); // replace 2nd "-" with "/"
-
-      this.foodItem.date = new Date(strInputValue2);
-
-      this.foodItem.calories =
-        (this.foodItem.carbs - this.foodItem.fiber) *
-          4 *
-          this.foodItem.servingSize +
-        this.foodItem.protein * 4 * this.foodItem.servingSize +
-        this.foodItem.fats * 9 * this.foodItem.servingSize;
-
-      this.foodItem.carbs = this.foodItem.carbs * this.foodItem.servingSize;
-      this.foodItem.protein = this.foodItem.protein * this.foodItem.servingSize;
-      this.foodItem.fats = this.foodItem.fats * this.foodItem.servingSize;
-      this.foodItem.fiber = this.foodItem.fiber * this.foodItem.servingSize;
-
-      FoodService.createFood(this.foodItem).then((response) => {
-        if (response.status === 201) {
-          alert("Success! Food Added.");
-          this.$router.go();
-        }
-      });
-    },
-  },
-
+    methods: {
+        
+    
+}
+    
 }
 </script>
 
+<style>
+
+</style>

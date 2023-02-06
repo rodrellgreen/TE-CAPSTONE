@@ -6,6 +6,7 @@
       </caption>
       <tbody>
         <tr>
+          
           <th>Date</th>
           <th>Food</th>
           <th>Calories</th>
@@ -17,6 +18,7 @@
           <th>Edit Food</th>
         </tr>
         <tr v-for="food in sortedFood" :key="food">
+          
           <td>{{ food.date }}</td>
           <td>{{ food.type }}</td>
           <td>{{ food.calories }}</td>
@@ -25,19 +27,31 @@
           <td>{{ food.fats }}</td>
           <td>{{ food.fiber }}</td>
           <td>{{ food.servingSize }}</td>
-          <v-btn class="editFoodEntry" type="submit">edit</v-btn>
+          
+          <v-btn class="editFoodEntry" v-on:click="startUpdate(food)" v-bind="food.id">Edit</v-btn>
+         
         </tr>
+        
       </tbody>
+      
     </table>
+  
   </div>
 </template>
 
 <script>
 import FoodService from "../services/FoodService.js";
 export default {
+  methods: {
+      startUpdate(food) {
+          this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem
+          this.$store.state.foodItemToUpdate = food;
+      }
+  },
   data() {
     return {
       foodLog: [],
+      updateFoodItem: false,
     };
   },
   created() {
