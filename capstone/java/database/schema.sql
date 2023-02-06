@@ -67,10 +67,15 @@ CREATE TABLE profile (
 
  CREATE TABLE meal_food(
  meal_id INTEGER NOT NULL,
- food_id INTEGER NOT NULL,
- CONSTRAINT PK_meal_food PRIMARY KEY (meal_id, food_id),
- CONSTRAINT FK_meal_id FOREIGN KEY (meal_id) REFERENCES meal(meal_id),
- CONSTRAINT FK_food_id FOREIGN KEY (food_id) REFERENCES food(food_id)
+ food_name INTEGER NOT NULL,
+ calories NUMERIC(10,2) NOT NULL,
+ protein NUMERIC(10,2) NOT NULL,
+ carbs NUMERIC(10,2) NOT NULL,
+ fiber NUMERIC(10,2) NOT NULL,
+ fats NUMERIC(10,2) NOT NULL,
+ serving_size NUMERIC(10,2) NOT NULL,
+ CONSTRAINT PK_meal_food PRIMARY KEY (meal_id, food_name),
+ CONSTRAINT FK_meal_id FOREIGN KEY (meal_id) REFERENCES meal(meal_id)
  );
 
  CREATE TABLE community_posts(
