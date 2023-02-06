@@ -20,7 +20,9 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-
+    updateFoodItem: false,
+    foodItemToUpdate: {},
+    
     allFoods: [
 
     ],

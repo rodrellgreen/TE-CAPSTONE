@@ -1,28 +1,32 @@
 <template>
   <div class="container">
       <h1>Meal List</h1>
+      <div class="meal-container">
       <ul v-for="meal in meals" :key="meal">
           <li>{{meal.mealType}}</li>
-          <form class="add-food-form" v-if="showAddFood">
-              <label for="food">Food:</label>
-              <input id="food" type="text" class="input-box" required/>
-              <label for="calories">Calories:</label>
-              <input id="calories" type="number" class="input-box" required/>
-              <label for="protein">Protein:</label>
-              <input id="protein" type="number" class="input-box"/>
-              <label for="carbs">Carbs:</label>
-              <input id="carbs" type="number" class="input-box"/>
-              <label for="fiber">Fiber:</label>
-              <input id="fiber" type="number" class="input-box"/>
-              <label for="fat">Fat:</label>
-              <input id="fat" type="number" class="input-box"/>
-          </form>
-          <button v-on:click="showAddFood = !showAddFood" v-if="!showAddFood">Add Food</button>
+          <button v-on:click="showAddFood = !showAddFood, mealType=meal.mealType" v-if="!showAddFood">Add Food</button>
           <button v-on:click="showAddFood = !showAddFood" v-else>Cancel</button>
           <button v-on:click="removeMeal(meal.mealId)">Remove Meal</button>
           <button>Edit</button>
           <button>Log</button>
       </ul>
+      <form class="add-food-form" v-if="showAddFood">
+        <h3>{{mealType}}</h3>
+        <label for="food">Food:</label>
+        <input id="food" type="text" class="input-box" required/>
+        <label for="calories">Calories:</label>
+        <input id="calories" type="number" class="input-box" required/>
+        <label for="protein">Protein:</label>
+        <input id="protein" type="number" class="input-box"/>
+        <label for="carbs">Carbs:</label>
+        <input id="carbs" type="number" class="input-box"/>
+        <label for="fiber">Fiber:</label>
+        <input id="fiber" type="number" class="input-box"/>
+        <label for="fat">Fat:</label>
+        <input id="fat" type="number" class="input-box"/>
+        <button>Add</button>
+      </form>
+      </div>
   </div>
 </template>
 
@@ -34,8 +38,8 @@ export default {
     data() {
         return{
             meals: [],
-            
-            showAddFood: false
+            showAddFood: false,
+            mealType: ""
         }
     },
 
@@ -57,7 +61,10 @@ export default {
                     }
                 }
             );
-        }
+        },
+        // addFoodToMeal(id, meal) {
+        //     MealService.addFoodToMeal()
+        // }
     }
 
 }
@@ -84,4 +91,5 @@ export default {
     ul {
         list-style: none;
     }
+
 </style>
