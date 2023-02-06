@@ -6,7 +6,6 @@
       </caption>
       <tbody>
         <tr>
-          
           <th>Date</th>
           <th>Food</th>
           <th>Calories</th>
@@ -18,7 +17,6 @@
           <th>Edit Food</th>
         </tr>
         <tr v-for="food in sortedFood" :key="food">
-          
           <td>{{ food.date }}</td>
           <td>{{ food.type }}</td>
           <td>{{ food.calories }}</td>
@@ -27,15 +25,16 @@
           <td>{{ food.fats }}</td>
           <td>{{ food.fiber }}</td>
           <td>{{ food.servingSize }}</td>
-          
-          <v-btn class="editFoodEntry" v-on:click="startUpdate(food)" v-bind="food.id">Edit</v-btn>
-         
+
+          <v-btn
+            class="editFoodEntry"
+            v-on:click="startUpdate(food)"
+            v-bind="food.id"
+            >Edit</v-btn
+          >
         </tr>
-        
       </tbody>
-      
     </table>
-  
   </div>
 </template>
 
@@ -43,10 +42,10 @@
 import FoodService from "../services/FoodService.js";
 export default {
   methods: {
-      startUpdate(food) {
-          this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem
-          this.$store.state.foodItemToUpdate = food;
-      }
+    startUpdate(food) {
+      this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem;
+      this.$store.state.foodItemToUpdate = food;
+    },
   },
   data() {
     return {
@@ -73,6 +72,17 @@ export default {
         }
         return this.foodLog.indexOf(b) - this.foodLog.indexOf(a);
       });
+    },
+    streak() {
+      let streak = 0;
+      let newDate = new Date(this.sortedFood[0].date);
+      let oldDate = new Date(this.sortedFood[1].date);
+      if (newDate.getDate() == oldDate.getDate() + 1) {
+        streak++;
+      } else {
+        streak = 0;
+      }
+      return streak;
     },
   },
 };

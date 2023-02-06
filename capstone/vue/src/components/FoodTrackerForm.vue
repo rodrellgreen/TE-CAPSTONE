@@ -113,10 +113,13 @@
 
 <script>
 import FoodService from "../services/FoodService";
+import profileService from "../services/ProfileService.js";
 export default {
   data() {
     return {
-    
+      user: {
+        streak: 0,
+      },
 
       foodItem: {
         type: "",
@@ -195,8 +198,14 @@ export default {
         }
       });
     },
+    updateStreak(user) {
+      profileService.updateStreak(user).then((response) => {
+        if (response.status == 200) {
+          this.$router.go();
+        }
+      });
+    },
   },
-
-}
+};
 </script>
 
