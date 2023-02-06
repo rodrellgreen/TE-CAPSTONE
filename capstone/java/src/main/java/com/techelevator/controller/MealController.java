@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.MealDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.Food;
 import com.techelevator.model.Meal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,9 +31,9 @@ public class MealController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{foodId}")
-    public void addFoodToMeal(@PathVariable int foodId, @RequestBody Meal meal) {
-        mealDao.addFoodsToMeal(meal.getMealId(), foodId);
+    @PostMapping("/{mealId}")
+    public void addFoodToMeal(@PathVariable int mealId, @RequestBody Food food) {
+        mealDao.addFoodsToMeal(mealId, food);
     }
 
     @GetMapping()
@@ -40,6 +41,13 @@ public class MealController {
         String userName = principal.getName();
         int userId = userDao.findIdByUsername(userName);
         return mealDao.getMeals(userId);
+    }
+
+    @GetMapping("/{mealId}")
+    public List<Food> getFoods(@PathVariable int mealId, Principal principal) {
+//        String userName = principal.getName();
+//        int userId = userDao.findIdByUsername(userName);
+        return mealDao.getFoods(mealId);
     }
 
     @PutMapping()
