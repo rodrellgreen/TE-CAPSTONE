@@ -85,7 +85,7 @@ public class JdbcProfileDao implements ProfileDao{
         String sql = "UPDATE profile SET email=?, age=?, height_feet=?, height_inches=?, current_weight=?, desired_weight=?, profile_picture=?, display_name=?, public_private=?, phone_number=?" +
                 "  WHERE profile_id=?;";
         int linesUpdated = jdbcTemplate.update(sql, profile.getEmail(), profile.getAge(),
-                profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(),profile.getDisplayName(),profile.isPublicPrivate(),profile.getProfileId(),profile.getPhoneNumber());
+                profile.getFeet(),profile.getInches(),profile.getCurrentWeight(),profile.getDesiredWeight(),profile.getProfilePicture(),profile.getDisplayName(),profile.isPublicPrivate(),profile.getPhoneNumber(),profile.getProfileId());
         if (linesUpdated == 1) {
             success = true;
         }
@@ -121,7 +121,7 @@ public class JdbcProfileDao implements ProfileDao{
 
         int id=getProfileIdByUsername(userName);
 
-        String sql = "SELECT phone_number FROM profile WHERE profile_is = ?";
+        String sql = "SELECT phone_number FROM profile WHERE profile_id = ?";
         try{
             userNumber = jdbcTemplate.queryForObject(sql, String.class, id);
         }catch (DataAccessException e){

@@ -1,5 +1,5 @@
 <template>
-  <div id="foodLogTable" style="overflow-x: auto">
+  <v-container id="foodLogTable" style="overflow-x: auto">
     <table id="food-log">
       <caption class="tableHeader">
         Food Log
@@ -27,18 +27,15 @@
           <td>{{ food.servingSize }}</td>
 
           <td>
-            <v-btn
-              class="editFoodEntry"
-              v-on:click="startUpdate(food)"
-              v-bind="food.foodId"
+            <v-btn class="editFoodEntry" v-on:click="startUpdate(food)"
               >Edit</v-btn
             >
           </td>
         </tr>
       </tbody>
     </table>
-    <div>Food Log Streak {{ this.streak }}</div>
-  </div>
+    <v-container>Food Log Streak {{ this.streak }}</v-container>
+  </v-container>
 </template>
 
 <script>

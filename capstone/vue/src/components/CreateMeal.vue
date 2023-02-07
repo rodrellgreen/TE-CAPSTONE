@@ -1,5 +1,5 @@
 <template>
-  <div class="meal-form-container">
+  <v-container class="meal-form-container">
     <!-- <h1>Create New Meal</h1> -->
     <form class="meal-form" @submit.prevent="createMeal">
       <label for="name">Meal Name:</label>
@@ -14,7 +14,7 @@
       />
       <button class="create-meal-btn" type="submit">Add</button>
     </form>
-  </div>
+  </v-container>
 </template>
 
 <script>
