@@ -83,7 +83,7 @@ public class ProfileController {
 //        userPhoneNumber = "+13307143204";
         TwilioService twilio = new TwilioService();
 
-        twilio.sendMessage(userPhoneNumber);
+        twilio.verifyUser(userPhoneNumber);
 
     }
 

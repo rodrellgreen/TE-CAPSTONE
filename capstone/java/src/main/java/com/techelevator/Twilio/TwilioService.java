@@ -1,7 +1,9 @@
 package com.techelevator.Twilio;
 
 import com.twilio.Twilio;
+import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.rest.api.v2010.account.OutgoingCallerId;
 import com.twilio.type.PhoneNumber;
 
 public class TwilioService {
@@ -19,5 +21,13 @@ public class TwilioService {
                 positiveMessage).create();
     }
 
-
+    public void verifyUser(String toPhoneNumber){{
+        Twilio.init(account_sid, auth_token);
+        ResourceSet<OutgoingCallerId> outgoingCallerIds =
+                OutgoingCallerId.reader()
+                        .setPhoneNumber(new com.twilio.type.PhoneNumber(toPhoneNumber))
+                        .limit(20)
+                        .read();
+    }
+    }
 }
