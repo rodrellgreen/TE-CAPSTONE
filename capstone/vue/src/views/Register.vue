@@ -1,12 +1,12 @@
 <template>
-  <div id="form-container" class="form-container">
+  <v-container id="form-container" class="form-container">
     
-    <form class="form-form" @submit.prevent="register">
+    <v-form class="form-form" @submit.prevent="register">
       <h1 >Create Account</h1>
-      <div class="alert alert-danger" role="alert" v-if="registrationErrors">
+      <v-container class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
       <label for="username" class="input label">Username:</label>
       <input
         type="text"
@@ -17,8 +17,8 @@
         required
         autofocus
       />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
       <label for="password" class="sr-only">Password:</label>
       <input
         type="password"
@@ -28,8 +28,8 @@
         v-model="user.password"
         required
       />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
       <label for="confirmPassword">Confirm Password:</label>
       <input
         type="password"
@@ -39,16 +39,16 @@
         v-model="user.confirmPassword"
         required
       />
-      </div>
+      </v-container>
       
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <v-btn class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
-      </button>
-      <button class="cancel-btn" v-on:click.prevent="sendHome">Cancel</button>
+      </v-btn>
+      <v-btn class="cancel-btn" v-on:click.prevent="sendHome">Cancel</v-btn>
       
       <router-link class="router-link" :to="{ name: 'login' }">Have an account?</router-link>
-    </form>
-  </div>
+    </v-form>
+  </v-container>
 </template>
 
 <script>

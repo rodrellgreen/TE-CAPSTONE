@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <v-container class="container">
       <h1>Meal List</h1>
-      <div class="meal-container">
+      <v-container class="meal-container">
       <ul v-for="meal in meals" :key="meal.mealId">
           <li>{{meal.mealType}}</li>
           <v-btn v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId, addFoodBtn = meal.mealId" v-if="addFoodBtn != meal.mealId">Add Food</v-btn>
-          <button v-on:click="showAddFood = !showAddFood, addFoodBtn=0" v-if="addFoodBtn === meal.mealId">Cancel</button>
-          <button v-on:click="removeMeal(meal.mealId)">Remove Meal</button>
-          <button v-if="logMealBtn != meal.mealId" v-on:click="getFoods(meal)">Log</button>
-          <button v-if="logMealBtn === meal.mealId" v-on:click="addDate=!addDate, logMealBtn = 0">Cancel</button>
+          <v-btn v-on:click="showAddFood = !showAddFood, addFoodBtn=0" v-if="addFoodBtn === meal.mealId">Cancel</v-btn>
+          <v-btn v-on:click="removeMeal(meal.mealId)">Remove Meal</v-btn>
+          <v-btn v-if="logMealBtn != meal.mealId" v-on:click="getFoods(meal)">Log</v-btn>
+          <v-btn v-if="logMealBtn === meal.mealId" v-on:click="addDate=!addDate, logMealBtn = 0">Cancel</v-btn>
       </ul>
-      <form class="add-food-form" v-if="showAddFood">
+      <v-form class="add-food-form" v-if="showAddFood">
         <h3>{{mealType}}</h3>
         <label for="food">Food:</label>
         <input v-model="foodItem.type" id="food" type="text" class="input-box" required/>
@@ -26,15 +26,15 @@
         <input v-model="foodItem.fat" id="fat" type="number" class="input-box"/>
         <label for="serving-size">Serving Size:</label>
         <input v-model="foodItem.servingSize" id="serving-size" type="number" class="input-box"/>
-        <button v-on:click="addFoodToMeal">Add</button>
-      </form>
-      <form v-if="addDate" @submit.prevent="logMeal">
+        <v-btn v-on:click="addFoodToMeal">Add</v-btn>
+      </v-form>
+      <v-form v-if="addDate" @submit.prevent="logMeal">
           <label for="date">Please enter date:</label>
           <input id="date" type="date" v-model="foodItem.date"/>
-          <button>Log</button>
-      </form>
-      </div>
-  </div>
+          <v-btn>Log</v-btn>
+      </v-form>
+      </v-container>
+  </v-container>
 </template>
 
 <script>
@@ -135,7 +135,7 @@ export default {
 </script>
 
 <style scoped>
-    button {
+    v-btn {
         margin: 10px;
         padding: 3px;
         border: solid grey 1px;

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <div class="header"><img src="~@/assets/banner.png" /></div>
-    <div id="navbar">
+  <v-app id="app">
+    <v-container class="header"><img src="~@/assets/banner.png" /></v-container>
+    <v-container id="navbar">
       <a></a>
       <a id="logo-container"
         ><router-link v-bind:to="{ name: 'home' }">
@@ -48,9 +48,9 @@
           >Logout</router-link
         ></a
       >
-    </div>
+    </v-container>
     <router-view />
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -88,7 +88,7 @@ h1 {
   margin: 0%;
   padding: 0%;
 }
-body {
+v-container {
   display: flexbox;
   justify-content: center;
   text-align: center;
@@ -127,22 +127,22 @@ img {
   width: 100%;
 }
 
-body.login {
+v-container.login {
   background-image: url("~@/assets/overnightOats.jpg");
   height: 200vh;
   background-size: cover;
   text-align: center;
 }
-div.home {
+v-container.home {
   width: 200vh;
 }
-div.home-background {
+v-container.home-background {
   background-image: url("~@/assets/omelete.jpg");
   background-size: cover;
   background-repeat: repeat;
   height: 200vh;
 }
-div.food-tracker {
+v-container.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   background-size: cover;
   height: 200vh;

@@ -1,11 +1,11 @@
 <template>
-  <div class="card-container">
+  <v-container class="card-container">
     <CreateProfile v-if="!this.currentProfile.displayName"/>
     <EditProfile v-if="edit"/>
-    <button v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</button>
-    <button v-if="!this.currentProfile.displayName == '' && edit" class="cancel-btn" v-on:click="edit = !edit">Cancel</button>
+    <v-btn v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</v-btn>
+    <v-btn v-if="!this.currentProfile.displayName == '' && edit" class="cancel-btn" v-on:click="edit = !edit">Cancel</v-btn>
     <ProfileDisplay v-if="!this.currentProfile.displayName == '' && !edit"/>
-  </div>
+  </v-container>
 </template>
 
 <script>
