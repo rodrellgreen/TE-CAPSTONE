@@ -1,7 +1,7 @@
 <template>
-  <v-container class="container">
+  <v-container class="form-container">
       <h1>Meal List</h1>
-      <v-container class="meal-container">
+      <v-container >
       <ul v-for="meal in meals" :key="meal.mealId">
           <li>{{meal.mealType}}</li>
           <v-btn v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId, addFoodBtn = meal.mealId" v-if="addFoodBtn != meal.mealId">Add Food</v-btn>
@@ -135,22 +135,13 @@ export default {
 </script>
 
 <style scoped>
-    v-btn {
-        margin: 10px;
-        padding: 3px;
-        border: solid grey 1px;
-        border-radius: 5px;
-        background-color: yellow;
-    }
+    
 
     .input-box {
         border: solid black 1px;
     }
 
-    .container {
-        border: solid black 2px;
-        border-radius: 10px;
-    }
+   
 
     ul {
         list-style: none;

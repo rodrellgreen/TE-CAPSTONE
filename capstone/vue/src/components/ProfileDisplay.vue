@@ -1,13 +1,19 @@
 <template>
   <v-container class="profile-container"> 
       <!-- Put profile picture in src="" below (currentProfile.profilePicture) -->
-      <img src="../assets/defaultUserImg.png" alt="User Profile Picture">
-      <h2 class="display-name">{{currentProfile.displayName}}</h2>
-      <p>{{currentProfile.age}}</p>
-      <p>{{currentProfile.email}}</p>
-      <p>{{currentProfile.feet}}' {{currentProfile.inches}}''</p>
-      <h3>Current Weight:</h3><span>{{currentProfile.currentWeight}}</span> 
-      <h3>Goal Weight:</h3><span>{{currentProfile.desiredWeight}}</span>
+      
+      <img class="profilePic" v-if="currentProfile.profilePicture == ''" src="../assets/defaultUserImg.png" alt="User Profile Picture">
+      <img class="profilePic" v-if="currentProfile.profilePicture !== ''" :src="currentProfile.profilePicture" alt="User Profile Picture">
+    <table id="profile">
+    <td>
+      <tr class="display-name">{{currentProfile.displayName}}</tr>
+      <tr>Age: {{currentProfile.age}}</tr>
+      <tr>Email: {{currentProfile.email}}</tr>
+      <tr>Height: {{currentProfile.feet}}' {{currentProfile.inches}}''</tr>
+      <tr>Current Weight: {{currentProfile.currentWeight}}</tr> 
+      <tr>Goal Weight: {{currentProfile.desiredWeight}}</tr>
+    </td>
+    </table>
   </v-container>
 </template>
 

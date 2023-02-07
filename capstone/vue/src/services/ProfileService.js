@@ -19,6 +19,9 @@ export default {
     },
     updateStreak(user) {
         return axios.put('/profile/streak', user);
+    },
+    addNumberToTextAlerts() {
+        return axios.put('/profile/sms');
     }
 
 }
