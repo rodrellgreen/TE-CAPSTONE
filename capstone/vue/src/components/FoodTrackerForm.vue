@@ -14,7 +14,7 @@
           placeholder="Ex: Potato"
         />
       </div>
-      <div class="flex-container">
+      <!-- <div class="flex-container">
         <label class="input-label" for="calories">Calories</label>
         <input
           class="input-box"
@@ -24,7 +24,7 @@
           required
           placeholder="Ex: 163"
         />
-      </div>
+      </div> -->
       <div class="flex-container">
         <label class="input-label" for="carbs">Carbs</label>
         <input
@@ -116,8 +116,6 @@ import FoodService from "../services/FoodService";
 export default {
   data() {
     return {
-    
-
       foodItem: {
         type: "",
         calories: null,
@@ -151,7 +149,7 @@ export default {
     showOptions() {
       if (
         this.foodItem.type &&
-        this.foodItem.calories &&
+        // this.foodItem.calories &&
         this.foodItem.carbs &&
         this.foodItem.protein &&
         this.foodItem.fats &&
@@ -196,7 +194,6 @@ export default {
       });
     },
   },
-
-}
+};
 </script>
 

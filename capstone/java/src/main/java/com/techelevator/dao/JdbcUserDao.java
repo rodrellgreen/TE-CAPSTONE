@@ -76,11 +76,11 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+        String insertUserSql = "insert into users (username,password_hash,role,streak) values (?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole, 0) == 1;
     }
 
     @Override
@@ -103,6 +103,18 @@ public class JdbcUserDao implements UserDao {
        if(linesUpdated==1){
            success=true;
        }
+        return success;
+    }
+
+    @Override
+    public boolean updateStreak(User user) {
+        String sql="UPDATE users SET streak=? WHERE user_id=?";
+        int linesUpdated=jdbcTemplate.update(sql,user.getStreak(),user.getId());
+        boolean success=false;
+        if(linesUpdated==1){
+            success=true;
+        }
+
         return success;
     }
 

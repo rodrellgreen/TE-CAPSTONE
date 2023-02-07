@@ -7,6 +7,7 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
+	streak INTEGER,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
@@ -67,7 +68,7 @@ CREATE TABLE profile (
 
  CREATE TABLE meal_food(
  meal_id INTEGER NOT NULL,
- food_name INTEGER NOT NULL,
+ food_name VARCHAR(100) NOT NULL,
  calories NUMERIC(10,2) NOT NULL,
  protein NUMERIC(10,2) NOT NULL,
  carbs NUMERIC(10,2) NOT NULL,

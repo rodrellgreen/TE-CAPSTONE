@@ -1,7 +1,7 @@
 <template>
   <div>
-      <CreateMeal/>
       <MealDisplay/>
+      <CreateMeal/>
   </div>
 </template>
 

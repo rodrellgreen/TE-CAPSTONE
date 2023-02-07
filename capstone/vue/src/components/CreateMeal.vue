@@ -1,6 +1,6 @@
 <template>
   <div class="meal-form-container">
-    <h1>Create New Meal</h1>
+    <!-- <h1>Create New Meal</h1> -->
     <form class="meal-form" @submit.prevent="createMeal">
       <label for="name">Meal Name:</label>
       <input
