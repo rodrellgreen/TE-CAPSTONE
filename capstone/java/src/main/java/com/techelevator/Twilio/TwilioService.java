@@ -13,6 +13,7 @@ public class TwilioService {
     private String auth_token = "cc7cc507dc5cc63670185ff2f3060bbd";
     private String fromPhoneNumber = "+18887911936";
     private String positiveMessage = "Don't forget to log your food. Your doing Great :)";
+
     public void sendMessage(String toPhoneNumber) {
 
         Twilio.init(account_sid, auth_token);
