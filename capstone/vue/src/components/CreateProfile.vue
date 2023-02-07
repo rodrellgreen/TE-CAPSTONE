@@ -107,6 +107,16 @@
           autofocus
         />
       </div>
+       <div class="flex-container">
+        <label for="publicPrivate" class="input-label">Phone Number:</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          class="input-box"
+          v-model="newProfile.phoneNumber"
+          autofocus
+        />
+      </div>
       <button class="create-profile-button" type="submit">
         Create Profile
       </button>
@@ -133,6 +143,7 @@ export default {
         displayName: "",
         profilePicture: "",
         publicPrivate: null,
+        phoneNumber: "",
       },
     };
   },

@@ -18,19 +18,11 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import RecentFood from '../components/RecentFood.vue'
 import CalorieCounter from '../components/CalorieCounter.vue'
 import StreakTracker from '../components/StreakTracker.vue'
 import WeeklyGraph from '../components/WeeklyGraph.vue'
 import ProgressCircle from '../components/ProgressCircle.vue'
-=======
-import RecentFood from "../components/RecentFood.vue";
-import CalorieCounter from "../components/CalorieCounter.vue";
-import StreakTracker from "../components/StreakTracker.vue";
-import WeeklyGraph from "../components/WeeklyGraph.vue";
-import ProgressCircle from "../components/ProgressCircle.vue";
->>>>>>> main
 
 export default {
   name: "home",

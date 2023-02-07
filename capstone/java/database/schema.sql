@@ -38,6 +38,7 @@ CREATE TABLE profile (
    profile_picture varchar(1000),
    display_name varchar(100),
    public_private BOOLEAN NOT NULL,
+   phone_number varchar(15),
    CONSTRAINT PK_profile PRIMARY KEY (profile_id),
    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id)
  );

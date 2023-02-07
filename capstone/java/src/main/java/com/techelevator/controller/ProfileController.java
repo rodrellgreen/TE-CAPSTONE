@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.Twilio.TwilioService;
 import com.techelevator.dao.ProfileDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Profile;
@@ -73,6 +74,18 @@ public class ProfileController {
     }
 
 
+    @GetMapping(path = "/sms")
+    public void smsAlert(Principal principal){
+        String userPhoneNumber = "";
+//        int userID=profileDao.getUserIdByUsername(principal.getName());
+        userPhoneNumber = profileDao.getUserPhoneNumber(principal.getName());
+        userPhoneNumber = "+1" + userPhoneNumber;
+//        userPhoneNumber = "+13307143204";
+        TwilioService twilio = new TwilioService();
+
+        twilio.sendMessage(userPhoneNumber);
+
+    }
 
 
 

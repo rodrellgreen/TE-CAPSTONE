@@ -25,6 +25,8 @@ public class Profile {
     private String profilePicture;
     @NotEmpty
     private String displayName;
+    @NotEmpty
+    private String phoneNumber;
     boolean publicPrivate=false;
 
 
@@ -32,7 +34,7 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName, boolean publicPrivate) {
+    public Profile(int profileId, int userId, String email, int age, int feet, int inches, double currentWeight, double desiredWeight, String profilePicture, String displayName, boolean publicPrivate, String phoneNumber) {
         this.profileId = profileId;
         this.userId = userId;
         this.email = email;
@@ -41,10 +43,19 @@ public class Profile {
         this.inches = inches;
         this.currentWeight = currentWeight;
         this.desiredWeight = desiredWeight;
-        this.profilePicture=profilePicture;
-        this.displayName=displayName;
-        this.publicPrivate=publicPrivate;
+        this.profilePicture = profilePicture;
+        this.displayName = displayName;
+        this.publicPrivate = publicPrivate;
+        this.phoneNumber = phoneNumber;
 
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public int getProfileId() {

@@ -28,35 +28,6 @@ public class FoodController {
     @Autowired
     private ProfileDao profileDao;
 
-//    public class Example {
-//        // Find your Account Sid and Token at twilio.com/user/account
-//        public static final String ACCOUNT_SID = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-//        public static final String AUTH_TOKEN = "your_auth_token";
-//
-//        public static void main(String[] args) {
-//            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-//
-//            Message message = Message.creator(new PhoneNumber("+15558675309"),
-//                    new PhoneNumber("+15017250604"),
-//                    "This is the ship that made the Kessel Run in fourteen parsecs?").create();
-//
-//            System.out.println(message.getSid());
-//        }
-//    }
-    @GetMapping(path="/spam-jake")
-    public void test() {
-        String account_sid = "AC202a198c3c233ca429ba015a14cd5485";
-        String auth_token = "cc7cc507dc5cc63670185ff2f3060bbd";
-
-        Twilio.init(account_sid, auth_token );
-
-        Message message = Message.creator(new PhoneNumber("+13307143204"),
-                    new PhoneNumber("+18887911936"),
-                    "This is the ship that made the Kessel Run in fourteen parsecs?").create();
-
-        System.out.println(message.getSid());
-    }
-
 
     @GetMapping()
     public List<Food> getAllFoodByUsername(Principal principal){
