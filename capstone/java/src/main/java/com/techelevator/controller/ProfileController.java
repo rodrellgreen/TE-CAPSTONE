@@ -75,7 +75,7 @@ public class ProfileController {
 
 
     @GetMapping(path = "/sms")
-    public void smsAlert(Principal principal){
+    public void verifyUserNumber(Principal principal){
         String userPhoneNumber = "";
 //        int userID=profileDao.getUserIdByUsername(principal.getName());
         userPhoneNumber = profileDao.getUserPhoneNumber(principal.getName());
@@ -83,10 +83,20 @@ public class ProfileController {
 //        userPhoneNumber = "+13307143204";
         TwilioService twilio = new TwilioService();
 
-        twilio.sendMessage(userPhoneNumber);
+        twilio.verifyUser(userPhoneNumber);
 
     }
 
+    @PutMapping(path = "/sms")
+    public void smsAlert(Principal principal){
+        String userPhoneNUmber = "3307143204";
+
+        userPhoneNUmber = profileDao.getUserPhoneNumber(principal.getName());
+        userPhoneNUmber = "+1" + userPhoneNUmber;
+
+        TwilioService twilio = new TwilioService();
+        twilio.sendMessage(userPhoneNUmber);
+    }
 
 
 
