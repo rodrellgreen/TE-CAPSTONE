@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <v-container>
     <join-teams />
     <my-teams />
     <create-team />
-  </div>
+  </v-container>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="home-background">
-    <div class="home">
+  <v-container class="home-background">
+    <v-container class="home">
       <h1>Home</h1>
       <p v-if="$store.state.token == ''">
         You must be authenticated to see this
@@ -13,8 +13,8 @@
       <progress-circle />
       <calorie-counter />
       <recent-food />
-    </div>
-  </div>
+    </v-container>
+  </v-container>
 </template>
 
 <script>

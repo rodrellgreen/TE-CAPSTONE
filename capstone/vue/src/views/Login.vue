@@ -2,23 +2,23 @@
  
 
 
- <body  class="login"> 
+ <v-container  class="login"> 
   <h1>Welcome to TechFitness</h1>
   
-  <div id="login" class="text-center">
-    <form class="form-signin" @submit.prevent="login">
+  <v-container id="login" class="text-center">
+    <v-form class="form-signin" @submit.prevent="login">
       <ul class="flex-outer">
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
-      <div
+      <v-container
         class="alert alert-danger"
         role="alert"
         v-if="invalidCredentials"
-      >Invalid username and password!</div>
-      <div
+      >Invalid username and password!</v-container>
+      <v-container
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
+      >Thank you for registering, please sign in.</v-container>
       <li>
       <label for="username" class="sr-only">Username</label>
       <input
@@ -43,11 +43,11 @@
       />
       </li>
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <v-btn type="submit">Sign in</v-btn>
       </ul>
-    </form>
-  </div>
-  </body>
+    </v-form>
+  </v-container>
+ </v-container>
 
 </template>
 
