@@ -1,8 +1,8 @@
 <template>
-  <div id="form-container" class="form-container">
-    <form class="form-form" @submit.prevent="createProfile">
+  <v-container id="form-container" class="form-container">
+    <v-form class="form-form" @submit.prevent="createProfile">
       <h1>Create Profile</h1>
-      <div class="flex-container">
+      <v-container class="flex-container">
         <label for="email" class="input label">Email Address:</label>
         <input
           type="text"
@@ -13,8 +13,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="age" class="input-label">Age:</label>
         <input
           type="number"
@@ -25,8 +25,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="height-feet" class="input-label">Height (ft):</label>
         <input
           type="number"
@@ -37,8 +37,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="height-inches" class="input-label">Height (in):</label>
         <input
           type="number"
@@ -49,8 +49,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="current-weight" class="input-label">Current Weight:</label>
         <input
           type="number"
@@ -61,8 +61,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="desired-weight" class="input-label">Desired Weight:</label>
         <input
           type="number"
@@ -73,8 +73,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="displayName" class="input-label">DisplayName:</label>
         <input
           type="text"
@@ -85,8 +85,8 @@
           required
           autofocus
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="profilePic" class="input-label">Add Profile Picture:</label>
         <input
           type="text"
@@ -96,18 +96,8 @@
           v-model="newProfile.profilePicture"
           autofocus
         />
-      </div>
-      <div class="flex-container">
-        <label for="publicPrivate" class="input-label">Make Public:</label>
-        <input
-          type="checkbox"
-          id="publicPrivate"
-          class="input-box"
-          v-model="newProfile.publicPrivate"
-          autofocus
-        />
-      </div>
-       <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label for="publicPrivate" class="input-label">Phone Number:</label>
         <input
           type="text"
@@ -116,13 +106,23 @@
           v-model="newProfile.phoneNumber"
           autofocus
         />
-      </div>
-      <button class="create-profile-button" type="submit">
+      </v-container>
+      <v-container class="flex-container">
+        <label for="publicPrivate" class="input-label">Make Public:</label>
+        <input
+          type="checkbox"
+          id="publicPrivate"
+          class="input-box"
+          v-model="newProfile.publicPrivate"
+          autofocus
+        />
+      </v-container>
+      <v-btn class="create-profile-button" type="submit">
         Create Profile
-      </button>
-      <button class="cancel-btn" v-on:click.prevent="sendHome">Cancel</button>
-    </form>
-  </div>
+      </v-btn>
+      <v-btn class="cancel-btn" v-on:click.prevent="sendHome">Cancel</v-btn>
+    </v-form>
+  </v-container>
 </template>
 
 <script>
@@ -160,7 +160,7 @@ export default {
     },
 
     sendHome() {
-     this.$router.go();
+      this.$router.go();
     },
   },
 };

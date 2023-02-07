@@ -1,5 +1,5 @@
 <template>
-  <div class="allTeams">
+  <v-container class="allTeams">
     <h2>Available Teams</h2>
     <ul v-for="team in this.allTeams" :key="team.teamId">
       <li>
@@ -12,7 +12,7 @@
         >
       </li>
     </ul>
-  </div>
+  </v-container>
 </template>
 
 <script>

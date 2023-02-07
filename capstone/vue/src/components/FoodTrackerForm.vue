@@ -1,9 +1,9 @@
 <template>
-  <div id="form-container" class="form-container">
-    <form class="form-form" @submit="logFood" action="">
+  <v-container id="form-container" class="form-container">
+    <v-form class="form-form" @submit="logFood" action="">
       <h1>Log Food</h1>
 
-      <div class="flex-container">
+      <v-container class="flex-container">
         <label class="input-label" for="name">Food</label>
         <input
           class="input-box"
@@ -13,7 +13,7 @@
           required
           placeholder="Ex: Potato"
         />
-      </div>
+      </v-container>
       <!-- <div class="flex-container">
         <label class="input-label" for="calories">Calories</label>
         <input
@@ -25,7 +25,7 @@
           placeholder="Ex: 163"
         />
       </div> -->
-      <div class="flex-container">
+      <v-container class="flex-container">
         <label class="input-label" for="carbs">Carbs</label>
         <input
           class="input-box"
@@ -35,8 +35,8 @@
           required
           placeholder="Ex: 37"
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label class="input-label" for="protein">Protien</label>
         <input
           class="input-box"
@@ -46,8 +46,8 @@
           required
           placeholder="Ex: 4"
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label class="input-label" for="fats">Fats</label>
         <input
           class="input-box"
@@ -57,8 +57,8 @@
           required
           placeholder="Ex: 0"
         />
-      </div>
-      <div class="flex-container">
+      </v-container>
+      <v-container class="flex-container">
         <label class="input-label" for="fiber">Fiber</label>
         <input
           class="input-box"
@@ -68,9 +68,9 @@
           required
           placeholder="Ex: 5"
         />
-      </div>
+      </v-container>
 
-      <div class="flex-container">
+      <v-container class="flex-container">
         <label class="input-label" for="servings">Serving</label>
         <input
           class="input-box"
@@ -80,14 +80,14 @@
           required
           placeholder="Ex: 1"
         />
-      </div>
+      </v-container>
 
-      <div class="flex-container">
+      <v-container class="flex-container">
         <label class="input-checkbox" for="quick-add">Enable "Quick Add"</label>
         <input id="quick-add" type="checkbox" v-model="foodItem.quickAdd" />
-      </div>
+      </v-container>
 
-      <div class="flex-container">
+      <v-container class="flex-container">
         <label class="input-label" for="date">Date</label>
         <input
           class="input-box"
@@ -97,18 +97,22 @@
           required
           placeholder="Ex: 1"
         />
-      </div>
+      </v-container>
 
-      <div id="mealType" v-if="showOptions" @close="showOptions = false">
-        <div>
+      <v-container
+        id="mealType"
+        v-if="showOptions"
+        @close="showOptions = false"
+      >
+        <v-container>
           <v-btn v-on:click="logFood"> Snack </v-btn>
           <v-btn v-on:click="logFood"> Breakfast </v-btn>
           <v-btn v-on:click="logFood"> Lunch </v-btn>
           <v-btn v-on:click="logFood"> Dinner </v-btn>
-        </div>
-      </div>
-    </form>
-  </div>
+        </v-container>
+      </v-container>
+    </v-form>
+  </v-container>
 </template>
 
 <script>

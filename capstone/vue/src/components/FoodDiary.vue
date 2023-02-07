@@ -1,5 +1,5 @@
 <template>
-  <div id="foodLogTable" style="overflow-x: auto">
+  <v-container id="foodLogTable" style="overflow-x: auto">
     <table id="food-log">
       <caption class="tableHeader">
         Food Log
@@ -34,8 +34,8 @@
         </tr>
       </tbody>
     </table>
-    <div>Food Log Streak {{ this.streak }}</div>
-  </div>
+    <v-container>Food Log Streak {{ this.streak }}</v-container>
+  </v-container>
 </template>
 
 <script>
