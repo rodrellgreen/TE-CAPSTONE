@@ -73,8 +73,17 @@ export default {
 
 
 <style>
+
+.graphComponent{
+  float: left;
+  width: 40%;
+}
+.progressComponent{
+  float: right;
+  width: 40%;
+}
 #app {
-  font-size: 25px;
+  font-size: 1 0 1rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-decoration-line: none;
@@ -82,7 +91,22 @@ export default {
   color: #174c4f;
   text-align: center;
   justify-content: center;
+  display: flex;
+  
+  /* can be treated like a fallback */
+  background-color: rgb(97, 96, 96);
+
+  /* will be "on top", if browser supports it */
+  background-image: linear-gradient(rgb(97, 96, 96), whitesmoke);
+
+  /* these will reset other properties, like background-position, but it does know what you mean */
+  background: rgb(97, 96, 96);
+  background: linear-gradient(rgb(97, 96, 96), whitesmoke);
+
+
 }
+
+
 h1 {
   display: flexbox;
   margin: 0%;
@@ -90,17 +114,33 @@ h1 {
 }
 v-container {
   display: flexbox;
+}
+
+.profilePic{
+  width: 25%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 25px;
+  
+}
+
+.profile-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
-  text-align: center;
 }
 
 #navbar {
-  overflow: hidden;
+  
   background-color: #174c4f;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  text-align: center;
+  text-align: right;
+  justify-content: start;
 }
 #navbar a {
   float: left;
@@ -113,7 +153,9 @@ v-container {
 #logo {
   display: flex;
   width: 25%;
-  text-align: center;
+  margin-right: 50vh;
+  
+  
 }
 
 .header {
@@ -123,7 +165,7 @@ v-container {
 }
 img {
   display: flex;
-
+  
   width: 100%;
 }
 
@@ -146,6 +188,12 @@ v-container.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   background-size: cover;
   height: 200vh;
+
+}
+
+.quickMeals{
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 /** Login Styling Below */
@@ -165,19 +213,30 @@ v-container.food-tracker {
 }
 
 /** Food Tables/Logs Styling Below */
-#food-log {
+#foodLogTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 35%;
-}
-
-#food-log td,
-#food-log th {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0%;
+  margin: 0%;
   border: 1px solid #ddd;
-  padding: 3px;
+  border: solid black 2px;
+  border-radius: 10px;
+  flex-direction: column;
 }
 
-#food-log tr {
+#streak {
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: #174c4f;
+  color: whitesmoke;
+  width: 100%;
+}
+
+
+tr {
   background-color: #f2f2f2;
 }
 
@@ -188,12 +247,11 @@ v-container.food-tracker {
   color: white;
 }
 .tableCaption{
-  font: 5px;
+  font: 2rem;
 }
 
-#food-log th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+ th {
+
 
   background-color: #174c4f;
   color: white;
@@ -203,73 +261,76 @@ v-container.food-tracker {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 50px;
   padding: 0px;
 
   border-radius: 25%;
 }
 
+#foodDiary {
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+}
+
 /** Form Styling Below */
 
 .mealType {
-  font-size: 12px;
+  font-size: 1rem;
 }
-
-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
 .form-container {
-  background-color: #174c4f;
-  color: white;
-  text-align: center;
-
-  border: solid grey 2px;
+  background: #174c4f;
+  color: whitesmoke;
+   border: solid black 2px;
   border-radius: 10px;
-  width: 460px;
-  height: 620px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-
+  padding: 0%;
+  width: 50%;
   display: flex;
-
-  font-size: large;
+  flex-direction: column;
+}
+.flex-container {
+ display: flex;
+  padding: 2px;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.form-form {
-  height: 200px;
+#quick-add {
+  justify-content: right;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-end;
 }
 
 .input-label {
-  margin-right: 10px;
+  display: flex;
+  font-size: 2rem;
 }
 
 label {
-  margin-right: 6px;
+  margin-right: auto;
+  display: flex;
+  size: 2rem;
+
+}
+input{
+  justify-content: center;
+  display: flex;
+  size: 1rem;
 }
 
 .input-box {
-  margin-left: 10px;
-  height: 25px;
   background-color: whitesmoke;
+  display: flex;
 }
 
 .cancel-btn {
   width: 95px;
 }
 
-button {
+v-btn {
   height: 32px;
   margin-left: auto;
   margin-right: auto;
@@ -280,11 +341,11 @@ button {
 }
 
 .form-control {
-  margin: 5px;
-  height: 20px;
+  margin: 1%;
+  height: 5%;
 }
 
-button {
+v-btn {
   margin-left: auto;
   margin-right: auto;
 }

@@ -1,14 +1,17 @@
 <template>
   <v-container>
-    <h1>Calorie Total: {{ calorieTotal }}</h1>
+    <v-container>
+      <h1>Calorie Total: {{ calorieTotal }}</h1>
     <h2>Daily Calorie Percentage: {{ updateCalorieBar }}%</h2>
     <v-container class="progress">
+    
       <v-container
         class="goal_percentage"
         :style="{ width: updateCalorieBar + '%' }"
       >
         <span class="progress__text">great things loading...</span>
       </v-container>
+    </v-container>
     </v-container>
   </v-container>
 </template>

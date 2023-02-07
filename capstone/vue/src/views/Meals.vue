@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container form-container>
       <MealDisplay/>
       <CreateMeal/>
   </v-container>

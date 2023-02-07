@@ -84,7 +84,7 @@
 
       <v-container class="flex-container">
         <label class="input-checkbox" for="quick-add">Enable "Quick Add"</label>
-        <input id="quick-add" type="checkbox" v-model="foodItem.quickAdd" />
+        <input  id="quick-add" type="checkbox" v-model="foodItem.quickAdd" />
       </v-container>
 
       <v-container class="flex-container">
