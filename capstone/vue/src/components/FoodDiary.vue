@@ -27,10 +27,7 @@
           <td>{{ food.servingSize }}</td>
 
           <td>
-            <v-btn
-              class="editFoodEntry"
-              v-on:click="startUpdate(food)"
-              v-bind="food.foodId"
+            <v-btn class="editFoodEntry" v-on:click="startUpdate(food)"
               >Edit</v-btn
             >
           </td>
