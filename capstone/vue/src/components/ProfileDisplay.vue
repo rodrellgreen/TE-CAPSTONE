@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-container"> 
+  <v-container class="profile-container"> 
       <!-- Put profile picture in src="" below (currentProfile.profilePicture) -->
       <img src="../assets/defaultUserImg.png" alt="User Profile Picture">
       <h2 class="display-name">{{currentProfile.displayName}}</h2>
@@ -8,7 +8,7 @@
       <p>{{currentProfile.feet}}' {{currentProfile.inches}}''</p>
       <h3>Current Weight:</h3><span>{{currentProfile.currentWeight}}</span> 
       <h3>Goal Weight:</h3><span>{{currentProfile.desiredWeight}}</span>
-  </div>
+  </v-container>
 </template>
 
 <script>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-container>
       <MealDisplay/>
       <CreateMeal/>
-  </div>
+  </v-container>
 </template>
 
 <script>

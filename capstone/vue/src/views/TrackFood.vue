@@ -1,16 +1,16 @@
 <template>
 
-  <div class="food-tracker">
+  <v-container class="food-tracker">
         
         <food-tracker-form v-if="!showQuickAdd"/>
         <quick-add v-if="showQuickAdd"/>
         <router-link v-bind:to="{name: 'meals'}">Quick Meals</router-link>
-        <button v-if="!showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Quick Add</button>
-        <button v-if="showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Cancel</button>
+        <v-btn v-if="!showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Quick Add</v-btn>
+        <v-btn v-if="showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Cancel</v-btn>
        <food-diary/>
         
        <update-food v-if="$store.state.updateFoodItem" />
-</div>
+  </v-container>
 
     
 </template>

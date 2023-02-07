@@ -1,8 +1,8 @@
 <template>
-  <div id="streak-tracker">
+  <v-container id="streak-tracker">
       <h1>Current Streak: </h1>
 
-  </div>
+  </v-container>
 </template>
 
 <script>

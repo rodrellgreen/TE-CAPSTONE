@@ -1,17 +1,17 @@
 <template >
- <div >
-  <div class="graph">
+ <v-container>
+  <v-container class="graph">
     <JSCharting :options="options" style="height: 400px"></JSCharting>
     <!-- <button v-on:click="updateData">Update Chart Data</button> -->
-  </div>
-  <div>
-      <button v-on:click="Weekly"> Last Week </button> | 
-      <button v-on:click="Monthly"> Last Month </button> |
-      <button v-on:click="ThreeMonths"> Last 3 Months </button> |
-      <button v-on:click="SixMonths"> Last 6 Months </button>
+  </v-container>
+  <v-container>
+      <v-button v-on:click="Weekly"> Last Week </v-button> | 
+      <v-button v-on:click="Monthly"> Last Month </v-button> |
+      <v-button v-on:click="ThreeMonths"> Last 3 Months </v-button> |
+      <v-button v-on:click="SixMonths"> Last 6 Months </v-button>
       
-  </div>
-</div>
+  </v-container>
+</v-container>
 </template>
 
 <script>
