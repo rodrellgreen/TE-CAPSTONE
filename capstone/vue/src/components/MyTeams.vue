@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-container class="myTeams">
       <h2 class="text-center">My Teams</h2>
 
@@ -15,7 +15,7 @@
         </v-list-item>
       </v-list>
     </v-container>
-  </div>
+  </v-container>
 </template>
 
 <script>
