@@ -1,20 +1,15 @@
 <template>
   <v-container class="teams">
-    <v-container>
-      <v-row>
-        <v-col>
-          <h2 id="teamName">{{ team.teamName }}</h2>
+    <h2 id="teamName">{{ team.teamName }}</h2>
 
-          <h3 id="membersTitle">Members</h3>
-          <v-list id="membersNames">
-            <v-list-item v-for="member in members" :key="member.id">
-              {{ member }}
-            </v-list-item>
-          </v-list>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-container>
+    <h3 id="membersTitle">Members</h3>
+    <ul id="membersName">
+      <li v-for="member in members" :key="member.id">
+        {{ member }}
+      </li>
+    </ul>
+
+    <v-container id="teamPosts">
       <v-card v-for="post in teamPosts" :key="post.postId" class="posts">
         <v-card-title id="posterName">{{ post.displayName }}</v-card-title>
         <v-card-text id="posterMessage">{{ post.message }}</v-card-text>

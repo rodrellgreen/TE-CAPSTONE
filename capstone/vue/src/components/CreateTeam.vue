@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container id="createTeam">
       <v-text-field
         v-model="newTeam.teamName"
         label="Create A Team"

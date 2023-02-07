@@ -1,20 +1,14 @@
 <template>
-  <v-container>
-    <v-container class="myTeams">
-      <h2 class="text-center">My Teams</h2>
+  <v-container class="myTeams">
+    <h2 class="text-center">My Teams</h2>
 
-      <v-list>
-        <v-list-item v-for="team in myTeams" :key="team.teamId">
-          <v-list-item-content>
-            <router-link
-              :to="{ name: 'team', params: { teamIndex: team.teamId } }"
-            >
-              {{ team.teamName }}</router-link
-            >
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-container>
+    <ul class="teamsList">
+      <li v-for="team in myTeams" :key="team.teamId">
+        <router-link :to="{ name: 'team', params: { teamIndex: team.teamId } }">
+          {{ team.teamName }}</router-link
+        >
+      </li>
+    </ul>
   </v-container>
 </template>
 
