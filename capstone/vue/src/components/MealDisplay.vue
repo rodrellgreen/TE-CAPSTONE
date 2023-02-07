@@ -4,11 +4,11 @@
       <div class="meal-container">
       <ul v-for="meal in meals" :key="meal.mealId">
           <li>{{meal.mealType}}</li>
-          <v-btn v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId" v-if="!showAddFood">Add Food</v-btn>
-          <button v-on:click="showAddFood = !showAddFood" v-else>Cancel</button>
+          <v-btn v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId, addFoodBtn = meal.mealId" v-if="addFoodBtn != meal.mealId">Add Food</v-btn>
+          <button v-on:click="showAddFood = !showAddFood, addFoodBtn=0" v-if="addFoodBtn === meal.mealId">Cancel</button>
           <button v-on:click="removeMeal(meal.mealId)">Remove Meal</button>
-          <button v-if="!addDate" v-on:click="getFoods(meal)">Log</button>
-          <button v-else v-on:click="addDate=!addDate">Cancel</button>
+          <button v-if="logMealBtn != meal.mealId" v-on:click="getFoods(meal)">Log</button>
+          <button v-if="logMealBtn === meal.mealId" v-on:click="addDate=!addDate, logMealBtn = 0">Cancel</button>
       </ul>
       <form class="add-food-form" v-if="showAddFood">
         <h3>{{mealType}}</h3>
@@ -45,6 +45,7 @@ export default {
 
     data() {
         return{
+            logMealBtn: 0,
             addFoodBtn: 0,
             meals: [],
             showAddFood: false,
@@ -101,6 +102,8 @@ export default {
             );
         },
         logMeal() {
+            this.addDate=!this.addDate;
+            this.logMealBtn = 0;
             var strInputValue = this.foodItem.date; // <-- get my date string
             let strInputValue2 = strInputValue
                 .replace(/-/, "/") // replace 1st "-" with "/"
@@ -118,6 +121,7 @@ export default {
         getFoods(meal) {
             this.mealId=meal.mealId;
             this.showAddFood=false;
+            this.logMealBtn = meal.mealId;
             this.addDate=!this.addDate;
             MealService.getFoods(this.mealId).then(
                 (response) => {
