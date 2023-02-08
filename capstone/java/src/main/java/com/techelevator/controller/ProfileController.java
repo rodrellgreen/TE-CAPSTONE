@@ -87,7 +87,16 @@ public class ProfileController {
 //
 //    }
 
+    @PutMapping(path = "/sms")
+    public void smsAlert(Principal principal){
+        String userPhoneNUmber = "3307143204";
 
+        userPhoneNUmber = profileDao.getUserPhoneNumber(principal.getName());
+        userPhoneNUmber = "+1" + userPhoneNUmber;
+
+        TwilioService twilio = new TwilioService();
+        twilio.sendMessage(userPhoneNUmber);
+    }
 
 
 
