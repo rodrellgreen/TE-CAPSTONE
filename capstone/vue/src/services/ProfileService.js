@@ -22,6 +22,9 @@ export default {
     },
     addNumberToTextAlerts() {
         return axios.put('/profile/sms');
+    },
+    sendSMS(){
+        return axios.put('/profile/sms')
     }
 
 }

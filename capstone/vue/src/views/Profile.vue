@@ -2,9 +2,11 @@
   <v-container class="card-container">
     <CreateProfile v-if="!this.currentProfile.displayName"/>
     <EditProfile v-if="edit"/>
+    <text-alert/>
     <v-btn v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</v-btn>
     <v-btn v-if="!this.currentProfile.displayName == '' && edit" class="cancel-btn" v-on:click="edit = !edit">Cancel</v-btn>
     <ProfileDisplay v-if="!this.currentProfile.displayName == '' && !edit"/>
+    
   </v-container>
 </template>
 
@@ -13,7 +15,7 @@ import CreateProfile from '../components/CreateProfile.vue';
 import EditProfile from '../components/EditProfile.vue';
 import ProfileDisplay from '../components/ProfileDisplay.vue';
 import ProfileService from '../services/ProfileService.js';
-
+import TextAlert from '../components/TextAlert.vue';
 export default {
 
   data() {
@@ -29,7 +31,8 @@ export default {
   components: {
       CreateProfile,
       EditProfile,
-      ProfileDisplay
+      ProfileDisplay,
+      TextAlert,
   },
 
   created() {
