@@ -1,34 +1,35 @@
 <template>
-  <v-container class="teams">
+  <body>
     <h2 id="teamName">{{ team.teamName }}</h2>
-
-    <h3 id="membersTitle">Members</h3>
-    <ul id="membersName">
-      <li v-for="member in members" :key="member.id">
-        {{ member }}
-      </li>
-    </ul>
-
-    <v-container id="teamPosts">
-      <v-card v-for="post in teamPosts" :key="post.postId" class="posts">
-        <v-card-title id="posterName">{{ post.displayName }}</v-card-title>
-        <v-card-text id="posterMessage">{{ post.message }}</v-card-text>
-      </v-card>
-    </v-container>
-
-    <v-card-actions>
+    <v-container class="teams">
       <v-container>
-        <v-textarea
-          v-model="post.message"
-          label="Post a Message"
-          auto-grow
-          row="2"
-          class="postArea"
-        ></v-textarea>
-        <v-btn @click="addPost(post)">Post</v-btn>
+        <h3 id="membersTitle">Members</h3>
+        <ul id="membersName">
+          <li v-for="member in members" :key="member.id">
+            {{ member }}
+          </li>
+        </ul>
       </v-container>
-    </v-card-actions>
-  </v-container>
+      <v-container id="teamPosts">
+        <v-card v-for="post in teamPosts" :key="post.postId" class="posts">
+          <v-card-title id="posterName">{{ post.displayName }}</v-card-title>
+          <v-card-text id="posterMessage">{{ post.message }}</v-card-text>
+        </v-card>
+        <v-card-actions>
+          <v-container>
+            <v-textarea
+              v-model="post.message"
+              label="Post a Message"
+              auto-grow
+              row="2"
+              class="postArea"
+            ></v-textarea>
+            <v-btn @click="addPost(post)">Post</v-btn>
+          </v-container>
+        </v-card-actions>
+      </v-container>
+    </v-container>
+  </body>
 </template>
 
 <script>
