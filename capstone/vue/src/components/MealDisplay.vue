@@ -1,5 +1,5 @@
 <template>
-  <v-container class="meal-display-ctr">
+  <v-container class="meal-display">
       <!-- <h1>Meal List</h1> -->
       <v-container >
       <ul v-for="meal in meals" :key="meal.mealId">

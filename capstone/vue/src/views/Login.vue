@@ -1,9 +1,6 @@
 <template>
- 
-
-
  <v-container  class="login"> 
-  <h1>Welcome to TechFitness</h1>
+  <h1 class="login-header">Welcome to TechFitness</h1>
   
   <v-container id="login" class="text-center">
     <v-form class="form-signin" @submit.prevent="login">

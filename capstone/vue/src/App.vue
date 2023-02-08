@@ -34,7 +34,6 @@
       <a
         ><router-link
           v-bind:to="{ name: 'community' }"
-          v-show="profile.publicPrivate === true && $store.state.token != ''"
           >Community
         </router-link></a
       >
@@ -165,6 +164,11 @@ v-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
+}
+
+.quick-meals-header {
+  margin-bottom: 3%;
 }
 
 .add-food-form {
@@ -184,18 +188,22 @@ v-container {
 }
 
 .create-meal-label {
-  margin-left: auto;
-  margin-right: auto;
+  width: 110px;
+  margin-right: 1%;
 }
 
 .meal-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
 .create-meal-btn {
-  margin-top: 6%;
+  justify-content: center;
+}
+
+#meal-name {
+  margin-right: 1%;
 }
 
 .meal-list {
@@ -323,6 +331,10 @@ v-container.food-tracker {
 }
 
 /** Login Styling Below */
+
+.login-header {
+  justify-content: center;
+}
 
 .flex-outer li,
 .flex-inner {
