@@ -1,11 +1,12 @@
 <template>
 <div>
+  TIME?{{timeStamp}}
   <button v-if="this.ifUserPhoneNumber"
   v-on:click="this.showTimeForm"
   >Custum Text Alerts?</button>
-  <v-form v-if="formShow"> 
-    <input type="datetime-local" v-model="this.timeStamp">
-    <v-btn type="submit" v-if="this.submitTime">Confirm?</v-btn>
+  <v-form v-if="formShow" v-on:submit.prevent="sendAlert"> 
+    <input type="datetime-local" v-model="timeStamp">
+    <v-btn type="submit" v-if="submitTime">Confirm?</v-btn>
   </v-form>
 </div>
 </template>
@@ -18,7 +19,7 @@ export default {
     return{
       userProfile: [],
       formShow: false,
-      timeStamp: [],
+      timeStamp: new Date(),
     }
   },
 
@@ -38,7 +39,10 @@ export default {
     },
 
     sendAlert(){
-      ProfileService.sendSMS();
+      ProfileService.sendSMS(this.timeStamp).then( (response) => {
+        console.log(response.status);
+        console.log(response.data);
+      });
       this.timeStamp = null;
     },
     
