@@ -27,7 +27,7 @@ export default {
       seventyFivePercentGoal: 0,
       ninetyPercentGoal: 0,
       goalPercentage: 0,
-      
+
       loaded: false,
       foodLog: [],
       profile: [],
@@ -41,7 +41,6 @@ export default {
       this.foodLog.forEach((food) => {
         this.totalCalories += food.calories;
       });
-      this.loaded = true;
     });
 
     ProfileService.getProfile().then((response) => {
@@ -66,6 +65,7 @@ export default {
 
       this.goalPercentage = (this.totalCalories / this.calorieGoal) * 100;
       this.goalPercentage = Math.round(this.goalPercentage);
+      this.loaded = true;
     });
   },
   methods: {},
@@ -97,7 +97,6 @@ export default {
               value: [this.ninetyPercentGoal, this.calorieGoal],
               color: "Green",
             },
-            
           ],
         },
         yAxis: {
