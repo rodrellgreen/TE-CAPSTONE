@@ -125,8 +125,6 @@ v-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
   justify-content: center;
 }
 
@@ -263,9 +261,8 @@ th {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 50px;
+  margin-top: 3%;
   padding: 0px;
-
   border-radius: 25%;
 }
 
@@ -291,6 +288,8 @@ th {
   width: 50%;
   display: flex;
   flex-direction: column;
+  margin-top: 1%;
+  margin-bottom: 3%;
 }
 .flex-container {
   display: flex;
@@ -326,8 +325,18 @@ input {
   display: flex;
 }
 
+.sign-in {
+  margin: 10px;
+}
+
 .cancel-btn {
   width: 95px;
+  margin: 10px;
+
+}
+
+.alert {
+  color: red;
 }
 
 .sr-only {

@@ -7,11 +7,10 @@
         {{ registrationErrorMsg }}
       </v-container>
       <v-container class="flex-container">
-      <label for="username" class="input label">Username:</label>
+      <label for="username" class="input-label">Username:</label>
       <input
         type="text"
-        id="username"
-        class="form-control"
+        class="input-box"
         placeholder="Username"
         v-model="user.username"
         required
@@ -19,22 +18,20 @@
       />
       </v-container>
       <v-container class="flex-container">
-      <label for="password" class="sr-only">Password:</label>
+      <label for="password" class="input-label">Password:</label>
       <input
         type="password"
-        id="password"
-        class="form-control"
+        class="input-box"
         placeholder="Password"
         v-model="user.password"
         required
       />
       </v-container>
       <v-container class="flex-container">
-      <label for="confirmPassword">Confirm Password:</label>
+      <label for="confirmPassword" class="input-label">Confirm Password:</label>
       <input
         type="password"
-        id="confirmPassword"
-        class="form-control"
+        class="input-box"
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required

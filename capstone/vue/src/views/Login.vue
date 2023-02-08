@@ -15,7 +15,7 @@
         v-if="invalidCredentials"
       >Invalid username and password!</v-container>
       <v-container
-        class="alert alert-success"
+        class="alert-success"
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</v-container>
@@ -43,7 +43,7 @@
       />
       </li>
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <v-btn type="submit">Sign in</v-btn>
+      <v-btn class="sign-in" type="submit">Sign in</v-btn>
       </ul>
     </v-form>
   </v-container>
