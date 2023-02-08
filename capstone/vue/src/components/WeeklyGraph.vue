@@ -1,22 +1,22 @@
 <template >
  <v-container>
+   
   <v-container class="graph">
     <JSCharting :options="options" style="height: 400px"></JSCharting>
     <!-- <button v-on:click="updateData">Update Chart Data</button> -->
   </v-container>
-  <v-container>
-      <v-button v-on:click="Weekly"> Last Week </v-button> | 
-      <v-button v-on:click="Monthly"> Last Month </v-button> |
-      <v-button v-on:click="ThreeMonths"> Last 3 Months </v-button> |
-      <v-button v-on:click="SixMonths"> Last 6 Months </v-button>
-      
+  <v-container id="graph-toggle">
+      <v-btn small v-on:click="Weekly"> Last Week </v-btn> | 
+      <v-btn small v-on:click="Monthly"> Last Month </v-btn> |
+      <v-btn small v-on:click="ThreeMonths"> Last 3 Months </v-btn> |
+      <v-btn small v-on:click="SixMonths"> Last 6 Months </v-btn>
   </v-container>
 </v-container>
 </template>
 
 <script>
 import JSCharting from "jscharting-vue";
-// import FoodService from "../services/FoodService.js";
+import FoodService from "../services/FoodService.js";
 
 export default {
   name: "methodUpdate",
@@ -52,153 +52,10 @@ export default {
   },
 
   created() {
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "02/04/2023",
-      });
-    }
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "02/03/2023",
-      });
-    }
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "02/02/2023",
-      });
-    }
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "02/01/2023",
-      });
-    }
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "01/31/2023",
-      });
-    }
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "01/30/2023",
-      });
-    }
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "01/29/2023",
-      });
-    }
-
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "09/29/2022",
-      });
-    }
-
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "08/29/2022",
-      });
-    }
-
-    for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "07/29/2022",
-      });
-    }
-
-      for (let i = 0; i < 4; i++) {
-      this.foodLog.push({
-        type: "",
-        calories: 300 + Math.random() * 100,
-        carbs: null,
-        protein: null,
-        fats: null,
-        fiber: null,
-        servingSize: null,
-        quickAdd: null,
-        date: "11/29/2022",
-      });
-    }
+    
+    FoodService.getAllFoods().then((response) => {
+      this.foodLog = response.data;
+    });
 
     this.options.series = [
       {
@@ -206,10 +63,7 @@ export default {
         points: this.getWeeklyFoodPoints(),
       },
     ];
-    // console.log("FoodLog:", this.foodLog);
-    //   FoodService.getAllFoods().then((response) => {
-    //   this.foodLog = response.data;
-    // });
+      
   },
 
   methods: {

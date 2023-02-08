@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="daily-cals">
+    
     <div>
       <JSCharting
         v-show="loaded"
@@ -7,7 +8,7 @@
         style="max-width: 400px; height: 400px; margin: 0 auto"
       />
     </div>
-    <h2>Daily Calorie Goal: {{ this.calorieGoal }}</h2>
+    <h2 class="circle-graph-title">Daily Calorie Goal: {{ this.calorieGoal }}</h2>
   </div>
 </template>
 

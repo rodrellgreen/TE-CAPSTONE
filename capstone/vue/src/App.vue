@@ -34,7 +34,7 @@
       <a
         ><router-link
           v-bind:to="{ name: 'community' }"
-          v-if="profile.publicPrivate === true && $store.state.token != ''"
+          v-show="profile.publicPrivate === true && $store.state.token != ''"
           >Community
         </router-link></a
       >
@@ -73,12 +73,27 @@ export default {
 <style>
 .graphComponent {
   float: left;
-  width: 40%;
+  width: 50%;
+  margin-top: 1%;
 }
+
 .progressComponent {
   float: right;
-  width: 40%;
+  width: 0%;
+  padding: 0px;
+  margin-top: 3.22%;
 }
+
+.circle-graph-title {
+  margin-top: 15px;
+}
+
+.daily-cals {
+  float: right;
+  width: 50%;
+  padding: 0px;
+}
+
 #app {
   font-size: 1 0 1rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -101,11 +116,28 @@ export default {
   background: linear-gradient(rgb(97, 96, 96), whitesmoke);
 }
 
+.container.home {
+  display: flex;
+  flex-direction: column;
+}
+
+#home-title {
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: #174c4f;
+  color: whitesmoke;
+  width: 50%;
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
-  display: flexbox;
+  display: flex;
   margin: 0%;
   padding: 0%;
 }
+
 v-container {
   display: flexbox;
 }
@@ -126,6 +158,61 @@ v-container {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+}
+
+.meal-display-ctr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-food-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.add-food-input {
+  margin: 3px;
+  background-color: whitesmoke;
+}
+
+.meal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-meal-btn {
+  margin-top: 5px;
+}
+
+.meal-list {
+  margin: 5px;
+  font-size: 2.5 rem;
+}
+
+.log-meal-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.log-btn {
+  margin-top: 2%;
+}
+
+.add-food-btn {
+  margin-top: 1%;
+}
+
+#date {
+  background-color: whitesmoke;
 }
 
 #navbar {
@@ -294,6 +381,7 @@ th {
 .flex-container {
   display: flex;
   padding: 2px;
+  padding-right: 2%;
   text-align: center;
   align-content: center;
   justify-content: center;
@@ -307,6 +395,7 @@ th {
 .input-label {
   display: flex;
   font-size: 2rem;
+  padding-left: 2%;
 }
 
 label {
@@ -323,6 +412,19 @@ input {
 .input-box {
   background-color: whitesmoke;
   display: flex;
+  padding-right: 2%;
+}
+
+.input-checkbox {
+  padding-left: 2%;
+}
+
+#quick-add {
+  margin-right: 25%;
+}
+
+#date.input-box {
+  margin-right: 7%;
 }
 
 .sign-in {
