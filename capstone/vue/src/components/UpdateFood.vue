@@ -1,7 +1,7 @@
 <template>
   <v-container id="form-container" class="form-container">
     <v-form class="form-form" @submit.prevent="logFood" action="">
-      <h1>Edit Food</h1>
+      <h1 class="edit-food-header">Edit Food</h1>
 
       <v-container class="flex-container">
         <label class="input-label" for="name">Food</label>
@@ -101,11 +101,11 @@
 
       <v-container id="mealType" class="flex-container">
         <v-container>
-          <v-btn v-on:click="updateFood"> Snack </v-btn>
+          <!-- <v-btn v-on:click="updateFood"> Snack </v-btn>
           <v-btn v-on:click="updateFood"> Breakfast </v-btn>
           <v-btn v-on:click="updateFood"> Lunch </v-btn>
-          <v-btn v-on:click="updateFood"> Dinner </v-btn>
-          <v-btn v-on:click="deleteFood"> Delete </v-btn>
+          <v-btn v-on:click="updateFood"> Dinner </v-btn> -->
+          <v-btn v-on:click="deleteFood"> Delete Food </v-btn>
 
           
 

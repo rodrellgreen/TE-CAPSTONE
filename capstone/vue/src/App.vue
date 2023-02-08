@@ -179,6 +179,15 @@ v-container {
   background-color: whitesmoke;
 }
 
+.meal-display-btn {
+  margin: 0.5%;
+}
+
+.create-meal-label {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .meal-form {
   display: flex;
   flex-direction: column;
@@ -186,7 +195,7 @@ v-container {
 }
 
 .create-meal-btn {
-  margin-top: 5px;
+  margin-top: 6%;
 }
 
 .meal-list {
@@ -208,6 +217,11 @@ v-container {
 }
 
 .add-food-btn {
+  margin-top: 1%;
+}
+
+.edit-food-header {
+  justify-content: center;
   margin-top: 1%;
 }
 
@@ -280,9 +294,32 @@ v-container.food-tracker {
   height: 200vh;
 }
 
+.form-form {
+  padding-bottom: 3%;
+}
+
+.quick-add-header {
+  margin-bottom: 3%;
+  margin-left: 30%;
+}
+
+.quick-add-form {
+  display: flex;
+  margin-bottom: 3%;
+}
+
+.quick-add-input {
+  margin-right: 1%;
+}
+
 .quickMeals {
   text-decoration: none;
   color: whitesmoke;
+  margin: 1%;
+}
+
+.quick-add-btn {
+ margin-bottom: 1%;
 }
 
 /** Login Styling Below */
@@ -299,6 +336,12 @@ v-container.food-tracker {
   flex: 1 0 1rem;
 
   max-width: 220px;
+}
+
+.food-tracker-form-header {
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-top: 1%
 }
 
 /** Food Tables/Logs Styling Below */
@@ -322,6 +365,7 @@ v-container.food-tracker {
   background-color: #174c4f;
   color: whitesmoke;
   width: 100%;
+  font-size: 1.5em;
 }
 
 tr {
@@ -330,9 +374,9 @@ tr {
 
 .tableHeader {
   vertical-align: middle;
-
   background-color: #174c4f;
   color: white;
+  padding: 1%
 }
 .tableCaption {
   font: 2rem;
@@ -388,7 +432,7 @@ th {
 }
 
 #quick-add {
-  justify-content: right;
+  /* justify-content: right; */
   display: flex;
 }
 

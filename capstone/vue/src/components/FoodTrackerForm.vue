@@ -1,7 +1,7 @@
 <template>
   <v-container id="form-container" class="form-container">
     <v-form class="form-form" @submit="logFood" action="">
-      <h1>Log Food</h1>
+      <h1 class="food-tracker-form-header">Log Food</h1>
 
       <v-container class="flex-container">
         <label class="input-label" for="name">Food</label>
@@ -105,10 +105,10 @@
         @close="showOptions = false"
       >
         <v-container>
-          <v-btn v-on:click="logFood"> Snack </v-btn>
-          <v-btn v-on:click="logFood"> Breakfast </v-btn>
+          <v-btn v-on:click="logFood"> Log Food </v-btn>
+          <!-- <v-btn v-on:click="logFood"> Breakfast </v-btn>
           <v-btn v-on:click="logFood"> Lunch </v-btn>
-          <v-btn v-on:click="logFood"> Dinner </v-btn>
+          <v-btn v-on:click="logFood"> Dinner </v-btn> -->
         </v-container>
       </v-container>
     </v-form>

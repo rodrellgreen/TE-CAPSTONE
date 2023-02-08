@@ -1,19 +1,19 @@
 <template>
   <v-container class="quick-add">
-      <h1> Quick Add Foods </h1>
+      <h1 class="quick-add-header"> Quick Add Foods </h1>
       <v-form class="quick-add-form" v-for="food in quickAddFoodsFiltered" v-bind:key="food">
-        <input type="radio" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
-         <v-container class="quick-add-container">
-          {{food.type}}
-          Calories: {{food.calories}}
-          Protein: {{food.protein}}
-          Carbs: {{food.carbs}}
-          Fat: {{food.fats}}
-          Fiber: {{food.fiber}}
+        <input class="quick-add-input" type="radio" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
+         
+          {{food.type}} -
+          Calories: {{food.calories}},
+          Protein: {{food.protein}},
+          Carbs: {{food.carbs}},
+          Fat: {{food.fats}},
+          Fiber: {{food.fiber}},
           Serving Size: {{food.servingSize}}
-         </v-container>
+         
       </v-form>
-      <v-button v-on:click="logFood">Log Food Item</v-button>
+      <v-btn class="quick-add-btn" small v-on:click="logFood">Log Food Item</v-btn>
   </v-container>
 </template>
 

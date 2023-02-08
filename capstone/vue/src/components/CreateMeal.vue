@@ -2,7 +2,7 @@
   <v-container class="meal-display-ctr">
     <!-- <h1>Create New Meal</h1> -->
     <form class="meal-form" @submit.prevent="createMeal">
-      <label for="name">Meal Name:</label>
+      <label class="create-meal-label" for="name">Meal Name:</label>
       <input
         type="text"
         id="name"
@@ -12,7 +12,7 @@
         required
         autofocus
       />
-      <v-btn small class="create-meal-btn" type="submit">Add</v-btn>
+      <v-btn small class="create-meal-btn" type="submit">Add Meal</v-btn>
     </form>
   </v-container>
 </template>
