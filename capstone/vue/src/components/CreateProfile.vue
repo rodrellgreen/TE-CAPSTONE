@@ -3,7 +3,7 @@
     <v-form class="form-form" @submit.prevent="createProfile">
       <h1>Create Profile</h1>
       <v-container class="flex-container">
-        <label for="email" class="input label">Email Address:</label>
+        <label for="email" class="input-label">Email Address:</label>
         <input
           type="text"
           id="email"
@@ -103,6 +103,7 @@
           type="text"
           id="phoneNumber"
           class="input-box"
+          placeholder="phone number"
           v-model="newProfile.phoneNumber"
           autofocus
         />
