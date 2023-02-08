@@ -37,7 +37,7 @@
         />
       </v-container>
       <v-container class="flex-container">
-        <label class="input-label" for="protein">Protien</label>
+        <label class="input-label" for="protein">Protein</label>
         <input
           class="input-box"
           id="protein"
