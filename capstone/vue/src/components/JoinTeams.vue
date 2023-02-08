@@ -1,14 +1,14 @@
 <template>
-  <v-container class="allTeams">
-    <h2>Available Teams</h2>
-    <ul v-for="team in this.allTeams" :key="team.teamId">
+  <v-container class="joinTeamsAll">
+    <h1 class="allTeamsHeader">Available Teams</h1>
+    <ul class="allTeams" v-for="team in this.allTeams" :key="team.teamId">
       <li>
         {{ team.teamName }}&nbsp;<span v-if="isOnTeam(team.teamId)"
           ><v-btn v-on:click="removeUserFromTeam(team.teamId)">
-            Leave Team
+            Leave
           </v-btn></span
         ><span v-else
-          ><v-btn v-on:click="addUserToTeam(team)">Join Team</v-btn></span
+          ><v-btn v-on:click="addUserToTeam(team)">Join</v-btn></span
         >
       </li>
     </ul>

@@ -2,13 +2,11 @@
   <v-app id="app">
     <v-container class="header"><img src="~@/assets/banner.png" /></v-container>
     <v-container id="navbar">
-      <a></a>
       <a id="logo-container"
         ><router-link v-bind:to="{ name: 'home' }">
-          <img id="logo" src="~@/assets/tef.jpg" />
-          &nbsp;&nbsp;
-        </router-link></a
-      >
+          <img id="logo" src="~@/assets/tef.jpg" /> </router-link
+      ></a>
+
       <a
         ><router-link
           v-bind:to="{ name: 'home' }"
@@ -16,7 +14,7 @@
           >Home</router-link
         ></a
       >
-      &nbsp;&nbsp;
+
       <a
         ><router-link
           v-bind:to="{ name: 'trackFood' }"
@@ -24,7 +22,7 @@
           >Food</router-link
         ></a
       >
-      &nbsp;&nbsp;
+
       <a
         ><router-link
           v-bind:to="{ name: 'profile' }"
@@ -37,10 +35,10 @@
         ><router-link
           v-bind:to="{ name: 'community' }"
           v-if="profile.publicPrivate === true && $store.state.token != ''"
-          >&nbsp; &nbsp;Community
+          >Community
         </router-link></a
       >
-      &nbsp; &nbsp;
+
       <a
         ><router-link
           v-bind:to="{ name: 'logout' }"
@@ -73,12 +71,11 @@ export default {
 
 
 <style>
-
-.graphComponent{
+.graphComponent {
   float: left;
   width: 40%;
 }
-.progressComponent{
+.progressComponent {
   float: right;
   width: 40%;
 }
@@ -92,7 +89,7 @@ export default {
   text-align: center;
   justify-content: center;
   display: flex;
-  
+
   /* can be treated like a fallback */
   background-color: rgb(97, 96, 96);
 
@@ -102,10 +99,7 @@ export default {
   /* these will reset other properties, like background-position, but it does know what you mean */
   background: rgb(97, 96, 96);
   background: linear-gradient(rgb(97, 96, 96), whitesmoke);
-
-
 }
-
 
 h1 {
   display: flexbox;
@@ -116,15 +110,18 @@ v-container {
   display: flexbox;
 }
 
-.profilePic{
+.profilePic {
   width: 25%;
   display: block;
   margin: 0 auto;
   border-radius: 25px;
-  
+}
+#profile {
+  display: flex;
+  font-size: 2vw;
 }
 
-.profile-container{
+.profile-container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -134,13 +131,12 @@ v-container {
 }
 
 #navbar {
-  
   background-color: #174c4f;
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  text-align: right;
-  justify-content: start;
+  text-align: center;
+  justify-content: space-between;
+  height: 10vh;
 }
 #navbar a {
   float: left;
@@ -148,24 +144,33 @@ v-container {
   color: #f2f2f2;
   padding: 0px;
   text-decoration: none;
+  justify-content: center;
+  font-size: 1.5vw;
+  margin-right: 1vw;
 }
 
-#logo {
+#logo-container {
   display: flex;
-  width: 25%;
-  margin-right: 50vh;
-  
-  
+  justify-content: flex-start;
+  max-width: 25%;
+  height: 90%;
+}
+#logo {
+  max-height: 110%;
+
+  justify-content: flex-start;
 }
 
 .header {
+  display: flex;
   background-color: #f1f1f1;
   text-align: center;
   padding: 20px;
+  height: 25vh;
 }
 img {
   display: flex;
-  
+
   width: 100%;
 }
 
@@ -188,10 +193,9 @@ v-container.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   background-size: cover;
   height: 200vh;
-
 }
 
-.quickMeals{
+.quickMeals {
   text-decoration: none;
   color: whitesmoke;
 }
@@ -235,7 +239,6 @@ v-container.food-tracker {
   width: 100%;
 }
 
-
 tr {
   background-color: #f2f2f2;
 }
@@ -246,13 +249,11 @@ tr {
   background-color: #174c4f;
   color: white;
 }
-.tableCaption{
+.tableCaption {
   font: 2rem;
 }
 
- th {
-
-
+th {
   background-color: #174c4f;
   color: white;
 }
@@ -284,7 +285,7 @@ tr {
 .form-container {
   background: #174c4f;
   color: whitesmoke;
-   border: solid black 2px;
+  border: solid black 2px;
   border-radius: 10px;
   padding: 0%;
   width: 50%;
@@ -292,7 +293,7 @@ tr {
   flex-direction: column;
 }
 .flex-container {
- display: flex;
+  display: flex;
   padding: 2px;
   text-align: center;
   align-content: center;
@@ -313,9 +314,8 @@ label {
   margin-right: auto;
   display: flex;
   size: 2rem;
-
 }
-input{
+input {
   justify-content: center;
   display: flex;
   size: 1rem;
@@ -330,12 +330,6 @@ input{
   width: 95px;
 }
 
-v-btn {
-  height: 32px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .sr-only {
   margin: 5px;
 }
@@ -345,14 +339,63 @@ v-btn {
   height: 5%;
 }
 
-v-btn {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .router-link {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
+}
+
+.myTeams {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 25vw;
+}
+
+.joinTeamsAll {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+.text-center {
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: #174c4f;
+  color: whitesmoke;
+  font-size: 1.5vw;
+}
+
+.allTeams {
+  list-style: none;
+  font-size: 2vw;
+}
+
+.allTeamsHeader {
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: #174c4f;
+  color: whitesmoke;
+}
+
+.teamsList {
+  list-style: none;
+  font-size: 1.5vw;
+}
+#createTeam {
+  display: flex;
+  width: 25vw;
+}
+#membersTitle {
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: #174c4f;
+  color: whitesmoke;
+  width: 25vw;
+  font-size: 2vw;
+}
+#membersName {
+  list-style: none;
+  font-size: 1.5vw;
+  width: 25vw;
 }
 </style>
