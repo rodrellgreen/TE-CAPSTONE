@@ -4,6 +4,7 @@ import com.techelevator.Twilio.TwilioService;
 import com.techelevator.dao.ProfileDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Profile;
+import com.techelevator.model.TimeStampDTO;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +14,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.time.LocalDateTime;
 
+@CrossOrigin
 @RequestMapping(path="/profile")
 @PreAuthorize("isAuthenticated()")
-@CrossOrigin
 @RestController
 public class ProfileController {
     @Autowired
@@ -88,14 +90,17 @@ public class ProfileController {
 //    }
 
     @PutMapping(path = "/sms")
-    public void smsAlert(Principal principal){
-        String userPhoneNUmber = "3307143204";
+    public void smsAlert(Principal principal, @RequestBody TimeStampDTO timeStampDTO){
 
-        userPhoneNUmber = profileDao.getUserPhoneNumber(principal.getName());
-        userPhoneNUmber = "+1" + userPhoneNUmber;
+        System.out.println(timeStampDTO.getTimeStamp());
 
-        TwilioService twilio = new TwilioService();
-        twilio.sendMessage(userPhoneNUmber);
+//        String userPhoneNUmber = "3307143204";
+//
+//        userPhoneNUmber = profileDao.getUserPhoneNumber(principal.getName());
+//        userPhoneNUmber = "+1" + userPhoneNUmber;
+//
+//        TwilioService twilio = new TwilioService();
+//        twilio.sendMessage(userPhoneNUmber);
     }
 
 

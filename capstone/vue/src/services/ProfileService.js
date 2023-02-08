@@ -23,8 +23,13 @@ export default {
     addNumberToTextAlerts() {
         return axios.put('/profile/sms');
     },
-    sendSMS(){
-        return axios.put('/profile/sms')
+    sendSMS(timestamp){
+
+        let putOBj = {
+            timeStamp : timestamp
+        }
+
+        return axios.put('/profile/sms',putOBj)
     }
 
 }

@@ -478,7 +478,6 @@ input {
 .cancel-btn {
   width: 95px;
   margin: 10px;
-
 }
 
 .alert {
@@ -530,6 +529,7 @@ input {
   border-radius: 10px;
   background-color: #174c4f;
   color: whitesmoke;
+  justify-content: center;
 }
 
 .teamsList {
@@ -552,5 +552,16 @@ input {
   list-style: none;
   font-size: 1.5vw;
   width: 25vw;
+}
+#teamName {
+  font-size: 2vw;
+}
+#teamPosts {
+  width: 100%;
+  flex-direction: column;
+  margin-right: 20vw;
+}
+.teams {
+  display: flex;
 }
 </style>
