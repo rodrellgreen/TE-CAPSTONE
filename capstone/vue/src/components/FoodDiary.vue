@@ -96,26 +96,21 @@ export default {
     streak() {
       let streak = 0;
 
-       
-        for (let i = 0; i < this.sortedFood.length - 1; i++) {
-          let newDate = new Date(this.sortedFood[i].date);
-          let oldDate = new Date(this.sortedFood[i + 1].date);
-          let oldDatePlusOne = new Date(
-            oldDate.getTime() + 24 * 60 * 60 * 1000
-          );
-          if (newDate > oldDatePlusOne) {
+      for (let i = 0; i < this.sortedFood.length - 1; i++) {
+        let newDate = new Date(this.sortedFood[i].date);
+        let oldDate = new Date(this.sortedFood[i + 1].date);
+        let oldDatePlusOne = new Date(oldDate.getTime() + 24 * 60 * 60 * 1000);
+        if (newDate > oldDatePlusOne) {
           return streak;
         }
-          if (
-            newDate.toISOString().slice(0, 10) ==
-            oldDatePlusOne.toISOString().slice(0, 10)
-          ) {
-            streak++;
-          }else{
-            return streak;
-          }
+        if (
+          newDate.toISOString().slice(0, 10) ==
+          oldDatePlusOne.toISOString().slice(0, 10)
+        ) {
+          streak++;
         }
-        
+      }
+
       return streak;
     },
   },

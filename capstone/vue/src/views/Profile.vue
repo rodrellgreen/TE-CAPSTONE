@@ -2,10 +2,10 @@
   <v-container class="card-container">
     <CreateProfile v-if="!this.currentProfile.displayName"/>
     <EditProfile v-if="edit"/>
-    <text-alert/>
-    <v-btn v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</v-btn>
+    <text-alert v-if="!edit && !this.currentProfile.displayName==''"/>
     <v-btn v-if="!this.currentProfile.displayName == '' && edit" class="cancel-btn" v-on:click="edit = !edit">Cancel</v-btn>
     <ProfileDisplay v-if="!this.currentProfile.displayName == '' && !edit"/>
+    <v-btn v-if="!this.currentProfile.displayName == '' && !edit" class="edit-btn" v-on:click="edit = !edit">Edit Profile</v-btn>
     
   </v-container>
 </template>

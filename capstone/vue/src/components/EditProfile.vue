@@ -1,7 +1,7 @@
 <template>
   <v-container id="form-container" class="form-container">
     <v-form class="form-form" @submit.prevent="editProfile">
-      <h1>Edit Profile</h1>
+      <h1 class="edit-profile-header">Edit Profile</h1>
       <v-container class="flex-container">
         <label for="email" class="input-label">Email Address:</label>
         <input
@@ -117,7 +117,6 @@
         />
       </v-container>
       <v-btn class="edit-profile-button" type="submit">Submit</v-btn>
-      <v-btn class="cancel-btn" @click="this.$router.push('/profile')">Cancel</v-btn>
     </v-form>
   </v-container>
 </template>
