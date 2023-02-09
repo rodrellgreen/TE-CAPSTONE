@@ -74,7 +74,7 @@ export default {
 .graphComponent {
   float: left;
   width: 50%;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 .progressComponent {
@@ -84,15 +84,36 @@ export default {
   margin-top: 3.22%;
 }
 
+.calorie-chart-container {
+  background: #174c4f;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
 .circle-graph-title {
   margin-top: 15px;
+  color: whitesmoke;
+}
+
+.circle-chart {
+  margin-top: 7%;
+  /* width: 125%;
+  height: 100%; */
 }
 
 .daily-cals {
-  float: right;
-  width: 50%;
+  /* float: right; */
+  width: 45%;
   padding: 0px;
+  background: #174c4f;
+  border: solid black 1px;
+  border-radius: 10px;
+  margin-right: auto;
 }
+
+/* .home-table {
+ 
+} */
 
 #app {
   font-size: 1 0 1rem;
@@ -114,6 +135,12 @@ export default {
   /* these will reset other properties, like background-position, but it does know what you mean */
   background: rgb(97, 96, 96);
   background: linear-gradient(rgb(97, 96, 96), whitesmoke);
+}
+
+.home-background {
+  background-image: url("./assets/home-background.jpg");
+  background-size: cover;
+  height: 110vh;
 }
 
 .container.home {
@@ -291,12 +318,12 @@ v-container.login {
 v-container.home {
   width: 200vh;
 }
-v-container.home-background {
+/* v-container.home-background {
   background-image: url("~@/assets/omelete.jpg");
   background-size: cover;
   background-repeat: repeat;
   height: 200vh;
-}
+} */
 v-container.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   background-size: cover;
@@ -339,8 +366,15 @@ v-container.food-tracker {
 
 /** Login Styling Below */
 
+.login {
+  background-image: url("./assets/veg-l.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
 #login.text-center {
   margin-top: 3%;
+  width: 60%;
 }
 
 #username {
@@ -353,6 +387,12 @@ v-container.food-tracker {
 
 .login-header {
   justify-content: center;
+}
+
+#register-background {
+  background-image: url("./assets/veg-l.jpg");
+  background-size: cover;
+  height: 100vh;
 }
 
 .register-header {
@@ -373,6 +413,12 @@ v-container.food-tracker {
   flex: 1 0 1rem;
 
   max-width: 220px;
+}
+
+.track-food-background {
+  background-image: url("./assets/veg-l.jpg");
+  background-size: cover;
+  height: 75vh;
 }
 
 .food-tracker-form-header {
@@ -441,6 +487,7 @@ th {
   flex-direction: column;
   max-height: 500px;
 }
+
 
 /** Form Styling Below */
 
@@ -534,6 +581,14 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
+}
+
+/* community styling */
+
+#community-background {
+  background-image: url("./assets/community-background.jpg");
+  background-size: cover;
+  height: 75vh;
 }
 
 .myTeams {

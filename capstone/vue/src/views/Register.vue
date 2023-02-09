@@ -1,6 +1,6 @@
 <template>
-  <v-container id="register-form-container" class="form-container">
-    
+  <v-container id="register-background">
+    <v-container id="register-form-container" class="form-container">
     <v-form class="form-form" @submit.prevent="register">
       <h1 class="register-header">Create Account</h1>
       <v-container class="alert alert-danger" role="alert" v-if="registrationErrors">
@@ -45,6 +45,7 @@
       
       <router-link class="router-link" :to="{ name: 'login' }">Have an account?</router-link>
     </v-form>
+    </v-container>
   </v-container>
 </template>
 

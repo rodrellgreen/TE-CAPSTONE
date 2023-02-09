@@ -1,6 +1,6 @@
 <template>
 
-  <v-container class="">
+  <v-container class="track-food-background">
 
         <v-btn class="quickMeals"><router-link class="quickMeals" v-bind:to="{name: 'meals'}">Quick Meals</router-link></v-btn>
         <v-btn v-if="showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Cancel</v-btn>
