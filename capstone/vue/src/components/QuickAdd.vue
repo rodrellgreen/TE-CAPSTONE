@@ -1,7 +1,9 @@
 <template>
   <v-container class="quick-add">
+
       <h1 class="quick-add-header"> Quick Add Foods </h1>
       <v-form class="quick-add-form" v-for="food in quickAddFoodsFiltered" v-bind:key="food">
+       
         <input class="quick-add-input" type="radio" v-bind:value="food.type" v-on:change="addToFoodItem($event)">
          
           {{food.type}} -

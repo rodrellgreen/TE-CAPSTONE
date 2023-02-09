@@ -314,12 +314,13 @@ v-container.food-tracker {
 
 .quick-add-header {
   margin-bottom: 3%;
-  margin-left: 30%;
+  margin-left: 38%;
 }
 
 .quick-add-form {
   display: flex;
   margin-bottom: 3%;
+  justify-content: center;
 }
 
 .quick-add-input {
