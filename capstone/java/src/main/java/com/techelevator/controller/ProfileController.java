@@ -102,12 +102,9 @@ public class ProfileController {
         LocalDateTime nowPlus15 = now.plusMinutes(15);
 //        TimeStampDTO currentTime = new TimeStampDTO();
         if (timeStampDTO.getTimeStamp().isAfter(nowPlus15)){
-<<<<<<< HEAD
-            System.out.println(now);
-            System.out.println(timeStampDTO.getTimeStamp());
-=======
 
->>>>>>> main
+
+
             twilio.sendMessageAtTime(userPhoneNUmber,timeStampDTO.getTimeStamp() );
             System.out.println(timeStampDTO.getTimeStamp());
         } else {
