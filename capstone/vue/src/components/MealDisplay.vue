@@ -6,33 +6,47 @@
           <li class="meal-list">{{meal.mealType}}</li>
           <v-btn class="meal-display-btn" small v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId, addFoodBtn = meal.mealId" v-if="addFoodBtn != meal.mealId">Add Food</v-btn>
           <v-btn class="meal-display-btn" small v-on:click="showAddFood = !showAddFood, addFoodBtn=0" v-if="addFoodBtn === meal.mealId">Cancel</v-btn>
+          <v-btn class="meal-display-btn" small v-if="viewFoodsBtn != meal.mealId" v-on:click="viewFoodsBtn = meal.mealId, viewFoods(meal.mealId), showFoods=true">View Foods</v-btn>
+          <v-btn class="meal-display-btn" small v-if="viewFoodsBtn === meal.mealId" v-on:click="viewFoodsBtn = 0, showFoods=false">Cancel</v-btn>
           <v-btn class="meal-display-btn" small v-on:click="removeMeal(meal.mealId)">Remove Meal</v-btn>
           <v-btn class="meal-display-btn" small v-if="logMealBtn != meal.mealId" v-on:click="getFoods(meal)">Log</v-btn>
           <v-btn class="meal-display-btn" small v-if="logMealBtn === meal.mealId" v-on:click="addDate=!addDate, logMealBtn = 0">Cancel</v-btn>
+
+          <v-container class="view-foods-list-container" v-if="showFoods && viewFoodsBtn === meal.mealId">
+          <ul class="view-foods-list">
+            <li v-for="food in foods" :key="food" >
+              {{food.type}}
+            </li>
+          </ul>
+          </v-container>
+
+          <v-form class="log-meal-form" v-if="addDate && logMealBtn === meal.mealId" @submit.prevent="logMeal">
+            <label for="date">Please enter date:</label>
+            <input id="date" type="date" v-model="foodItem.date"/>
+            <v-btn small class="log-btn" type="submit">Log</v-btn>
+          </v-form>
+
+          <v-form class="add-food-form" v-if="showAddFood && addFoodBtn === meal.mealId">
+            <h3>{{mealType}}</h3>
+            <!-- <label for="food">Food:</label> -->
+            <input class="add-food-input" placeholder="food" v-model="foodItem.type" id="food" type="text" required/>
+            <!-- <label for="calories">Calories:</label> -->
+            <input class="add-food-input" placeholder="calories" v-model="foodItem.calories" id="calories" type="number" required/>
+            <!-- <label for="protein">Protein:</label> -->
+            <input class="add-food-input" placeholder="protein" v-model="foodItem.protein" id="protein" type="number" />
+            <!-- <label for="carbs">Carbs:</label> -->
+            <input class="add-food-input" placeholder="carbs" v-model="foodItem.carbs" id="carbs" type="number" />
+            <!-- <label for="fiber">Fiber:</label> -->
+            <input class="add-food-input" placeholder="fiber" v-model="foodItem.fiber" id="fiber" type="number" />
+            <!-- <label for="fat">Fat:</label> -->
+            <input class="add-food-input" placeholder="fat" v-model="foodItem.fat" id="fat" type="number" />
+            <!-- <label for="serving-size">Serving Size:</label> -->
+            <input class="add-food-input" placeholder="serving size" v-model="foodItem.servingSize" id="serving-size" type="number" />
+            <v-btn class="add-food-btn" small v-on:click="addFoodToMeal">Add</v-btn>
+          </v-form>
+
       </ul>
-      <v-form class="add-food-form" v-if="showAddFood">
-        <h3>{{mealType}}</h3>
-        <!-- <label for="food">Food:</label> -->
-        <input class="add-food-input" placeholder="food" v-model="foodItem.type" id="food" type="text" required/>
-        <!-- <label for="calories">Calories:</label> -->
-        <input class="add-food-input" placeholder="calories" v-model="foodItem.calories" id="calories" type="number" required/>
-        <!-- <label for="protein">Protein:</label> -->
-        <input class="add-food-input" placeholder="protein" v-model="foodItem.protein" id="protein" type="number" />
-        <!-- <label for="carbs">Carbs:</label> -->
-        <input class="add-food-input" placeholder="carbs" v-model="foodItem.carbs" id="carbs" type="number" />
-        <!-- <label for="fiber">Fiber:</label> -->
-        <input class="add-food-input" placeholder="fiber" v-model="foodItem.fiber" id="fiber" type="number" />
-        <!-- <label for="fat">Fat:</label> -->
-        <input class="add-food-input" placeholder="fat" v-model="foodItem.fat" id="fat" type="number" />
-        <!-- <label for="serving-size">Serving Size:</label> -->
-        <input class="add-food-input" placeholder="serving size" v-model="foodItem.servingSize" id="serving-size" type="number" />
-        <v-btn class="add-food-btn" small v-on:click="addFoodToMeal">Add</v-btn>
-      </v-form>
-      <v-form class="log-meal-form" v-if="addDate" @submit.prevent="logMeal">
-          <label for="date">Please enter date:</label>
-          <input id="date" type="date" v-model="foodItem.date"/>
-          <v-btn small class="log-btn" type="submit">Log</v-btn>
-      </v-form>
+
       </v-container>
   </v-container>
 </template>
@@ -45,9 +59,11 @@ export default {
 
     data() {
         return{
+            viewFoodsBtn: 0,
             logMealBtn: 0,
             addFoodBtn: 0,
             meals: [],
+            showFoods: false,
             showAddFood: false,
             addDate: false,
             mealType: "",
@@ -73,11 +89,11 @@ export default {
                this.meals = response.data;
            }
        );
-       MealService.getFoods(3).then(
-                (response) => {
-                    this.foods = response.data;
-                }
-            );
+    //    MealService.getFoods(3).then(
+    //             (response) => {
+    //                 this.foods = response.data;
+    //             }
+    //         );
     },
 
     methods: {
@@ -122,6 +138,13 @@ export default {
             this.logMealBtn = meal.mealId;
             this.addDate=!this.addDate;
             MealService.getFoods(this.mealId).then(
+                (response) => {
+                    this.foods = response.data;
+                }
+            );
+        },
+        viewFoods(mealId) {
+            MealService.getFoods(mealId).then(
                 (response) => {
                     this.foods = response.data;
                 }

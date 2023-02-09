@@ -38,10 +38,10 @@
       />
       </v-container>
       
-      <v-btn class="btn btn-lg btn-primary btn-block" type="submit">
+      <v-btn class="create-account-btn" type="submit">
         Create Account
       </v-btn>
-      <v-btn class="cancel-btn" v-on:click.prevent="sendHome">Cancel</v-btn>
+      <!-- <v-btn class="cancel-btn" v-on:click.prevent="sendHome">Cancel</v-btn> -->
       
       <router-link class="router-link" :to="{ name: 'login' }">Have an account?</router-link>
     </v-form>

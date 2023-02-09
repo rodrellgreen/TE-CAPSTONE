@@ -524,6 +524,10 @@ th {
   justify-content: center;
 }
 
+.create-account-btn {
+  margin-right:2%;
+}
+
 #quick-add {
   /* justify-content: right; */
   display: flex;
