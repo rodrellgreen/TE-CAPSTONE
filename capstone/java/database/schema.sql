@@ -90,12 +90,12 @@ CREATE TABLE profile (
  CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
  );
 
- CREATE TABLE text_time(
- text_id SERIAL,
- user_id INTEGER NOT NULL,
- time_stamp TIME NOT NULL,
- CONSTRAINT PK_text_id PRIMARY KEY (text_id),
- CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
- );
+-- CREATE TABLE text_time(
+-- text_id SERIAL,
+-- user_id INTEGER NOT NULL,
+-- time_stamp TIME NOT NULL,
+-- CONSTRAINT PK_text_id PRIMARY KEY (text_id),
+-- CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
+-- );
 
 COMMIT TRANSACTION;

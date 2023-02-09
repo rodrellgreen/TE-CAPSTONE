@@ -92,16 +92,24 @@ public class ProfileController {
     @PutMapping(path = "/sms")
     public void smsAlert(Principal principal, @RequestBody TimeStampDTO timeStampDTO){
 
-        System.out.println(timeStampDTO.getTimeStamp());
-
-        String userPhoneNUmber = "3307143204";
+        String userPhoneNUmber = "";
 
         userPhoneNUmber = profileDao.getUserPhoneNumber(principal.getName());
         userPhoneNUmber = "+1" + userPhoneNUmber;
 
         TwilioService twilio = new TwilioService();
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime nowPlus15 = now.plusMinutes(15);
+//        TimeStampDTO currentTime = new TimeStampDTO();
+        if (timeStampDTO.getTimeStamp().isAfter(nowPlus15)){
+            System.out.println(timeStampDTO.getTimeStamp());
+            twilio.sendMessageAtTime(userPhoneNUmber,timeStampDTO.getTimeStamp() );
+        } else {
+            System.out.println(timeStampDTO.getTimeStamp());
+            twilio.sendMessage(userPhoneNUmber);
+        }
 
-        twilio.sendMessageAtTime(userPhoneNUmber,timeStampDTO.getTimeStamp() );
+
     }
 
 
