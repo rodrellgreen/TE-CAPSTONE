@@ -1,7 +1,7 @@
 <template>
   <v-container id="form-container" class="form-container">
     <v-form class="form-form" @submit.prevent="createProfile">
-      <h1>Create Profile</h1>
+      <h1 class="create-profile-header">Create Profile</h1>
       <v-container class="flex-container">
         <label for="email" class="input-label">Email Address:</label>
         <input
@@ -121,7 +121,7 @@
       <v-btn class="create-profile-button" type="submit">
         Create Profile
       </v-btn>
-      <v-btn class="cancel-btn" v-on:click.prevent="sendHome">Cancel</v-btn>
+      <!-- <v-btn class="cancel-btn" v-on:click.prevent="sendHome">Cancel</v-btn> -->
     </v-form>
   </v-container>
 </template>

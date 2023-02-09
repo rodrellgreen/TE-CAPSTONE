@@ -12,6 +12,7 @@
       <tr>Height: {{currentProfile.feet}}' {{currentProfile.inches}}''</tr>
       <tr>Current Weight: {{currentProfile.currentWeight}}</tr> 
       <tr>Goal Weight: {{currentProfile.desiredWeight}}</tr>
+      <tr>{{publicPrivate}}</tr>
     </td>
     </table>
   </v-container>
@@ -34,6 +35,17 @@ export default {
                 this.currentProfile = response.data;
             }
         )
+    },
+
+    computed: {
+        publicPrivate() {
+            if(this.currentProfile.publicPrivate) {
+                return "Public";
+            }
+            else {
+                return "Private";
+            }
+        }
     }
 
 

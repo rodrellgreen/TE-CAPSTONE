@@ -187,6 +187,15 @@ v-container {
   justify-content: center;
 }
 
+.edit-profile-header {
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.edit-btn {
+  margin-bottom: 5%;
+}
+
 .meal-display {
   margin-top: 3%;
 }
@@ -574,7 +583,15 @@ input {
 
 .cancel-btn {
   width: 95px;
-  margin: 10px;
+  margin-bottom: 6%;
+}
+
+.txt-alert-date {
+  background: whitesmoke;
+  margin: 1%;
+  margin-top: 2%;
+  border: solid black 1px;
+  border-radius: 5px;
 }
 
 .alert {
@@ -594,6 +611,20 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
+}
+
+.create-profile-header {
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.create-profile-button {
+  margin-bottom: 2%;
+}
+
+#publicPrivate {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* community styling */
