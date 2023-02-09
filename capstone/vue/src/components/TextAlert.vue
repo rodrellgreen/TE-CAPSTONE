@@ -1,9 +1,9 @@
 <template>
 <div>
-  TIME?{{timeStamp}}
+  {{timeStamp}}
   <button v-if="this.ifUserPhoneNumber"
   v-on:click="this.showTimeForm"
-  >Custum Text Alerts?</button>
+  >Custom Text Alerts?</button>
   <v-form v-if="formShow" v-on:submit.prevent="sendAlert"> 
     <input type="datetime-local" v-model="timeStamp">
     <v-btn type="submit" v-if="submitTime">Confirm?</v-btn>
