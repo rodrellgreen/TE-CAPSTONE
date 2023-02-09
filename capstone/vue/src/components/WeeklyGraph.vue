@@ -37,13 +37,9 @@ export default {
           fill: "white",
         },
       },
-      //   series: [
-      //     {
-      //       name: "FoodLog",
-      //       points: this.getFoodPoints(),
-      //     },
-      //   ],
+    
     };
+    
     return {
       options,
       foodLog: [],
@@ -54,15 +50,17 @@ export default {
     
     FoodService.getAllFoods().then((response) => {
       this.foodLog = response.data;
-    });
-
-    this.options.series = [
+      this.options.series = [
       {
+        
         name: "Total Weekly Calories",
         points: this.getWeeklyFoodPoints(),
       },
     ];
-      
+      this.Weekly()
+    });
+
+    
   },
 
   methods: {
