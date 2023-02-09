@@ -601,4 +601,9 @@ input {
 .teams {
   display: flex;
 }
+
+.community-alert {
+  margin-top: 5%;
+}
+
 </style>
