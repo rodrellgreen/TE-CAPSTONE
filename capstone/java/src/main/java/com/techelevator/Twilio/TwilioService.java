@@ -25,7 +25,7 @@ public class TwilioService {
 
     public void sendMessage(String toPhoneNumber) {
 
-        Twilio.init( account_sid,  auth_token);
+
 
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber(toPhoneNumber),
@@ -35,7 +35,7 @@ public class TwilioService {
 
     public void sendMessageAtTime(String toPhoneNumber, LocalDateTime dt) {
 
-        Twilio.init(account_sid, auth_token);
+
 
         Message sms = Message.creator(
                 new com.twilio.type.PhoneNumber(toPhoneNumber),
