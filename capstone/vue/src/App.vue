@@ -34,7 +34,7 @@
       <a
         ><router-link
           v-bind:to="{ name: 'community' }"
-          v-show="profile.publicPrivate === true && $store.state.token != ''"
+          v-if="$store.state.token != ''"
           >Community
         </router-link></a
       >
@@ -74,7 +74,7 @@ export default {
 .graphComponent {
   float: left;
   width: 50%;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 .progressComponent {
@@ -84,15 +84,36 @@ export default {
   margin-top: 3.22%;
 }
 
+.calorie-chart-container {
+  background: #174c4f;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
 .circle-graph-title {
   margin-top: 15px;
+  color: whitesmoke;
+}
+
+.circle-chart {
+  margin-top: 7%;
+  /* width: 125%;
+  height: 100%; */
 }
 
 .daily-cals {
-  float: right;
-  width: 50%;
+  /* float: right; */
+  width: 45%;
   padding: 0px;
+  background: #174c4f;
+  border: solid black 1px;
+  border-radius: 10px;
+  margin-right: auto;
 }
+
+/* .home-table {
+ 
+} */
 
 #app {
   font-size: 1 0 1rem;
@@ -114,6 +135,12 @@ export default {
   /* these will reset other properties, like background-position, but it does know what you mean */
   background: rgb(97, 96, 96);
   background: linear-gradient(rgb(97, 96, 96), whitesmoke);
+}
+
+.home-background {
+  background-image: url("./assets/home-background.jpg");
+  background-size: cover;
+  height: 110vh;
 }
 
 .container.home {
@@ -165,6 +192,11 @@ v-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
+}
+
+.quick-meals-header {
+  margin-bottom: 3%;
 }
 
 .add-food-form {
@@ -179,14 +211,27 @@ v-container {
   background-color: whitesmoke;
 }
 
+.meal-display-btn {
+  margin: 0.5%;
+}
+
+.create-meal-label {
+  width: 110px;
+  margin-right: 1%;
+}
+
 .meal-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
 .create-meal-btn {
-  margin-top: 5px;
+  justify-content: center;
+}
+
+#meal-name {
+  margin-right: 1%;
 }
 
 .meal-list {
@@ -208,6 +253,11 @@ v-container {
 }
 
 .add-food-btn {
+  margin-top: 1%;
+}
+
+.edit-food-header {
+  justify-content: center;
   margin-top: 1%;
 }
 
@@ -268,24 +318,88 @@ v-container.login {
 v-container.home {
   width: 200vh;
 }
-v-container.home-background {
+/* v-container.home-background {
   background-image: url("~@/assets/omelete.jpg");
   background-size: cover;
   background-repeat: repeat;
   height: 200vh;
-}
+} */
 v-container.food-tracker {
   background-image: url("~@/assets/steak.jpg");
   background-size: cover;
   height: 200vh;
 }
 
+#register-form-container {
+  margin-top: 3%
+}
+
+.form-form {
+  margin-top: 1%;
+  padding-bottom: 1%;
+}
+
+.quick-add-header {
+  margin-bottom: 3%;
+  margin-left: 38%;
+}
+
+.quick-add-form {
+  display: flex;
+  margin-bottom: 3%;
+  justify-content: center;
+}
+
+.quick-add-input {
+  margin-right: 1%;
+}
+
 .quickMeals {
   text-decoration: none;
   color: whitesmoke;
+  margin: 1%;
+}
+
+.quick-add-btn {
+ margin-bottom: 1%;
 }
 
 /** Login Styling Below */
+
+.login {
+  background-image: url("./assets/veg-l.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+#login.text-center {
+  margin-top: 3%;
+  width: 60%;
+}
+
+#username {
+  background: whitesmoke;
+}
+
+#password {
+  background: whitesmoke;
+}
+
+.login-header {
+  justify-content: center;
+}
+
+#register-background {
+  background-image: url("./assets/veg-l.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.register-header {
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1.5%;
+}
 
 .flex-outer li,
 .flex-inner {
@@ -299,6 +413,18 @@ v-container.food-tracker {
   flex: 1 0 1rem;
 
   max-width: 220px;
+}
+
+.track-food-background {
+  background-image: url("./assets/veg-l.jpg");
+  background-size: cover;
+  height: 75vh;
+}
+
+.food-tracker-form-header {
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-top: 1%
 }
 
 /** Food Tables/Logs Styling Below */
@@ -322,6 +448,7 @@ v-container.food-tracker {
   background-color: #174c4f;
   color: whitesmoke;
   width: 100%;
+  font-size: 1.5em;
 }
 
 tr {
@@ -330,9 +457,9 @@ tr {
 
 .tableHeader {
   vertical-align: middle;
-
   background-color: #174c4f;
   color: white;
+  padding: 1%
 }
 .tableCaption {
   font: 2rem;
@@ -361,6 +488,7 @@ th {
   max-height: 500px;
 }
 
+
 /** Form Styling Below */
 
 .mealType {
@@ -388,7 +516,7 @@ th {
 }
 
 #quick-add {
-  justify-content: right;
+  /* justify-content: right; */
   display: flex;
 }
 
@@ -453,6 +581,14 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
+}
+
+/* community styling */
+
+#community-background {
+  background-image: url("./assets/community-background.jpg");
+  background-size: cover;
+  height: 75vh;
 }
 
 .myTeams {
@@ -520,4 +656,9 @@ input {
 .teams {
   display: flex;
 }
+
+.community-alert {
+  margin-top: 5%;
+}
+
 </style>

@@ -1,14 +1,14 @@
 <template>
-  <v-container class="meal-display-ctr">
-      <h1>Meal List</h1>
+  <v-container class="meal-display">
+      <!-- <h1>Meal List</h1> -->
       <v-container >
       <ul v-for="meal in meals" :key="meal.mealId">
           <li class="meal-list">{{meal.mealType}}</li>
-          <v-btn small v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId, addFoodBtn = meal.mealId" v-if="addFoodBtn != meal.mealId">Add Food</v-btn>
-          <v-btn small v-on:click="showAddFood = !showAddFood, addFoodBtn=0" v-if="addFoodBtn === meal.mealId">Cancel</v-btn>
-          <v-btn small v-on:click="removeMeal(meal.mealId)">Remove Meal</v-btn>
-          <v-btn small v-if="logMealBtn != meal.mealId" v-on:click="getFoods(meal)">Log</v-btn>
-          <v-btn small v-if="logMealBtn === meal.mealId" v-on:click="addDate=!addDate, logMealBtn = 0">Cancel</v-btn>
+          <v-btn class="meal-display-btn" small v-on:click="showAddFood = !showAddFood, mealType=meal.mealType, mealId=meal.mealId, addFoodBtn = meal.mealId" v-if="addFoodBtn != meal.mealId">Add Food</v-btn>
+          <v-btn class="meal-display-btn" small v-on:click="showAddFood = !showAddFood, addFoodBtn=0" v-if="addFoodBtn === meal.mealId">Cancel</v-btn>
+          <v-btn class="meal-display-btn" small v-on:click="removeMeal(meal.mealId)">Remove Meal</v-btn>
+          <v-btn class="meal-display-btn" small v-if="logMealBtn != meal.mealId" v-on:click="getFoods(meal)">Log</v-btn>
+          <v-btn class="meal-display-btn" small v-if="logMealBtn === meal.mealId" v-on:click="addDate=!addDate, logMealBtn = 0">Cancel</v-btn>
       </ul>
       <v-form class="add-food-form" v-if="showAddFood">
         <h3>{{mealType}}</h3>
@@ -31,7 +31,7 @@
       <v-form class="log-meal-form" v-if="addDate" @submit.prevent="logMeal">
           <label for="date">Please enter date:</label>
           <input id="date" type="date" v-model="foodItem.date"/>
-          <v-btn small class="log-btn">Log</v-btn>
+          <v-btn small class="log-btn" type="submit">Log</v-btn>
       </v-form>
       </v-container>
   </v-container>
@@ -110,8 +110,6 @@ export default {
                 .replace(/-/, "/"); // replace 2nd "-" with "/"
             this.foodItem.date = new Date(strInputValue2);
             this.foods.push()
-            alert(`${this.foods}`);
-            alert(`${this.foodItem.date}`);
             
             for(let i=0; i<this.foods.length; i++) {
                 this.foods[i].date = this.foodItem.date;

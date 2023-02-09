@@ -1,14 +1,17 @@
 <template>
 
-  <v-container class="">
-        <quick-add v-if="showQuickAdd"/>
+  <v-container class="track-food-background">
+
         <v-btn class="quickMeals"><router-link class="quickMeals" v-bind:to="{name: 'meals'}">Quick Meals</router-link></v-btn>
-       
-        <v-btn v-if="!showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Quick Add</v-btn>
         <v-btn v-if="showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Cancel</v-btn>
+        <quick-add v-if="showQuickAdd"/>
+        
+        
+        <v-btn v-if="!showQuickAdd" v-on:click="showQuickAdd = !showQuickAdd">Quick Add</v-btn>
+        
        <v-container class="flex-container">
         <update-food v-if="$store.state.updateFoodItem" />
-        <food-tracker-form v-if="!showQuickAdd"/>  
+        <food-tracker-form v-if="!showQuickAdd && !$store.state.updateFoodItem"/>  
         <food-diary/>
        </v-container>
         

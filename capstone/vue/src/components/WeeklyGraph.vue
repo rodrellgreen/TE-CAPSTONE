@@ -1,6 +1,5 @@
 <template >
- <v-container>
-   
+ <v-container class="calorie-chart-container">
   <v-container class="graph">
     <JSCharting :options="options" style="height: 400px"></JSCharting>
     <!-- <button v-on:click="updateData">Update Chart Data</button> -->

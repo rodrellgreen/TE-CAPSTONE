@@ -1,7 +1,6 @@
 <template>
   <div class="daily-cals">
-    
-    <div>
+    <div class="circle-chart">
       <JSCharting
         v-show="loaded"
         :options="getChartOptions"
@@ -128,7 +127,7 @@ export default {
             type: "marker",
             name: "Score",
             shape_label: {
-              text: "Calories:%value Progress: " + this.goalPercentage + "%",
+              text: "Calories: %value Progress: " + this.goalPercentage + "%",
 
               style: { fontSize: 28 },
             },

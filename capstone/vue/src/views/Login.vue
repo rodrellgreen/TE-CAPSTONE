@@ -1,13 +1,11 @@
 <template>
- 
-
-
  <v-container  class="login"> 
-  <h1>Welcome to TechFitness</h1>
+  <!-- <h1 class="login-header">Welcome to TechFitness</h1> -->
   
   <v-container id="login" class="text-center">
     <v-form class="form-signin" @submit.prevent="login">
       <ul class="flex-outer">
+      <h1 class="login-header">Welcome to TechFitness!</h1>
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
       <v-container
         class="alert alert-danger"
@@ -20,7 +18,7 @@
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</v-container>
       <li>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Username:</label>
       <input
         type="text"
         id="username"
@@ -32,7 +30,7 @@
       />
       </li>
       <li>
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only">Password:</label>
       <input
         type="password"
         id="password"

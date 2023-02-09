@@ -14,7 +14,9 @@
       <progress-circle class="progressComponent" />
       </v-container>
 
+      <v-container class="home-table">
       <recent-food />
+      </v-container>
     </v-container>
   </v-container>
 </template>

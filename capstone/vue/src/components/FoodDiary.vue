@@ -28,9 +28,10 @@
           <td>{{ food.servingSize }}</td>
 
           <td>
-            <v-btn class="editFoodEntry" v-on:click="startUpdate(food)"
+            <v-btn class="editFoodEntry" v-if="editBtn != food.foodId" v-on:click="startUpdate(food)"
               >Edit</v-btn
             >
+            <v-btn class="editFoodEntry" v-if="editBtn === food.foodId" v-on:click="endUpdate">Cancel</v-btn>
           </td>
         </tr>
       </tbody>
@@ -38,7 +39,7 @@
     
   </v-container>
 
-  <v-container id="streak">Food Log Streak {{ this.streak }}</v-container>
+  <v-container id="streak">Food Log Streak: {{ this.streak }}</v-container>
 
   </v-container>
  
@@ -51,15 +52,21 @@ import FoodService from "../services/FoodService.js";
 export default {
   methods: {
     startUpdate(food) {
+      this.editBtn = food.foodId;
       this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem;
       this.$store.state.foodItemToUpdate = food;
     },
+    endUpdate() {
+      this.editBtn = 0;
+      this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem;
+    }
   },
 
   data() {
     return {
       foodLog: [],
       updateFoodItem: false,
+      editBtn: 0
     };
   },
   created() {
