@@ -34,6 +34,7 @@
       <a
         ><router-link
           v-bind:to="{ name: 'community' }"
+          v-if="$store.state.token != ''"
           >Community
         </router-link></a
       >
@@ -302,8 +303,13 @@ v-container.food-tracker {
   height: 200vh;
 }
 
+#register-form-container {
+  margin-top: 3%
+}
+
 .form-form {
-  padding-bottom: 3%;
+  margin-top: 1%;
+  padding-bottom: 1%;
 }
 
 .quick-add-header {
@@ -332,8 +338,26 @@ v-container.food-tracker {
 
 /** Login Styling Below */
 
+#login.text-center {
+  margin-top: 3%;
+}
+
+#username {
+  background: whitesmoke;
+}
+
+#password {
+  background: whitesmoke;
+}
+
 .login-header {
   justify-content: center;
+}
+
+.register-header {
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1.5%;
 }
 
 .flex-outer li,
