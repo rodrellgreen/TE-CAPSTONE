@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <v-container class="team-background">
     <h2 id="teamName">{{ team.teamName }}</h2>
     <v-container class="teams">
       <v-container>
@@ -29,7 +29,7 @@
         </v-card-actions>
       </v-container>
     </v-container>
-  </body>
+  </v-container>
 </template>
 
 <script>

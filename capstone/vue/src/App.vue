@@ -187,12 +187,22 @@ v-container {
   justify-content: center;
 }
 
+.meal-display {
+  margin-top: 3%;
+}
+
 .meal-display-ctr {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 2%;
+}
+
+.quick-meals-background {
+  background-image: url("./assets/home-background.jpg");
+  background-size: cover;
+  height: 75vh;
 }
 
 .quick-meals-header {
@@ -418,7 +428,7 @@ v-container.food-tracker {
 .track-food-background {
   background-image: url("./assets/veg-l.jpg");
   background-size: cover;
-  height: 75vh;
+  height: 115vh;
 }
 
 .food-tracker-form-header {
@@ -586,6 +596,12 @@ input {
 /* community styling */
 
 #community-background {
+  background-image: url("./assets/community-background.jpg");
+  background-size: cover;
+  height: 75vh;
+}
+
+.team-background {
   background-image: url("./assets/community-background.jpg");
   background-size: cover;
   height: 75vh;

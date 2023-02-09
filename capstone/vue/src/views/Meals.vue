@@ -1,5 +1,5 @@
 <template>
-  <v-container form-container>
+  <v-container class="quick-meals-background">
       <CreateMeal/>
       <MealDisplay/>
   </v-container>
