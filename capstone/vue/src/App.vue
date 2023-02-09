@@ -341,7 +341,7 @@ v-container.food-tracker {
 }
 
 #register-form-container {
-  margin-top: 3%
+  margin-top: 3%;
 }
 
 .form-form {
@@ -371,7 +371,7 @@ v-container.food-tracker {
 }
 
 .quick-add-btn {
- margin-bottom: 1%;
+  margin-bottom: 1%;
 }
 
 /** Login Styling Below */
@@ -434,7 +434,7 @@ v-container.food-tracker {
 .food-tracker-form-header {
   justify-content: center;
   margin-bottom: 2%;
-  margin-top: 1%
+  margin-top: 1%;
 }
 
 /** Food Tables/Logs Styling Below */
@@ -469,7 +469,7 @@ tr {
   vertical-align: middle;
   background-color: #174c4f;
   color: white;
-  padding: 1%
+  padding: 1%;
 }
 .tableCaption {
   font: 2rem;
@@ -497,7 +497,6 @@ th {
   flex-direction: column;
   max-height: 500px;
 }
-
 
 /** Form Styling Below */
 
@@ -676,5 +675,4 @@ input {
 .community-alert {
   margin-top: 5%;
 }
-
 </style>

@@ -1,49 +1,53 @@
 <template>
-<v-container id="foodDiary">
-  <v-container id="foodLogTable" style="overflow-x: auto">
-    <table id="food-log">
-      <caption class="tableHeader">
-        Food Log
-      </caption>
-      <tbody>
-        <tr>
-          <th>Date</th>
-          <th>Food</th>
-          <th>Calories</th>
-          <th>Carbs</th>
-          <th>Protein</th>
-          <th>fats</th>
-          <th>fiber</th>
-          <th>Servings</th>
-          <th>Edit Food</th>
-        </tr>
-        <tr v-for="food in sortedFood" :key="food">
-          <td>{{ food.date }}</td>
-          <td>{{ food.type }}</td>
-          <td>{{ food.calories }}</td>
-          <td>{{ food.carbs }}</td>
-          <td>{{ food.protein }}</td>
-          <td>{{ food.fats }}</td>
-          <td>{{ food.fiber }}</td>
-          <td>{{ food.servingSize }}</td>
+  <v-container id="foodDiary">
+    <v-container id="foodLogTable" style="overflow-x: auto">
+      <table id="food-log">
+        <caption class="tableHeader">
+          Food Log
+        </caption>
+        <tbody>
+          <tr>
+            <th>Date</th>
+            <th>Food</th>
+            <th>Calories</th>
+            <th>Carbs</th>
+            <th>Protein</th>
+            <th>fats</th>
+            <th>fiber</th>
+            <th>Servings</th>
+            <th>Edit Food</th>
+          </tr>
+          <tr v-for="food in sortedFood" :key="food">
+            <td>{{ food.date }}</td>
+            <td>{{ food.type }}</td>
+            <td>{{ food.calories }}</td>
+            <td>{{ food.carbs }}</td>
+            <td>{{ food.protein }}</td>
+            <td>{{ food.fats }}</td>
+            <td>{{ food.fiber }}</td>
+            <td>{{ food.servingSize }}</td>
 
-          <td>
-            <v-btn class="editFoodEntry" v-if="editBtn != food.foodId" v-on:click="startUpdate(food)"
-              >Edit</v-btn
-            >
-            <v-btn class="editFoodEntry" v-if="editBtn === food.foodId" v-on:click="endUpdate">Cancel</v-btn>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
+            <td>
+              <v-btn
+                class="editFoodEntry"
+                v-if="editBtn != food.foodId"
+                v-on:click="startUpdate(food)"
+                >Edit</v-btn
+              >
+              <v-btn
+                class="editFoodEntry"
+                v-if="editBtn === food.foodId"
+                v-on:click="endUpdate"
+                >Cancel</v-btn
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </v-container>
+
+    <v-container id="streak">Food Log Streak: {{ this.streak }}</v-container>
   </v-container>
-
-  <v-container id="streak">Food Log Streak: {{ this.streak }}</v-container>
-
-  </v-container>
- 
-  
 </template>
 
 <script>
@@ -59,14 +63,14 @@ export default {
     endUpdate() {
       this.editBtn = 0;
       this.$store.state.updateFoodItem = !this.$store.state.updateFoodItem;
-    }
+    },
   },
 
   data() {
     return {
       foodLog: [],
       updateFoodItem: false,
-      editBtn: 0
+      editBtn: 0,
     };
   },
   created() {
@@ -109,8 +113,6 @@ export default {
             oldDatePlusOne.toISOString().slice(0, 10)
           ) {
             streak++;
-          } else {
-            streak = 0;
           }
         }
         if (firstDate > lastDatePlusOne) {
