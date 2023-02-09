@@ -101,10 +101,10 @@
 
       <v-container id="mealType" class="flex-container">
         <v-container>
-          <v-btn v-on:click="updateFood"> Snack </v-btn>
+          <!-- <v-btn v-on:click="updateFood"> Snack </v-btn>
           <v-btn v-on:click="updateFood"> Breakfast </v-btn>
-          <v-btn v-on:click="updateFood"> Lunch </v-btn>
-          <v-btn v-on:click="updateFood"> Dinner </v-btn>
+          <v-btn v-on:click="updateFood"> Lunch </v-btn> -->
+          <v-btn class="update-food-btn" v-on:click="updateFood"> Update </v-btn>
           <v-btn v-on:click="deleteFood"> Delete Food </v-btn>
 
           

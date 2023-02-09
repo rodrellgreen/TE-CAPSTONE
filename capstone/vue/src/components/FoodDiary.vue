@@ -12,8 +12,8 @@
             <th>Calories</th>
             <th>Carbs</th>
             <th>Protein</th>
-            <th>fats</th>
-            <th>fiber</th>
+            <th>Fats</th>
+            <th>Fiber</th>
             <th>Servings</th>
             <th>Edit Food</th>
           </tr>

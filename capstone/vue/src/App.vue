@@ -461,6 +461,10 @@ v-container.food-tracker {
   flex-direction: column;
 }
 
+.update-food-btn {
+  margin-right: 2%;
+}
+
 #streak {
   border: solid black 2px;
   border-radius: 10px;
