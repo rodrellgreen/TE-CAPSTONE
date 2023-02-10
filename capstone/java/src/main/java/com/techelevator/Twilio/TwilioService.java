@@ -16,7 +16,7 @@ public class TwilioService {
 //
     private String account_sid = "AC202a198c3c233ca429ba015a14cd5485";
     private String account_sid2 = System.getenv("MG196235126f6c9f2ed0e3f02e22750fca");
-    private String auth_token = "cc7cc507dc5cc63670185ff2f3060bbd";
+    private String auth_token = "6f58fb0a0dbf22dfcb664dfb0db97009";
     private String auth_token2 = System.getenv("cc7cc507dc5cc63670185ff2f3060bbd");
 //
     private String fromPhoneNumber = "+13307857948";

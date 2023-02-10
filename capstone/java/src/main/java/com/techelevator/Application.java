@@ -12,7 +12,7 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
         String account_sid = "AC202a198c3c233ca429ba015a14cd5485";
-        String auth_token = "cc7cc507dc5cc63670185ff2f3060bbd";
+        String auth_token = "6f58fb0a0dbf22dfcb664dfb0db97009";
         Twilio.init( account_sid,  auth_token);
     }
 
