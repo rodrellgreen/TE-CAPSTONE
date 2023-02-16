@@ -53,6 +53,7 @@
 import authService from '../services/AuthService';
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'register',
   data() {
     return {

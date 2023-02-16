@@ -27,6 +27,7 @@ import WeeklyGraph from '../components/WeeklyGraph.vue'
 import ProgressCircle from '../components/ProgressCircle.vue'
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "home",
   components: {
     RecentFood,

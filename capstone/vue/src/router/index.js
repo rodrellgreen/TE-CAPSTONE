@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Logout from '../views/Logout.vue'
-import Register from '../views/Register.vue'
+import Home from '../views/HomeHome.vue'
+import Login from '../views/LoginLogin.vue'
+import Logout from '../views/LogoutLogout.vue'
+import Register from '../views/RegisterRegister.vue'
 import store from '../store/index'
 import TrackFood from '../views/TrackFood.vue'
-import Profile from '../views/Profile.vue'
-import Community from '../views/Community.vue'
-import Team from '../views/Team.vue'
-import Meals from '../views/Meals.vue'
+import Profile from '../views/ProfileProfile.vue'
+import Community from '../views/CommunityCommunity.vue'
+import Team from '../views/TeamTeam.vue'
+import Meals from '../views/MealsMeals.vue'
 Vue.use(Router)
 
 /**

@@ -1,3 +1,5 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
 
   <v-container class="track-food-background">
@@ -38,6 +40,7 @@ export default {
         }
     },
 
+    // eslint-disable-next-line vue/multi-word-component-names
     name: 'food',
     components:{
         FoodTrackerForm,
