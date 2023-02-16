@@ -130,6 +130,7 @@
 import ProfileService from "../services/ProfileService.js";
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "profile",
 
   data() {
